@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+{% for q in loc_list %}
+
+<form class="form-inline my-2 my-lg-0" action="{% url 'serach' %}" method="GET" value="{{request.GET.q}}">
+  <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" value="{{q.loc}}" style="margin-top: 10px;">
+  <input class="btn btn-outline-success "  type="submit" name="submit" value="Search" style="color: rgb(0, 0, 0); margin-top: 5px; font-size: 12px;"/>
+    <td><a href="{% url 'lsoc_up' q.id%}"><i class="fa fa-edit text-success " style="font-size: 35px; margin-left: 5px; margin-top: 10px; "></i></a><a href="{% url 'lsoc_del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 35px; margin-left: 5px; margin-top: 10px;"></i></a></td>
+</form>
+
+{% endfor %} 
+<!-- <table class="table table-bordered">q
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">VLAN ID</th>
+        <th scope="col">DESCRIPTION</th>
+        <th scope="col">LOCATION</th>
+        <th scope="col">ACTION</th>
+        
+
+      </tr>
+    </thead>
+    <tbody>
+        {% for q in listdata %}
+        <tr>
+            <th scope="row">{{q.id}}</th>
+            <td>{{q.VLAN}}</td>
+            <td>{{q.LOCATION}}</td>
+            <td > {{q.DESCRIPTION}}</td>
+            <td><a href="{% url 'up' q.id%}"><i class="fa fa-edit text-success" style="font-size: 25px;"></i></a><a href="{% url 'del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td>
+          </tr>
+      {% endfor %}  -->
+
+    </tbody>
+  </table>
+{% endblock content %}
+    
+
+
