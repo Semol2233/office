@@ -28,7 +28,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <p>{{ request.user.username }}</p>
+
         {% if request.user.is_staff %}
    
 
@@ -110,7 +110,9 @@
             {% endif %}
 
 
-
+            <li class="nav-item">
+                <a class="nav-link">{{ request.user.username }}</a>
+              </li>
         </div>
       </div>
     </nav>
