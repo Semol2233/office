@@ -20,7 +20,7 @@ class location_model(models.Model):
         return reverse('lsoc')
 
     def __str__(self):
-        return self.loc
+        return self.Location
 
 
 class Post_Asn(models.Model):
