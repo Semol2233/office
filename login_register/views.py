@@ -154,7 +154,7 @@ def SearchResultsView(request):
         query= request.GET.get('q')
         submitbutton= request.GET.get('submit')
 
-        results= Post_Asn.objects.filter(Q(VLAN__icontains=query) | Q(LOCATION__loc__icontains=query) | Q(DESCRIPTION__icontains=query))
+        results= Post_Asn.objects.filter(Q(VLAN__icontains=query) | Q(LOCATION__Location__icontains=query) | Q(DESCRIPTION__icontains=query))
 
         context={'results': results,
                      'submitbutton': submitbutton}

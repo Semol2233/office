@@ -39,9 +39,9 @@ class PostNews(forms.ModelForm):
 class locs(forms.ModelForm):
     class Meta:
         model = location_model
-        fields = ['loc']
+        fields = ['Location']
         widgets = {
-            'loc':forms.TextInput(attrs={'class':'form-control','placeholder':'Enter Name...'})
+            'Location':forms.TextInput(attrs={'class':'form-control','placeholder':'Enter Name...'})
         }
 
 

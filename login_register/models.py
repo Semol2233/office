@@ -14,7 +14,7 @@ class profileinfo(models.Model):
 
 
 class location_model(models.Model):
-    loc =  models.CharField(max_length=255)
+    Location =  models.CharField(max_length=255)
 
     def get_absolute_url(self):
         return reverse('lsoc')
