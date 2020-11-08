@@ -41,8 +41,7 @@ INSTALLED_APPS = [
     'we_app',
     'login_register',
     'admin_panel',
-    'login_with_modal_app',
-    'django_filters'
+    'login_with_modal_app'
 ]
 
 
