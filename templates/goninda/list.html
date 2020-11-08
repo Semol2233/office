@@ -20,8 +20,15 @@
             <td>{{q.VLAN}}</td>
             <td>{{q.LOCATION.Location}}</td>
             <td > {{q.DESCRIPTION}}</td>
+            {% if request.user.is_active and request.user.is_staff %}
+
             <td><a href="{% url 'up' q.id%}"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="{% url 'del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td>
           </tr>
+          {% else%}
+          <td><a href="#"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="#"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td>
+          {% endif %}
+
+
       {% endfor %} 
 
     </tbody>
