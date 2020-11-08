@@ -31,7 +31,93 @@
 
         {% if request.user.is_staff %}
    
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'lsoc' %}">Location</a>
+                  </li>
+                 
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="text-success"><i class="fa fa-plus"></i></span> Uplode
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Vlan</a>
+                        <a class="dropdown-item" href="#"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Location</a>
+
+                        <!-- <a class="dropdown-item" href="{% url 'news-uplode' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>News</a> -->
+                    </div>
+                  </li>
+                  <!-- {% if user.is_superuser %}
+                  <li class="nav-item">
+                      <a class="nav-link" href="#"> Admin</a>
+                  </li>
+                  {% endif %} -->
+
+                  <li class="nav-item my-2 my-lg-0">
+                    <a class="nav-link active" href="{% url 'logout' %}"><span class="text-muted "></span>Logout</a>
+                </li>
+
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action="{% url 'serach' %}" method="GET" value="{{request.GET.q}}">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" value="{{request.GET.q}}">
+                <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="submit" value="Search" style="color: white;"/></input>
+            </form>
+
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'lsoc' %}">Location</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="http://103.49.168.171/admin/auth/user/add/?_changelist_filters=is_staff__exact%3D1">Create User</a>
+              </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="text-success"><i class="fa fa-plus"></i></span> Uplode
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'homssses' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Vlan</a>
+                    <a class="dropdown-item" href="{% url 'loc' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Location</a>
+
+                    <!-- <a class="dropdown-item" href="{% url 'news-uplode' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>News</a> -->
+                </div>
+              </li>
+              <!-- {% if user.is_superuser %}
+              <li class="nav-item">
+                  <a class="nav-link" href="#"> Admin</a>
+              </li>
+              {% endif %} -->
+
+
+            <li class="nav-item my-2 my-lg-0">
+                <a class="nav-link active" href="{% url 'logout' %}"><span class="text-muted "></span>Logout</a>
+            </li>
+
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="{% url 'serach' %}" method="GET" value="{{request.GET.q}}">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" value="{{request.GET.q}}">
+            <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="submit" value="Search" style="color: white;"/></input>
+        </form>
+
+
+
+
+            {% else %}
+
+
+
+
+
+
+
+
+            
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
@@ -39,7 +125,7 @@
                     <a class="nav-link" href="{% url 'lsoc' %}">Location</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Create User</a>
+                    <a class="nav-link" href="http://103.49.168.171/admin/auth/user/add/?_changelist_filters=is_staff__exact%3D1">Create User</a>
                   </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,43 +155,6 @@
                 <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" value="{{request.GET.q}}">
                 <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="submit" value="Search" style="color: white;"/></input>
             </form>
-            {% else %}
-            <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-    
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'lsoc' %}">Location</a>
-                      </li>
-                     
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="text-success"><i class="fa fa-plus"></i></span> Uplode
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Vlan</a>
-                            <a class="dropdown-item" href="#"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Location</a>
-    
-                            <!-- <a class="dropdown-item" href="{% url 'news-uplode' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>News</a> -->
-                        </div>
-                      </li>
-                      <!-- {% if user.is_superuser %}
-                      <li class="nav-item">
-                          <a class="nav-link" href="#"> Admin</a>
-                      </li>
-                      {% endif %} -->
-    
-                      <li class="nav-item my-2 my-lg-0">
-                        <a class="nav-link active" href="{% url 'logout' %}"><span class="text-muted "></span>Logout</a>
-                    </li>
-    
-    
-                </ul>
-                <form class="form-inline my-2 my-lg-0" action="{% url 'serach' %}" method="GET" value="{{request.GET.q}}">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" value="{{request.GET.q}}">
-                    <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="submit" value="Search" style="color: white;"/></input>
-                </form>
-
 
             {% endif %}
 
