@@ -29,7 +29,7 @@
         </button>
 
 
-        {% if request.user.is_admin %}
+        {% if request.user.is_active and request.user.is_staff %}
    
 
         <div class="collapse navbar-collapse" id="collapsibleNavId">
