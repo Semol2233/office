@@ -7,7 +7,7 @@
 {% for q in loc_list %}
 
 <form class="form-inline my-2 my-lg-0" action="{% url 'serach' %}" method="GET" value="{{request.GET.q}}">
-  <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" value="{{q.loc}}" style="margin-top: 10px;">
+  <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" value="{{q.Location}}" style="margin-top: 10px;">
   <input class="btn btn-outline-success "  type="submit" name="submit" value="Search" style="color: rgb(0, 0, 0); margin-top: 5px; font-size: 12px;"/>
     <td><a href="{% url 'lsoc_up' q.id%}"><i class="fa fa-edit text-success " style="font-size: 35px; margin-left: 5px; margin-top: 10px; "></i></a><a href="{% url 'lsoc_del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 35px; margin-left: 5px; margin-top: 10px;"></i></a></td>
 </form>
