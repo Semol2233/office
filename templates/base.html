@@ -63,6 +63,9 @@
                     <a class="nav-link active" href="{% url 'logout' %}"><span class="text-muted "></span>Logout</a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link">User - {{ request.user.username }}</a>
+                  </li>
 
             </ul>
             <form class="form-inline my-2 my-lg-0" action="{% url 'serach' %}" method="GET" value="{{request.GET.q}}">
@@ -110,9 +113,6 @@
             {% endif %}
 
 
-            <li class="nav-item">
-                <a class="nav-link">{{ request.user.username }}</a>
-              </li>
         </div>
       </div>
     </nav>
