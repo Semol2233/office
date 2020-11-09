@@ -38,8 +38,21 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'lsoc' %}">Location</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="http://103.49.168.171/admin/auth/user/add/?_changelist_filters=is_staff__exact%3D1">Create User</a>
+
+
+
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="text-success"><i class="fa fa-plus"></i></span> Create User
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="http://103.49.168.171/admin/auth/user/add/?_changelist_filters=is_staff__exact%3D1"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>New User</a>
+                        <a class="dropdown-item" href="http://103.49.168.171/admin/auth/user/"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>User LIst</a>
+                        <a class="dropdown-item" href="#"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span> Login User {{ request.user.username }}</a>
+
+
+                        <!-- <a class="dropdown-item" href="{% url 'news-uplode' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>News</a> -->
+                    </div>
                   </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -63,9 +76,6 @@
                     <a class="nav-link active" href="{% url 'logout' %}"><span class="text-muted "></span>Logout</a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link">User - {{ request.user.username }}</a>
-                  </li>
 
             </ul>
             <form class="form-inline my-2 my-lg-0" action="{% url 'serach' %}" method="GET" value="{{request.GET.q}}">
