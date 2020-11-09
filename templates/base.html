@@ -95,10 +95,12 @@
                   </li>
                      
                 <li class="nav-item">
-                    <a class="nav-link">  <span class="text-success"><i class="fa fa-user"></i>{{ request.user.username }}</span></a>
+                    <a class="nav-link">  <span class="text-success"><i class="fa fa-user">  User - {{ request.user.username }}</i></span></a>
                   </li>
 
-
+                  <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="text-success"><i class="fa fa-user"></i></span> Uplode
+                </a>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="text-success"><i class="fa fa-plus"></i></span> Uplode
