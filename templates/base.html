@@ -118,7 +118,25 @@
     </nav>
     {% else %}
 
-    <h1>adjh</h1>
+    <div class="container mt-5 card  shadow-lg p-3 mb-5 bg-white rounded"></div>
+    <form method="POST">
+        {% csrf_token %}
+        
+        {% if fail %}
+           <p class="text-danger"><strong>User name or password wrong</strong></p>
+        {% endif %}
+        <div class="form-group">
+            <label for="user">UserName</label>
+            <input type="text" name="username" id="user" class="form-control" placeholder="Enter Name...">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control" placeholder="******">
+        </div>
+        <input type="submit" class="btn btn-success" value="Login">
+    </form>
+</div>
+
 <!--      
 <div class="container mt-3 card col-sm-5 shadow-lg p-3 mb-5 bg-white rounded">
     <form method="POST">
