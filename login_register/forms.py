@@ -96,3 +96,8 @@ class userform(forms.ModelForm):
             super(userform,self).__init__(*args, **kwargs)
             self.fields['pon_listf'].empty_label="Select Author"
 
+
+        def __init__(self,*args, **kwargs):
+            super(userform,self).__init__(*args, **kwargs)
+            self.fields['package_name'].empty_label="Select Author"
+
