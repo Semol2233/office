@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from .models import *
 
+
 class Userform(forms.ModelForm):
     class Meta():
         model = User
@@ -68,6 +69,10 @@ class PostNewsup(forms.ModelForm):
         #     super(Post_Asn,self).__init__(*args, **kwargs)
         #     self.fields['LOCATION'].empty_label="Select Author"
 
+
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
 class userform(forms.ModelForm):
     class Meta:
         model = userinfo
@@ -76,28 +81,18 @@ class userform(forms.ModelForm):
             'username':forms.TextInput(attrs={'class':'form-control','placeholder':'Enter Name...'}),
             'user_id':forms.TextInput(attrs={'class':'form-control','placeholder':'Enter Name...'}),
             'user_phone_number':forms.TextInput(attrs={'class':'form-control','placeholder':'Enter Name...'}),
-            'package_name':forms.TextInput(attrs={'class':'form-control','placeholder':'Enter Name...'}),
+            'package_name':forms.Select(attrs={'class':'form-control','placeholder':'Enter Name...'}),
             'user_addr':forms.Select(attrs={'class':'form-control','placeholder':'Enter Name...'}),
-
             'user_onu_macaddr':forms.TextInput(attrs={'class':'form-control','placeholder':'Enter Name...'}),
             'payment':forms.Textarea(attrs={'class':'form-control','placeholder':'Enter Namdcdcde...'}),
             'user_LOCATION':forms.Textarea(attrs={'class':'form-control','placeholder':'Enter Namdcdcde...'}),
-            'activition_date':forms.TextInput(attrs={'class':'form-control','placeholder':'Enter Name...'}),
+            'activition_date':DateInput(),
             'pon_listf':forms.Select(attrs={'class':'form-control','placeholder':'Enter Name...'}),
 
-
         }
-        def __init__(self,*args, **kwargs):
-            super(userform,self).__init__(*args, **kwargs)
-            self.fields['user_LOCATION'].empty_label="Select Author"
 
-
-        def __init__(self,*args, **kwargs):
-            super(userform,self).__init__(*args, **kwargs)
-            self.fields['pon_listf'].empty_label="Select Author"
-
-
-        def __init__(self,*args, **kwargs):
-            super(userform,self).__init__(*args, **kwargs)
-            self.fields['package_name'].empty_label="Select Author"
-
+    def __init__(self,*args, **kwargs):
+        super(userform,self).__init__(*args, **kwargs)
+        self.fields['pon_listf'].empty_label="Pon List"
+        self.fields['package_name'].empty_label="package"
+        self.fields['user_addr'].empty_label="Location"
