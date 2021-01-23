@@ -34,7 +34,7 @@ class PostNews(forms.ModelForm):
         self.fields['LOCATION'].empty_label="Location"
 
 
-
+#dcnb
 
 class locs(forms.ModelForm):
     class Meta:
