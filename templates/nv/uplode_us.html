@@ -21,7 +21,144 @@
 
   <body>
 
+    <nav class="navbar navbar-expand-sm navbar-dark    navbar-default " style="background-color: #000000;">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'userlist' %}" style="font-weight: bold;  text-transform: uppercase;">NVS_USER@PON</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+  <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+
+
+
+            <!-- {% if user.is_superuser %}
+            <li class="nav-item">
+                <a class="nav-link" href="#"> Admin</a>
+            </li>
+            {% endif %} -->
+            <li class="nav-item my-2 my-lg-0">
+              <a class="nav-link active" href="{% url 'wrn' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Create Package</a>
+          </li>
+
+          <li class="nav-item my-2 my-lg-0">
+              <a class="nav-link active" href="{% url 'user' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>User Uplode</a>
+          </li>
+
+          <li class="nav-item my-2 my-lg-0">
+              <a class="nav-link active" href="{% url 'wsrn' %}"><span class="text-success"></span>PON</a>
+          </li>
+
+          <li class="nav-item my-2 my-lg-0">
+              <a class="nav-link active" href="{% url 'logout' %}"><span class="text-muted "></span>Logout</a>
+          </li>
   
+
+
+
+      </ul>
+      <form class="form-inline my-2 my-lg-0" action="{% url 'serach' %}" method="GET" value="{{request.GET.q}}">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" value="{{request.GET.q}}">
+          <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="submit" value="Search" style="color: white;"/></input>
+      </form>
+      {% else %}
+      
+    
+      <div class="collapse navbar-collapse" id="collapsibleNavId">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'lsoc' %}">Location</a>
+            </li>
+               
+          <li class="nav-item">
+              <a class="nav-link">  <span class="text-white"><i  class="fa fa-user text-success"> </i> {{ request.user.username }}</span></a>
+            </li>
+
+              <!-- <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span class="text-success"><i class="fa fa-plus"></i></span> Uplode
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="#"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Vlan</a>
+                      <a class="dropdown-item" href="#"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Location</a>
+
+                     
+                  </div>
+                </li> -->
+                <!-- {% if user.is_superuser %}
+                <li class="nav-item">
+                    <a class="nav-link" href="#"> Admin</a>
+                </li>
+                {% endif %} -->
+
+                <li class="nav-item my-2 my-lg-0">
+                  <a class="nav-link active" href="{% url 'logout' %}"><span class="text-muted "></span>Logout</a>
+              </li>
+
+
+          </ul>
+
+          
+          <form class="form-inline my-2 my-lg-0" action="{% url 'serach' %}" method="GET" value="{{request.GET.q}}">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" value="{{request.GET.q}}">
+              <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="submit" value="Search" style="color: white;"/></input>
+          </form>
+
+      {% endif %}
+
+
+  </div>
+</div>
+</nav>
+{% else %}
+<!-- <div class="container mt-2">
+<div class="container mt-5 card  shadow-lg p-3 mb-5 bg-white rounded"></div>
+<form method="POST">
+  {% csrf_token %}
+  
+  {% if fail %}
+     <p class="text-danger"><strong>User name or password wrong</strong></p>
+  {% endif %}
+  <div class="form-group">
+      <label for="user">UserName</label>
+      <input type="text" name="username" id="user" class="form-control" placeholder="Enter Name...">
+  </div>
+  <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" class="form-control" placeholder="******">
+  </div>
+  <input type="submit" class="btn btn-success" value="Login">
+</form>
+</div>
+</div> -->
+
+
+<!--      
+<div class="container mt-3 card col-sm-5 shadow-lg p-3 mb-5 bg-white rounded">
+<form method="POST">
+  {% csrf_token %}
+  
+  {% if fail %}
+     <p class="text-danger"><strong>User name or password wrong</strong></p>
+  {% endif %}
+  <div class="form-group">
+      <label for="user">UserName</label>
+      <input type="text" name="username" id="user" class="form-control" placeholder="Enter Name...">
+  </div>
+  <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" class="form-control" placeholder="******">
+  </div>
+  <input type="submit" class="btn btn-success" value="Login">
+</form>
+</div> -->
+          
 
 
 
