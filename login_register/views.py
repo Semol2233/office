@@ -184,7 +184,7 @@ def SearchResultsView(request):
 
 
 
-class post_user_data(CreateView,LoginRequiredMixin):
+class post_user_data(LoginRequiredMixin,CreateView):
     form_class = userform
     model = userinfo
     template_name = 'nv/uplode_us.html'
