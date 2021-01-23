@@ -25,7 +25,6 @@
 
 
 
-    {% if request.user.is_staff %}
     <div class="container mt-5 card col-sm-6 shadow-lg p-3 mb-5 bg-white rounded">
     <h1>Create Post: </h1>
     <form enctype="multipart/form-data" method="POST">
@@ -34,11 +33,7 @@
     <input class="btn btn-success" type="submit" value="Create Post">
     </form>
     </div>
-    {%endif%}
-    
-    
-
-
+  
       
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
