@@ -1,6 +1,47 @@
-<div class="alert alert-success" role="alert">
-    <h4 class="alert-heading">Warning!</h4>
-    <p>{{ num_books }}</p>
-    <hr>
-    <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
-  </div>
+{% extends 'base.html' %}
+
+{% block content %}
+{% if request.user.is_superuser %}
+
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ Pon_1 }}
+          <span class="badge badge-primary badge-pill">14</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ Pon_2 }}
+          <span class="badge badge-primary badge-pill">2</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ Pon_3 }}
+          <span class="badge badge-primary badge-pill">1</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ Pon_4 }}
+          <span class="badge badge-primary badge-pill">2</span>
+        </li>
+
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ Pon_5 }}
+          <span class="badge badge-primary badge-pill">14</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ Pon_6 }}
+          <span class="badge badge-primary badge-pill">2</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ Pon_7 }}
+          <span class="badge badge-primary badge-pill">1</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ Pon_8 }}
+          <span class="badge badge-primary badge-pill">2</span>
+        </li>
+      </ul>
+
+      {%else%}
+      <h1>sorry this page not available for you!!!</h1>
+     {%endif%}
+     
+  {% endblock content %}
+    

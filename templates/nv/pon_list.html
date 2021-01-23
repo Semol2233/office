@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+{% if request.user.is_superuser %}
 
     <ul class="list-group">
         <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -39,6 +39,9 @@
         </li>
       </ul>
 
-
+      {%else%}
+      <h1>sorry this page not available for you!!!</h1>
+     {%endif%}
+     
   {% endblock content %}
     
