@@ -19,8 +19,7 @@ urlpatterns = [
     path('',list_user.as_view(),name='userlist'),
     path('shudf',warning_user.as_view(),name='wrs'),
     path('wr',index,name='wrn'),
-
-
+    path('ponlist',indexs,name='wsrn'),
 
 
 

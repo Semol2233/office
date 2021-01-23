@@ -211,3 +211,28 @@ def index(request):
 
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'nv/warning_page.html', context=context)
+
+
+
+
+ 
+
+def indexs(request):
+    context = {
+        'Pon_1': "Pon-1 : Maijdee",
+        'Pon_2': "Pon-2 : Maijdee",
+        'Pon_3': "Pon-3 : Maijdee",
+        'Pon_4': "Pon-4 : Maijdee",
+        'Pon_5': "Pon-5 : Maijdee",
+        'Pon_6': "Pon-6 : Maijdee",
+        'Pon_7': "Pon-7 : Maijdee",
+        'Pon_8': "Pon-8 : Maijdee",
+
+
+ 
+
+    }
+
+    # Render the HTML template index.html with the data in the context variable
+    return render(request, 'nv/pon_list.html', context=context)
+
