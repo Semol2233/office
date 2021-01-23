@@ -181,3 +181,33 @@ def SearchResultsView(request):
 #             paginated_response = self.get_paginated_response(response)
 #             return JsonResponse(paginated_response.data, safe=False)
 #         return HttpResponse('No matching data found', status=404)
+
+
+
+class post_user_data(CreateView,LoginRequiredMixin):
+    form_class = userform
+    model = userinfo
+    template_name = 'nv/uplode_us.html'
+
+
+class list_user(LoginRequiredMixin,ListView):
+    context_object_name = 'list_user'
+    model = userinfo
+    template_name= 'nv/list_user.html'
+    queryset = userinfo.objects.filter()
+
+
+class warning_user(LoginRequiredMixin,ListView):
+    template_name= 'nv/warning_page.html'
+
+
+
+
+
+def index(request):
+    context = {
+        'num_books': "This page only allowed super admin ('-')",
+    }
+
+    # Render the HTML template index.html with the data in the context variable
+    return render(request, 'nv/warning_page.html', context=context)

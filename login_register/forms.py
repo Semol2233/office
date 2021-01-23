@@ -68,4 +68,31 @@ class PostNewsup(forms.ModelForm):
         #     super(Post_Asn,self).__init__(*args, **kwargs)
         #     self.fields['LOCATION'].empty_label="Select Author"
 
+class userform(forms.ModelForm):
+    class Meta:
+        model = userinfo
+        fields = ['username','user_id','user_phone_number','package_name','user_onu_macaddr','payment','user_LOCATION','activition_date','pon_listf','user_addr']
+        widgets = {
+            'username':forms.TextInput(attrs={'class':'form-control','placeholder':'Enter Name...'}),
+            'user_id':forms.TextInput(attrs={'class':'form-control','placeholder':'Enter Name...'}),
+            'user_phone_number':forms.TextInput(attrs={'class':'form-control','placeholder':'Enter Name...'}),
+            'package_name':forms.TextInput(attrs={'class':'form-control','placeholder':'Enter Name...'}),
+            'user_addr':forms.Select(attrs={'class':'form-control','placeholder':'Enter Name...'}),
+
+            'user_onu_macaddr':forms.TextInput(attrs={'class':'form-control','placeholder':'Enter Name...'}),
+            'payment':forms.Textarea(attrs={'class':'form-control','placeholder':'Enter Namdcdcde...'}),
+            'user_LOCATION':forms.Textarea(attrs={'class':'form-control','placeholder':'Enter Namdcdcde...'}),
+            'activition_date':forms.TextInput(attrs={'class':'form-control','placeholder':'Enter Name...'}),
+            'pon_listf':forms.Select(attrs={'class':'form-control','placeholder':'Enter Name...'}),
+
+
+        }
+        def __init__(self,*args, **kwargs):
+            super(userform,self).__init__(*args, **kwargs)
+            self.fields['user_LOCATION'].empty_label="Select Author"
+
+
+        def __init__(self,*args, **kwargs):
+            super(userform,self).__init__(*args, **kwargs)
+            self.fields['pon_listf'].empty_label="Select Author"
 

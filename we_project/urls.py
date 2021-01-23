@@ -17,15 +17,8 @@ from django.contrib import admin
 from django.urls import path,include  
 
 urlpatterns = [
-    path('sss',include('we_app.urls')),
-
+ 
     path('',include('login_register.urls')),
-    path('admin2',include('admin_panel.urls')),
-    path('modal_login',include('login_with_modal_app.urls')),
-
-
-
-
     path('admin/', admin.site.urls)
 ]
     

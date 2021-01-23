@@ -2,7 +2,7 @@
 {% load static %}
 <html lang="en">
   <head>
-    <title>Exord-Vlan-Management</title>
+    <title>NVS_USER@PON</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,7 +22,7 @@
 
     <nav class="navbar navbar-expand-sm navbar-dark    navbar-default " style="background-color: #000000;">
       <div class="container">
-        <a class="navbar-brand" href="{% url 'homes' %}" style="font-weight: bold;  text-transform: uppercase;">EXORD </a>
+        <a class="navbar-brand" href="{% url 'userlist' %}" style="font-weight: bold;  text-transform: uppercase;">NVS_USER@PON</a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -35,49 +35,31 @@
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'lsoc' %}">Location</a>
-                  </li>
 
 
 
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="text-success"><i class="fa fa-plus"></i></span> Create User
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="http://103.49.168.171/admin/auth/user/add/?_changelist_filters=is_staff__exact%3D1"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>New User</a>
-                        <a class="dropdown-item" href="http://103.49.168.171/admin/auth/user/"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>User LIst</a>
-                        <a class="dropdown-item" href="#"><span class="text-success"><i class="fa fa-user" aria-hidden="true"></i></span> Login User 
-                          
-                          
-                          <span class="badge badge-primary">{{ request.user.username }}</span></a>
-
-
-                        <!-- <a class="dropdown-item" href="{% url 'news-uplode' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>News</a> -->
-                    </div>
-                  </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="text-success"><i class="fa fa-plus"></i></span> Uplode
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{% url 'homssses' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Vlan</a>
-                        <a class="dropdown-item" href="{% url 'loc' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Location</a>
-
-                        <!-- <a class="dropdown-item" href="{% url 'news-uplode' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>News</a> -->
-                    </div>
-                  </li>
                   <!-- {% if user.is_superuser %}
                   <li class="nav-item">
                       <a class="nav-link" href="#"> Admin</a>
                   </li>
                   {% endif %} -->
+                  <li class="nav-item my-2 my-lg-0">
+                    <a class="nav-link active" href="{% url 'wrn' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Create Package</a>
+                </li>
 
+                <li class="nav-item my-2 my-lg-0">
+                    <a class="nav-link active" href="{% url 'wrn' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>User Uplode</a>
+                </li>
+
+                <li class="nav-item my-2 my-lg-0">
+                    <a class="nav-link active" href="{% url 'wrn' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>PON</a>
+                </li>
 
                 <li class="nav-item my-2 my-lg-0">
                     <a class="nav-link active" href="{% url 'logout' %}"><span class="text-muted "></span>Logout</a>
                 </li>
+        
+
 
 
             </ul>
@@ -106,7 +88,7 @@
                             <a class="dropdown-item" href="#"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Vlan</a>
                             <a class="dropdown-item" href="#"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Location</a>
     
-                            <a class="dropdown-item" href="{% url 'news-uplode' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>News</a> 
+                           
                         </div>
                       </li> -->
                       <!-- {% if user.is_superuser %}
@@ -121,6 +103,8 @@
     
     
                 </ul>
+
+                
                 <form class="form-inline my-2 my-lg-0" action="{% url 'serach' %}" method="GET" value="{{request.GET.q}}">
                     <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" value="{{request.GET.q}}">
                     <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="submit" value="Search" style="color: white;"/></input>

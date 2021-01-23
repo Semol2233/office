@@ -38,10 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'we_app',
     'login_register',
-    'admin_panel',
-    'login_with_modal_app'
 ]
 
 

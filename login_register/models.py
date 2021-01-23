@@ -33,3 +33,65 @@ class Post_Asn(models.Model):
 
     def get_absolute_url(self):
         return reverse('homes')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class package_list(models.Model):
+    pk_name = models.CharField(max_length=255)
+    def get_absolute_url(self):
+        return reverse('lsoc')
+
+    def __str__(self):
+        return self.pk_name
+
+class pon_list(models.Model):
+    pon = models.CharField(max_length=255)
+    def get_absolute_url(self):
+        return reverse('lsoc')
+
+    def __str__(self):
+        return self.pon         
+
+class user_loc(models.Model):
+    user_loca = models.CharField(max_length=255)
+
+    def get_absolute_url(self):
+        return reverse('lsoc')
+
+    def __str__(self):
+        return self.user_loca
+
+
+class userinfo(models.Model):
+    username = models.CharField(max_length=255)
+    user_id = models.CharField(max_length=255)
+    user_addr = models.ForeignKey(user_loc, on_delete=models.CASCADE)
+    user_phone_number = models.CharField(max_length=255)
+    package_name  = models.ForeignKey(package_list, on_delete=models.CASCADE)
+    pon_listf  = models.ForeignKey(pon_list, on_delete=models.CASCADE)
+    user_onu_macaddr = models.CharField(max_length=255)
+    payment = models.TextField()
+    user_LOCATION = models.TextField()
+    activition_date = models.DateTimeField()
+    
+
+    def get_absolute_url(self):
+        return reverse('lsoc')
+
+    def __str__(self):
+        return self.username
