@@ -138,9 +138,19 @@
         <input type="submit" class="btn btn-success" value="Login">
     </form>
 </div> -->
-                
+        
+{% endif %}
+{% if request.user.is_staff %}
+<li class="nav-item my-2 my-lg-0">
+    <a class="nav-link active" href="{% url 'logout' %}"><span class="text-muted "></span>Logout</a>
+</li>
 
-                
+<li class="nav-item my-2 my-lg-0">
+    <a class="nav-link active" href="{% url 'user' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>User Uplode</a>
+</li>
+
+{% elif request.user.is_superuser %}
+
 <div class="container mt-2">
     
     {% block content %}
@@ -149,13 +159,13 @@
     
 </div>
 
-
-
-
-
-
-
 {% endif %}
+
+
+
+
+
+
 
 
       
