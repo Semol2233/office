@@ -20,7 +20,7 @@
         <tr>
             <th scope="row">{{q.user_id}}</th>
             <td>{{q.username}}</td>
-            <td>{{q.user_phone_number}}</td>
+            <td><a href="tel:+{{q.user_phone_number}}">{{q.user_phone_number}}</a></td>
             <td > {{q.pon_listf.pon}}</td>
             <td > {{q.user_onu_macaddr}}</td>
             <td > {{q.package_name}}</td>
