@@ -154,7 +154,7 @@ def SearchResultsView(request):
         query= request.GET.get('q')
         submitbutton= request.GET.get('submit')
 
-        results= userinfo.objects.filter(Q(VLAN__icontains=query) | Q(pon_listf__pon__icontains=query) | Q(user_id__icontains=query))
+        results= userinfo.objects.filter(Q(user_phone_number__icontains=query) | Q(pon_listf__pon__icontains=query) | Q(user_id__icontains=query))
 
         context={'results': results,
                      'submitbutton': submitbutton}
