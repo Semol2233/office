@@ -154,7 +154,7 @@ def SearchResultsView(request):
         query= request.GET.get('q')
         submitbutton= request.GET.get('submit')
 
-        results= Post_Asn.objects.filter(Q(VLAN__icontains=query) | Q(LOCATION__Location__icontains=query) | Q(DESCRIPTION__icontains=query))
+        results= userinfo.objects.filter(Q(VLAN__icontains=query) | Q(pon_listf__pon__icontains=query) | Q(user_id__icontains=query))
 
         context={'results': results,
                      'submitbutton': submitbutton}
@@ -224,7 +224,7 @@ def indexs(request):
         'Pon_3': "Pon-3 : Maijdee",
         'Pon_4': "Pon-4 : Maijdee",
         'Pon_5': "Pon-5 : Maijdee",
-        'Pon_6': "Pon-6 : Maijdee",
+        'Pon_6': "Pon-6 : Gabua + ",
         'Pon_7': "Pon-7 : Maijdee",
         'Pon_8': "Pon-8 : Maijdee",
 
