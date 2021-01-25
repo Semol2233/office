@@ -24,9 +24,7 @@
         {% for q in results %}
         <tr>
             <th scope="row">{{q.id}}</th>
-            <td>{{q.VLAN}}</td>
-            <td>{{q.DESCRIPTION}}</td>
-            <td>{{q.LOCATION}}</td>
+
             <td><a href="{% url 'up' q.id%}"><i class="fa fa-edit text-success" style="font-size: 25px;"></i></a><a href="{% url 'del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td>
           </tr>
       {% endfor %} 
