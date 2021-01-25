@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if request.user.is_superuser %}
+
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ LS }}
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ GT }}
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ RR }}
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ CR }}
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ MB }}
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ HR }}
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ AC }}
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ MP }}
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ SP }}
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ SD }}
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ HG }}
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ CC }}
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ NP }}
+        </li>
+        
+      </ul>
+
+      {%else%}
+      <h1>sorry this page not available for you!!!</h1>
+     {%endif%}
+     
+  {% endblock content %}
+    

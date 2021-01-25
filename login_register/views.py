@@ -219,14 +219,14 @@ def index(request):
 
 def indexs(request):
     context = {
-        'Pon_1': "Pon-1 : Maijdee",
-        'Pon_2': "Pon-2 : Maijdee",
-        'Pon_3': "Pon-3 : Maijdee",
-        'Pon_4': "Pon-4 : Maijdee",
-        'Pon_5': "Pon-5 : Maijdee",
-        'Pon_6': "Pon-6 : Gabua + ",
-        'Pon_7': "Pon-7 : Maijdee",
-        'Pon_8': "Pon-8 : Maijdee",
+        'Pon_1': "Pon-1 : Tv center + Maijdee Bazar + AnswerCamp Rode",
+        'Pon_2': "Pon-2 : Bothola + Rajgonj + Chodan",
+        'Pon_3': "Pon-3 : Sonapur + Doterhat + Porobazar",
+        'Pon_4': "Pon-4 : Lokkinaron Pur + Studiam Pichone + Master Para + Notun Bus stand +Napiterpoll ",
+        'Pon_5': "Pon-5 : Soon",
+        'Pon_6': "Pon-6 : Gabua",
+        'Pon_7': "Pon-7 : Soon",
+        'Pon_8': "Pon-8 : Soon",
 
 
  
@@ -235,4 +235,33 @@ def indexs(request):
 
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'nv/pon_list.html', context=context)
+
+
+
+
+def loc_lshotlist(request):
+    context = {
+        'LS': "লক্ষীনারায়নপুর + সাতানী পুকুরপাড়",
+        'GT': "গাবুয়া + টিভি সেন্টার ",
+        'RR': "বটতলা + চড়ান + রাজগঞ্জ",
+        'CR': "নোয়াখালী পুরাতন কলেজ",
+        'MB': "মাইজদী বাজার",
+        'HR': "হাসপাতাল রোড ",
+        'AC': "আনসার ক্যাম্প রোড",
+        'MP': "মাস্টারপাড়া + নোয়াখালী নতুন কলেজ",
+        'SP': "শান্তি নাগার + পুলিশ লাইন রোড",
+        'SD': "সোনাপুর + দত্তেরহাট + পৌরবাজার",
+        'HG': "হাউজিং",
+        'CC': "Chorasta + Chawmuni",
+        'NP': "Notun Busstand + Napiter poll",
+
+
+ 
+
+
+    }
+
+    # Render the HTML template index.html with the data in the context variable
+    return render(request, 'nv/area.html', context=context)
+
 
