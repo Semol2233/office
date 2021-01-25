@@ -55,6 +55,11 @@
                 <li class="nav-item my-2 my-lg-0">
                     <a class="nav-link active" href="{% url 'wsrn' %}"><span class="text-success"></span>PON</a>
                 </li>
+
+                {% if request.user.is_superuser %}
+                <li class="nav-item my-2 my-lg-0">
+                    <a class="nav-link active" href="{% url 'a' %}"><span class="text-success"></span>PON</a>
+                </li>
                 {% endif %}
                 <li class="nav-item my-2 my-lg-0">
                     <a class="nav-link active" href="{% url 'logout' %}"><span class="text-muted "></span>Logout</a>
