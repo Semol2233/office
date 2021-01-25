@@ -10,28 +10,65 @@
 <br/><br/>
 
 <table class="table table-bordered">
-    <thead>
+  <thead>
+    <tr>
+      <th scope="col">User ID</th>
+      <th scope="col">User Name</th>
+      <th scope="col">Contact Number</th>
+      <th scope="col">Pon</th>
+      <th scope="col">Onu Mac</th>
+      <th scope="col">package</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for q in results %}
       <tr>
-        <th scope="col">ID</th>
-        <th scope="col">VLAN</th>
-        <th scope="col">DESCRIPTION</th>
-        <th scope="col">LOCATION</th>
-        <th scope="col">ACTION</th>
+          <th scope="row">{{q.user_id}}</th>
+          <td>{{q.username}}</td>
+          <td><a href="tel:{{q.user_phone_number}}">{{q.user_phone_number}}</a></td>
+          <td > {{q.pon_listf.pon}}</td>
+          <td > {{q.user_onu_macaddr}}</td>
+          <td > {{q.package_name}}</td>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLongTitle">User Name - {{q.username}}</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+     Pon Number :{{q.pon_listf}} <br>
+     Payment :{{q.payment}} <br>
+     User Home Loction : {{q.user_LOCATION }} <br>
+     Activition :{{q.activition_date}} <br>
 
-      </tr>
-    </thead>
-    <tbody>
-        {% for q in results %}
-        <tr>
-            <th scope="row">{{q.id}}</th>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+          {% if request.user.is_superuser%}
 
-            <td><a href="{% url 'up' q.id%}"><i class="fa fa-edit text-success" style="font-size: 25px;"></i></a><a href="{% url 'del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td>
-          </tr>
-      {% endfor %} 
+          <td><a data-toggle="modal" data-target="#exampleModalLong" href=""><i class="fa fa-eye" style="font-size: 24px; color: black;" aria-hidden="true"></i></a>
+         </td>
+          <!-- <td><a href="{% url 'up' q.id%}"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="{% url 'del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td> -->
 
-    </tbody>
-  </table>
+        </tr>
+        {% else%}
+        <td><a href="#"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="#"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td>
+        {% endif %}
 
+
+    {% endfor %} 
+
+  </tbody>
+</table>
 
 
 
