@@ -194,7 +194,7 @@ class list_user(LoginRequiredMixin,ListView):
     context_object_name = 'list_user'
     model = userinfo
     template_name= 'nv/list_user.html'
-    queryset = userinfo.objects.filter()
+    queryset = userinfo.objects.order_by('-id')
 
 
 class warning_user(LoginRequiredMixin,ListView):
