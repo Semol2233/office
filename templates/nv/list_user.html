@@ -6,6 +6,7 @@
 <table class="table table-bordered">
     <thead>
       <tr>
+        <th scope="col">SN</th>
         <th scope="col">User ID</th>
         <th scope="col">User Name</th>
         <th scope="col">Contact Number</th>
@@ -18,6 +19,7 @@
     <tbody>
         {% for q in list_user %}
         <tr>
+            <th scope="row">{{q.id}}</th>
             <th scope="row">{{q.user_id}}</th>
             <td>{{q.username}}</td>
             <td><a href="tel:{{q.user_phone_number}}">{{q.user_phone_number}}</a></td>
