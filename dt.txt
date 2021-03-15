@@ -1,4 +1,3 @@
-asgiref==3.3.0
 Django==2.2.5
 django-filter==2.4.0
 Pillow==8.0.1

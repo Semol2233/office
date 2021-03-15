@@ -9,6 +9,6 @@ admin.site.register(package_list)
 admin.site.register(pon_list)
 admin.site.register(user_loc)
 admin.site.register(userinfo)
-
-
+admin.site.register(costprofile)
+admin.site.register(dailybilling)
 

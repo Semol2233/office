@@ -265,3 +265,39 @@ def loc_lshotlist(request):
     return render(request, 'nv/area.html', context=context)
 
 
+
+
+
+
+
+# class post_user_dsata(LoginRequiredMixin,CreateView):
+#     form_class = profilecostform
+#     model = costprofile
+#     template_name = 'nv/uplode_us.html'
+
+
+
+# class posnt_user_dsata(LoginRequiredMixin,CreateView):
+#     form_class = profilecostform
+#     model = costprofile
+#     template_name = 'nv/uplode_us.html'
+
+
+
+class dailybing_view(LoginRequiredMixin,CreateView):
+
+    form_class = dailyscosst
+    model = dailybilling
+    template_name = 'nv/uplode_us.html'
+
+
+
+
+
+
+class daulycost_list(LoginRequiredMixin,ListView):
+    context_object_name = 'fulllist'
+    model = dailybilling
+    template_name= 'goninda/list.html'
+
+

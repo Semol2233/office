@@ -1,12 +1,39 @@
 {% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
 {% block content %}
-<div class="container mt-5 card col-sm-6 shadow-lg p-3 mb-5 bg-white rounded">
-<h1>Create Post: </h1>
-<form enctype="multipart/form-data" method="POST">
-{% csrf_token %}
-{{ form.as_p }}
-<input class="btn btn-success" type="submit" value="Create Post">
-</form>
-</div>
-{% endblock content %}
+<div class="mt-5">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-row">
+          <div class="form-group col-md-2 mb-0" style="color: aliceblue;">
+            {{ form.date|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-5 mb-0" style="color: aliceblue;">
+            {{ form.cost_profile|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-5 mb-0" style="color: aliceblue;">
+            {{ form.cost|as_crispy_field }}
+          </div>
+          
+        </div>
+
+
+        <div class="form-row">
+            <div class="form-group col-md-12 mb-0" style="color: aliceblue;">
+              {{ form.description|as_crispy_field }}
+            </div>
+          </div>
+      
+        <button type="submit" class="btn btn-light">POST</button>
+      </form>
+
+      
     
+</div>
+
+
+
+  
+{% endblock %}

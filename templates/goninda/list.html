@@ -1,31 +1,40 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+  .colors{
+    color: aliceblue;
+  }
+</style>
 <table class="table table-bordered">
     <thead>
       <tr>
-        <th scope="col">ID</th>
-        <th scope="col">FIVER</th>
-        <th scope="col">LOCATION</th>
-        <th scope="col">DESCRIPTION</th>
-        <th scope="col">ACTION</th>
+        <th scope="col" class="colors">ID</th>
+        <th scope="col" class="colors">Date</th>
+        <th scope="col" class="colors">Profile</th>
+        <th scope="col" class="colors">Cost</th>
+        <th scope="col" class="colors">Description</th>
+        <th scope="col" class="colors">Action</th>
+
         
 
       </tr>
     </thead>
     <tbody>
-        {% for q in listdata %}
+        {% for q in fulllist %}
         <tr>
-            <th scope="row">{{q.id}}</th>
-            <td>{{q.VLAN}}</td>
-            <td>{{q.LOCATION.Location}}</td>
-            <td > {{q.DESCRIPTION}}</td>
+            <th scope="row" class="colors">{{q.id}}</th>
+            <td class="colors">{{q.date}}</td>
+            <td class="colors">{{q.cost_profile}}</td>
+            <td class="colors" > {{q.cost}}</td>
+            <td class="colors" > {{q.description|slice:":10"}}</td>
+
             {% if request.user.is_superuser%}
 
-            <td><a href="{% url 'up' q.id%}"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="{% url 'del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td>
+            <td class="colors"><a href="{% url 'up' q.id%}"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="{% url 'del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td>
           </tr>
           {% else%}
-          <td><a href="#"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="#"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td>
+          <td class="colors"><a href="#"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="#"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td>
           {% endif %}
 
 

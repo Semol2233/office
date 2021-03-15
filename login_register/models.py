@@ -95,3 +95,29 @@ class userinfo(models.Model):
 
     def __str__(self):
         return self.username
+
+
+
+
+
+class costprofile(models.Model):
+    cost_name = models.CharField(max_length=255)
+    def __str__(self):
+        return self.cost_name
+
+    def get_absolute_url(self):
+        return reverse('lsoc')
+
+
+class dailybilling(models.Model):
+    date          = models.DateTimeField()
+    cost_profile  = models.ForeignKey(costprofile, on_delete=models.CASCADE)
+    cost          = models.CharField(max_length=255)
+    description   = models.TextField()
+
+    def __str__(self):
+        return self.description
+
+    def get_absolute_url(self):
+        return reverse('ijdfscdj')
+

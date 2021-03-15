@@ -96,3 +96,33 @@ class userform(forms.ModelForm):
         self.fields['pon_listf'].empty_label="Pon List"
         self.fields['package_name'].empty_label="package"
         self.fields['user_addr'].empty_label="Location"
+
+
+
+
+
+
+
+
+
+
+
+class DateIsnput(forms.DateInput):
+    input_type = 'date'
+
+class dailyscosst(forms.ModelForm):
+    class Meta:
+        model = dailybilling
+        fields = ['date','cost','description','cost_profile']
+        widgets = {
+            'date':DateIsnput(),
+            'cost_profile':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
+            'cost':forms.TextInput(attrs={'class':'form-control','placeholder':'20tk....'}),
+            'description':forms.Textarea(attrs={'class':'form-control','placeholder':'office nasta..'})
+        }
+
+    def __init__(self,*args, **kwargs):
+        super(dailyscosst,self).__init__(*args, **kwargs)
+        self.fields['cost_profile'].empty_label="List"
+
+

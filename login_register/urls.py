@@ -5,7 +5,7 @@ urlpatterns = [
     path('fggvf',homeview,name='home'),
     path('form/',RegisterForms,name='hoggme'),
     path('fv',ASn_POst.as_view(),name='homssses'),
-    path('s',ASn_POst_listview.as_view(),name='homes'),
+    path('sxs',ASn_POst_listview.as_view(),name='homes'),
     path('login/',LoginView.as_view(),name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('up/<int:pk>/',postUpdate.as_view(),name='up'),
@@ -16,11 +16,12 @@ urlpatterns = [
     path('loc/<int:pk>/',postUpdate_loc.as_view(),name='lsoc_up'),
     path('loc_del/<int:pk>/',postdel_loc.as_view(),name='lsoc_del'),
     path('post_user_data',post_user_data.as_view(),name='user'),
-    path('',list_user.as_view(),name='userlist'),
+    path('dd',list_user.as_view(),name='userlist'),
     path('shudf',warning_user.as_view(),name='wrs'),
     path('wr',index,name='wrn'),
     path('ponlist',indexs,name='wsrn'),
-    path('area',loc_lshotlist,name='a'),
+    path('scsc',dailybing_view.as_view(),name='ijdfcdj'),
+    path('',daulycost_list.as_view(),name='ijdfscdj')
 
 
 
