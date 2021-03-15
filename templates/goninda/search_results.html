@@ -5,31 +5,34 @@
 
 {% if submitbutton == 'Search' and request.GET.q != '' %}
 {% if results %}
-
-<h5 style="margin-top: 30px;">Results for <b>{{ request.GET.q }}</b></h5>
+<style>
+  .colors{
+    color: aliceblue;
+  }
+</style>
+<h5 class="colors" style="margin-top: 30px;">Results for <b>{{ request.GET.q }}</b></h5>
 <br/><br/>
 
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th scope="col">User ID</th>
-      <th scope="col">User Name</th>
-      <th scope="col">Contact Number</th>
-      <th scope="col">Pon</th>
-      <th scope="col">Onu Mac</th>
-      <th scope="col">package</th>
-      <th scope="col">Action</th>
+      <th class="colors" scope="col">ID</th>
+      <th class="colors" scope="col">Date</th>
+      <th class="colors" scope="col">Profile</th>
+      <th class="colors" scope="col">Cost</th>
+      <th class="colors" scope="col">Description</th>
+    
+
     </tr>
   </thead>
   <tbody>
       {% for q in results %}
       <tr>
-          <th scope="row">{{q.user_id}}</th>
-          <td>{{q.username}}</td>
-          <td><a href="tel:{{q.user_phone_number}}">{{q.user_phone_number}}</a></td>
-          <td > {{q.pon_listf.pon}}</td>
-          <td > {{q.user_onu_macaddr}}</td>
-          <td > {{q.package_name}}</td>
+          <th class="colors" scope="row">{{q.id}}</th>
+          <td class="colors">{{q.date}}</td>
+          <td class="colors" > {{q.cost_profile.cost_name}}</td>
+          <td class="colors" > {{q.cost}}</td>
+          <td class="colors" > {{q.description}}</td>
 <!-- Modal -->
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
 <div class="modal-dialog" role="document">
@@ -55,8 +58,7 @@
 </div>
           {% if request.user.is_superuser%}
 
-          <td><a data-toggle="modal" data-target="#exampleModalLong" href=""><i class="fa fa-eye" style="font-size: 24px; color: black;" aria-hidden="true"></i></a>
-         </td>
+        
           <!-- <td><a href="{% url 'up' q.id%}"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="{% url 'del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td> -->
 
         </tr>

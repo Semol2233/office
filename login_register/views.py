@@ -14,6 +14,8 @@ def homeview(request):
     return render(request,'login_regi/home.html')
 
 
+
+
 # def  RegisterForms(request):
 #     registered = False
 #     if request.method == 'POST':
@@ -154,7 +156,7 @@ def SearchResultsView(request):
         query= request.GET.get('q')
         submitbutton= request.GET.get('submit')
 
-        results= userinfo.objects.filter(Q(user_phone_number__icontains=query) | Q(pon_listf__pon__icontains=query) | Q(user_id__icontains=query))
+        results= dailybilling.objects.filter(Q(date__icontains=query) | Q(cost__icontains=query) | Q(cost_profile__cost_name__icontains=query))
 
         context={'results': results,
                      'submitbutton': submitbutton}

@@ -23,7 +23,5 @@ urlpatterns = [
     path('scsc',dailybing_view.as_view(),name='ijdfcdj'),
     path('',daulycost_list.as_view(),name='ijdfscdj')
 
-
-
-
 ]
+

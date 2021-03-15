@@ -6,6 +6,23 @@
     color: aliceblue;
   }
 </style>
+
+
+<script>
+
+  $(document).ready(function()
+  {
+         var cost;
+         var totalcost = 0;
+         $('td:nth-child(4)').each(function(){
+          cost = $(this).html();
+          totalcost+=parseInt(cost);
+            $('#totalcost').text(totalcost)
+
+         });
+  });
+</script>
+
 <table class="table table-bordered">
     <thead>
       <tr>
@@ -28,6 +45,8 @@
             <td class="colors">{{q.cost_profile}}</td>
             <td class="colors" > {{q.cost}}</td>
             <td class="colors" > {{q.description|slice:":10"}}</td>
+         
+              
 
             {% if request.user.is_superuser%}
 
@@ -40,8 +59,15 @@
 
       {% endfor %} 
 
+      <tr>
+        <td class="colors" colspan="3">Total</td>
+        <td class="colors" id="totalcost" colspan="10"></td>
+        
+      </tr>
     </tbody>
+   
   </table>
+  
 {% endblock content %}
     
 
