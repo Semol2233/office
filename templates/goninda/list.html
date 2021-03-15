@@ -31,7 +31,7 @@
         <th scope="col" class="colors">Profile</th>
         <th scope="col" class="colors">Cost</th>
         <th scope="col" class="colors">Description</th>
-        <th scope="col" class="colors">Action</th>
+    
 
         
 
@@ -44,13 +44,13 @@
             <td class="colors">{{q.date}}</td>
             <td class="colors">{{q.cost_profile}}</td>
             <td class="colors" > {{q.cost}}</td>
-            <td class="colors" > {{q.description|slice:":10"}}</td>
+            <td class="colors" > {{q.description}}</td>
          
               
 
             {% if request.user.is_superuser%}
 
-            <td class="colors"><a href="{% url 'up' q.id%}"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="{% url 'del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td>
+            <!-- <td class="colors"><a href="{% url 'up' q.id%}"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="{% url 'del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td> -->
           </tr>
           {% else%}
           <td class="colors"><a href="#"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="#"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td>
