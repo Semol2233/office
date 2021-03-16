@@ -20,6 +20,8 @@ urlpatterns = [
     path('shudf',warning_user.as_view(),name='wrs'),
     path('wr',index,name='wrn'),
     path('ponlist',indexs,name='wsrn'),
+    path('areacode',loc_lshotlist,name='wssrn'),
+
     path('scsc',dailybing_view.as_view(),name='ijdfcdj'),
     path('',daulycost_list.as_view(),name='ijdfscdj')
 

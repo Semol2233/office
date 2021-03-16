@@ -1,10 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<img src="https://www.packages.com.pk/wp-content/uploads/2017/12/plain-cover.jpg" class="img-fluid" alt="Responsive image">
+<h1 class="centered">hi.....</h1>
+
 <style>
   .colors{
+
     color: aliceblue;
   }
+  .centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 </style>
 
 
@@ -23,7 +34,7 @@
   });
 </script>
 
-<table class="table table-bordered">
+<table class="table table-bordered mt-5">
     <thead>
       <tr>
         <th scope="col" class="colors">ID</th>

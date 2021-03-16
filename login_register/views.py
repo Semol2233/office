@@ -155,9 +155,7 @@ def SearchResultsView(request):
     if request.method == 'GET':
         query= request.GET.get('q')
         submitbutton= request.GET.get('submit')
-
         results= dailybilling.objects.filter(Q(date__icontains=query) | Q(cost__icontains=query) | Q(cost_profile__cost_name__icontains=query))
-
         context={'results': results,
                      'submitbutton': submitbutton}
         return render(request, 'goninda/search_results.html', context)
