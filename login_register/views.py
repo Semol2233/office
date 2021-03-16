@@ -9,6 +9,10 @@ from .models import *
 from django.views.generic import TemplateView,CreateView,ListView,DeleteView,DetailView,UpdateView
 from django.urls import reverse,reverse_lazy
 from django.db.models import Q 
+
+
+from datetime import datetime, timedelta
+
 # Create your views here.
 def homeview(request):
     return render(request,'login_regi/home.html')
@@ -299,5 +303,7 @@ class daulycost_list(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/list.html'
+    queryset = dailybilling.objects.filter(dateES__gt=datetime.now() - timedelta(hours=1))
+
 
 

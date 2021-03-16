@@ -114,6 +114,8 @@ class dailybilling(models.Model):
     cost_profile  = models.ForeignKey(costprofile, on_delete=models.CASCADE)
     cost          = models.CharField(max_length=255)
     description   = models.TextField()
+    dateES         = models.DateTimeField(auto_now=True)
+
 
     def __str__(self):
         return self.description
