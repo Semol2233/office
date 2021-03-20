@@ -303,7 +303,7 @@ class daulycost_list(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/list.html'
-    queryset = dailybilling.objects.filter(dateES__gt=datetime.now() - timedelta(hours=1))
+    # queryset = dailybilling.objects.filter(dateES__gt=datetime.now() - timedelta(hours=1))
 
 
 
