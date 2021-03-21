@@ -159,7 +159,7 @@ def SearchResultsView(request):
     if request.method == 'GET':
         query= request.GET.get('q')
         submitbutton= request.GET.get('submit')
-        results= dailybilling.objects.filter(Q(date__icontains=query) | Q(cost__icontains=query) | Q(cost_profile__cost_name__icontains=query))
+        results= dailybilling.objects.filter(Q(date__icontains=query) | Q(cost_profile__cost_name__icontains=query))
         context={'results': results,
                      'submitbutton': submitbutton}
         return render(request, 'goninda/search_results.html', context)
@@ -305,5 +305,12 @@ class daulycost_list(LoginRequiredMixin,ListView):
     template_name= 'goninda/list.html'
     queryset = dailybilling.objects.filter(dateES__gt=datetime.now() - timedelta(hours=12))
 
+
+
+# class daulycost_list(LoginRequiredMixin,ListView):
+#     context_object_name = 'fulllist'
+#     model = dailybilling
+#     template_name= 'goninda/list.html'
+#     queryset = dailybilling.objects.filter(dateES__gt=datetime.now() - timedelta(hours=12))
 
 

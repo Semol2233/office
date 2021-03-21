@@ -79,11 +79,23 @@
 
 
       {% endfor %} 
+      <script>
 
+        $(document).ready(function()
+        {
+               var cost;
+               var totalcost = 0;
+               $('td:nth-child(4)').each(function(){
+                cost = $(this).html();
+                totalcost+=parseInt(cost);
+                  $('#tosstalcost').text(totalcost)
+      
+               });
+        });
+      </script>
       <tr>
         <td class="colors" colspan="3">Total</td>
-        <td class="colors" id="totalcost" colspan="10"></td>
-        
+        <td class="colors"  id="tosstalcost" colspan="10"></td>
       </tr>
     </tbody>
    
