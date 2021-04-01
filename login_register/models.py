@@ -129,3 +129,7 @@ class dailybilling(models.Model):
 class bkashuserpaymanet(models.Model):
     UserId = models.CharField(max_length=255)
     Ammount = models.CharField(max_length=255)
+
+
+
+#ede
