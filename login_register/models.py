@@ -130,6 +130,8 @@ class bkashuserpaymanet(models.Model):
     UserId = models.CharField(max_length=255)
     Ammount = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.UserId
 
 
 #ede
