@@ -11,4 +11,6 @@ admin.site.register(user_loc)
 admin.site.register(userinfo)
 admin.site.register(costprofile)
 admin.site.register(dailybilling)
+admin.site.register(bkashuserpaymanet)
+
 

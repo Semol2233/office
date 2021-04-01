@@ -313,3 +313,8 @@ class daulycost_list(LoginRequiredMixin,ListView):
 #     template_name= 'goninda/list.html'
 #     queryset = dailybilling.objects.filter(dateES__gt=datetime.now() - timedelta(hours=12))
 
+class datashort_profile(LoginRequiredMixin,ListView):
+    context_object_name = 'ssdxsx'
+    model = dailybilling
+    template_name= 'goninda/list.html'
+    # queryset = dailybilling.objects.filter(cost_profile__contains='Terry')

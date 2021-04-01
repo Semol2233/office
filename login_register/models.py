@@ -122,3 +122,10 @@ class dailybilling(models.Model):
     def get_absolute_url(self):
         return reverse('ijdfscdj')
 
+
+
+
+
+class bkashuserpaymanet(models.Model):
+    UserId = models.CharField(max_length=255)
+    Ammount = models.CharField(max_length=255)
