@@ -23,7 +23,29 @@ urlpatterns = [
     path('areacode',loc_lshotlist,name='wssrn'),
 
     path('scsc',dailybing_view.as_view(),name='ijdfcdj'),
-    path('',daulycost_list.as_view(),name='ijdfscdj')
+    path('',daulycost_list.as_view(),name='ijdfscdj'),
+
+
+
+
+
+
+
+
+    path('office_cost',OFFICE_COST.as_view(),name='vddvd'),
+    path('bike',OFFICE_bike.as_view(),name='bike'),
+    path('family',OFFICE_family.as_view(),name='family'),
+    path('product',OFFICE_product.as_view(),name='prdouct'),
+    path('Salary',OFFICE_salllery.as_view(),name='Salary'),
+    path('trnasportcost',OFFICE_trnasportcost.as_view(),name='trnasportcost'),
+    path('Chika',OFFICE_Chika.as_view(),name='chika'),
+    path('internetbill',OFFICE_internetbill.as_view(),name='internetbill'),
+    path('Electric',OFFICE_Electric.as_view(),name='Electric'),
+    path('Employ',OFFICE_Employ.as_view(),name='Employ'),
+    path('Pickup',OFFICE_Pickup.as_view(),name='Pickup'),
+
+
+
 
 ]
 

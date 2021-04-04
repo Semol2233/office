@@ -318,3 +318,98 @@ class datashort_profile(LoginRequiredMixin,ListView):
     model = dailybilling
     template_name= 'goninda/list.html'
     # queryset = dailybilling.objects.filter(cost_profile__contains='Terry')
+
+
+
+
+
+
+class OFFICE_COST(LoginRequiredMixin,ListView):
+    context_object_name = 'fulllist'
+    model = dailybilling
+    template_name= 'goninda/cost.html'
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Office Cost')
+
+
+
+class OFFICE_bike(LoginRequiredMixin,ListView):
+    context_object_name = 'fulllist'
+    model = dailybilling
+    template_name= 'goninda/cost.html'
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Bike Cost')
+
+
+
+class OFFICE_family(LoginRequiredMixin,ListView):
+    context_object_name = 'fulllist'
+    model = dailybilling
+    template_name= 'goninda/cost.html'
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Family')
+
+
+class OFFICE_product(LoginRequiredMixin,ListView):
+    context_object_name = 'fulllist'
+    model = dailybilling
+    template_name= 'goninda/cost.html'
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Product Cost')
+
+
+
+class OFFICE_salllery(LoginRequiredMixin,ListView):
+    context_object_name = 'fulllist'
+    model = dailybilling
+    template_name= 'goninda/cost.html'
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Salary')
+
+
+class OFFICE_trnasportcost(LoginRequiredMixin,ListView):
+    context_object_name = 'fulllist'
+    model = dailybilling
+    template_name= 'goninda/cost.html'
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Transport Cost')
+
+
+
+class OFFICE_Chika(LoginRequiredMixin,ListView):
+    context_object_name = 'fulllist'
+    model = dailybilling
+    template_name= 'goninda/cost.html'
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Chika')
+
+
+class OFFICE_internetbill(LoginRequiredMixin,ListView):
+    context_object_name = 'fulllist'
+    model = dailybilling
+    template_name= 'goninda/cost.html'
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Orange communication')
+
+
+class OFFICE_Electric(LoginRequiredMixin,ListView):
+    context_object_name = 'fulllist'
+    model = dailybilling
+    template_name= 'goninda/cost.html'
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Electric Cost')
+
+
+
+class OFFICE_Employ(LoginRequiredMixin,ListView):
+    context_object_name = 'fulllist'
+    model = dailybilling
+    template_name= 'goninda/cost.html'
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Employ Cost')
+
+
+
+class OFFICE_Pickup(LoginRequiredMixin,ListView):
+    context_object_name = 'fulllist'
+    model = dailybilling
+    template_name= 'goninda/cost.html'
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Pickup Cost')
+
+
+
+
+
+
+
+

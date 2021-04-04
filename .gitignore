@@ -12,6 +12,7 @@ db.sqlite3
 db.sqlite3-journal
 media
 db.txt
+migrations
 ./manage.py makemigrations --merge
 
 # If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/

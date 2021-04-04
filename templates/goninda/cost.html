@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<img style="border-radius: 2%;" src="https://www.packages.com.pk/wp-content/uploads/2017/12/plain-cover.jpg" class="img-fluid" alt="Responsive image">
+
+
+<div class="row centered">
+
+
+  <div class="col text-light">
+    <h1 id="totalcost" style=" font-weight: bold;"  ></h1>
+  </div>
+
+  </div>
+
+<style>
+
+  .colors{
+
+    color: aliceblue;
+  }
+
+  .centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>
+
+
+<script>
+
+  $(document).ready(function()
+  {
+         var cost;
+         var totalcost = 0;
+         $('td:nth-child(4)').each(function(){
+          cost = $(this).html();
+          totalcost+=parseInt(cost);
+            $('#totalcost').text(totalcost)
+
+         });
+  });
+</script>
+
+<table class="table table-bordered mt-5">
+    <thead>
+      <tr>
+        <th scope="col" class="colors">ID</th>
+        <th scope="col" class="colors">Date</th>
+        <th scope="col" class="colors">Profile</th>
+        <th scope="col" class="colors">Cost</th>
+        <th scope="col" class="colors">Description</th>
+    
+
+        
+
+      </tr>
+    </thead>
+    <tbody>
+        {% for q in fulllist %}
+        <tr>
+            <th scope="row" class="colors">{{q.id}}</th>
+            <td class="colors">{{q.date}}</td>
+            <td class="colors">{{q.cost_profile}}</td>
+            <td class="colors" > {{q.cost}}</td>
+            <td class="colors" > {{q.description}}</td>
+         
+              
+
+            {% if request.user.is_superuser%}
+
+            <!-- <td class="colors"><a href="{% url 'up' q.id%}"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="{% url 'del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td> -->
+          </tr>
+          {% else%}
+          <td class="colors"><a href="#"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="#"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td>
+          {% endif %}
+
+
+      {% endfor %} 
+      <script>
+
+        $(document).ready(function()
+        {
+               var cost;
+               var totalcost = 0;
+               $('td:nth-child(4)').each(function(){
+                cost = $(this).html();
+                totalcost+=parseInt(cost);
+                  $('#tosstalcost').text(totalcost)
+      
+               });
+        });
+      </script>
+      <tr>
+        <td class="colors" colspan="3">Total</td>
+        <td class="colors"  id="tosstalcost" colspan="10"></td>
+      </tr>
+    </tbody>
+   
+  </table>
+  
+{% endblock content %}
+    
+
+
