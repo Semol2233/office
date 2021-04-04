@@ -381,7 +381,7 @@ class OFFICE_internetbill(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Orange communication')
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Orange')
 
 
 class OFFICE_Electric(LoginRequiredMixin,ListView):
