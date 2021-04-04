@@ -304,7 +304,7 @@ class daulycost_list(LoginRequiredMixin,ListView):
     model = dailybilling
     template_name= 'goninda/list.html'
     #queryset = dailybilling.objects.filter(created_date__gte=datetime.now() - timedelta(days=1))
-    queryset = dailybilling.objects.filter(date_contains='2021-03')
+    queryset = dailybilling.objects.filter(date__contains='2021-03')
 
 
 
