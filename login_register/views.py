@@ -329,7 +329,7 @@ class OFFICE_COST(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Office Cost')
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Office Cost',date__contains='2021-03')
 
 
 
@@ -337,7 +337,7 @@ class OFFICE_bike(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Bike Cost')
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Bike Cost',date__contains='2021-03')
 
 
 
@@ -345,14 +345,14 @@ class OFFICE_family(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Family')
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Family',date__contains='2021-03')
 
 
 class OFFICE_product(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Product Cost')
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Product Cost',date__contains='2021-03')
 
 
 
@@ -360,14 +360,14 @@ class OFFICE_salllery(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Salary')
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Salary',date__contains='2021-03')
 
 
 class OFFICE_trnasportcost(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Transport Cost')
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Transport Cost',date__contains='2021-03')
 
 
 
@@ -375,21 +375,21 @@ class OFFICE_Chika(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Chika')
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Chika',date__contains='2021-03')
 
 
 class OFFICE_internetbill(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Orange')
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Orange',date__contains='2021-03')
 
 
 class OFFICE_Electric(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Electric Cost')
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Electric Cost',date__contains='2021-03')
 
 
 
@@ -397,7 +397,7 @@ class OFFICE_Employ(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Employ Cost')
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Employ Cost',date__contains='2021-03')
 
 
 
@@ -405,7 +405,7 @@ class OFFICE_Pickup(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Pickup Cost')
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Pickup Cost',date__contains='2021-03')
 
 
 
