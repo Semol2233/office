@@ -43,6 +43,8 @@ urlpatterns = [
     path('Electric',OFFICE_Electric.as_view(),name='Electric'),
     path('Employ',OFFICE_Employ.as_view(),name='Employ'),
     path('Pickup',OFFICE_Pickup.as_view(),name='Pickup'),
+    path('bkpayment',bkashpayment.as_view(),name='bkpayment'),
+
 
 
 

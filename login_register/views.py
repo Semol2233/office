@@ -409,6 +409,11 @@ class OFFICE_Pickup(LoginRequiredMixin,ListView):
 
 
 
+class bkashpayment(LoginRequiredMixin,ListView):
+    context_object_name = 'fulllist'
+    model = bkashuserpaymanet
+    template_name= 'goninda/nk.html'
+  
 
 
 
