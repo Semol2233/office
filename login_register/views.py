@@ -304,7 +304,7 @@ class daulycost_list(LoginRequiredMixin,ListView):
     model = dailybilling
     template_name= 'goninda/list.html'
     #queryset = dailybilling.objects.filter(created_date__gte=datetime.now() - timedelta(days=1))
-    queryset = dailybilling.objects.filter(__contains='2021-03',date__gte=datetime.now()-timedelta(days=31))
+    queryset = dailybilling.objects.filter(date__gte=datetime.now()-timedelta(days=31))
 
 
 
@@ -337,7 +337,7 @@ class OFFICE_bike(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Bike Cost',date__contains='2021-03')
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Bike Cost',date__gte=datetime.now()-timedelta(days=31))
 
 
 
