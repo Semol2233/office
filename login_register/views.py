@@ -360,7 +360,7 @@ class OFFICE_salllery(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Salary',date__gte=datetime.now()-timedelta(days=33))
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Salary',date__gte=datetime.now()-timedelta(days=32))
 
 
 class OFFICE_trnasportcost(LoginRequiredMixin,ListView):
