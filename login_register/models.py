@@ -143,10 +143,9 @@ class router_brnd(models.Model):
 
 
 class router(models.Model):
-    date          =      models.DateTimeField()
+    date_router   =      models.DateTimeField()
     RounterBrand  =      models.ForeignKey(router_brnd, on_delete=models.CASCADE)
     Price         =      models.CharField(max_length=255)
-
 
     def __str__(self):
         return self.RounterBrand
