@@ -149,5 +149,5 @@ class router(models.Model):
 
 
     def __str__(self):
-        return self.RounterBrand
+        return self.Price
 
