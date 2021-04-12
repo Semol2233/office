@@ -149,5 +149,5 @@ class router(models.Model):
 
 
     def __str__(self):
-        return self.Price
+        return self.date
 
