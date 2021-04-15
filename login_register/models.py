@@ -3,6 +3,9 @@ from django.urls import reverse
 # Create your models here.
 from django.contrib.auth.models import User
 from django.utils import timezone
+from datetime import datetime
+from django.utils import timezone
+import pytz
 class profileinfo(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     photo = models.ImageField(upload_to='profile_pictures',blank=True)
