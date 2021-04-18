@@ -138,18 +138,18 @@ class bkashuserpaymanet(models.Model):
 
 
 
-# class router_brnd(models.Model):
-#     router_brand = models.CharField(max_length=255)
+class router_brnd(models.Model):
+    router_brand = models.CharField(max_length=255)
 
-#     def __str__(self):
-#         return self.router_brand
+    def __str__(self):
+        return self.router_brand
 
 
-# class router(models.Model):
-#     date_router   =      models.DateTimeField()
-#     RounterBrand  =      models.ForeignKey(router_brnd, on_delete=models.CASCADE)
-#     Price         =      models.CharField(max_length=255)
+class router(models.Model):
+    date_router   =      models.DateTimeField()
+    RounterBrand  =      models.ForeignKey(router_brnd, on_delete=models.CASCADE)
+    Price         =      models.CharField(max_length=255)
 
-#     def __str__(self):
-#         return self.RounterBrand
+    def __str__(self):
+        return self.RounterBrand
 
