@@ -379,7 +379,7 @@ class OFFICE_Chika(LoginRequiredMixin,ListView):
 
 
 class OFFICE_internetbill(LoginRequiredMixin,ListView):
-    context_object_name = 'fulllis8
+    context_object_name = 'fulllis'
     model = dailybilling
     template_name= 'goninda/cost.html'
     queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Orange',date__gte=datetime.now()-timedelta(days=8))
