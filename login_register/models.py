@@ -164,7 +164,7 @@ class userupdate(models.Model):
         ('C', 'CASH'),
     )
     date_user =  models.DateTimeField()
-    user_sn =  models.IntegerField(unique=True )
+    user_sn =  models.IntegerField(unique=True)
     user_id = models.CharField(max_length=255)
     user_name = models.CharField(max_length=255)
     prepaidbill = models.CharField(max_length=255)
@@ -172,8 +172,5 @@ class userupdate(models.Model):
     payment_method = models.CharField(max_length=1, choices=PAYMENT)
     auto_date =  models.DateTimeField(default=timezone.now)
 
-
     def __str__(self):
         return self.user_name
-
-
