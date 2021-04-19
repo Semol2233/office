@@ -164,7 +164,7 @@ class userupdate(models.Model):
         ('C', 'CASH'),
     )
     date_user =  models.DateTimeField()
-    user_sn =  models.CharField(max_length=255,unique=True)
+    user_sn =  models.CharField(max_length=255,unique=True,default=000)
     user_id = models.CharField(max_length=255)
     user_name = models.CharField(max_length=255)
     prepaidbill = models.CharField(max_length=255)
