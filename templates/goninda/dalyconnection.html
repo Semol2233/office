@@ -269,7 +269,7 @@
       {
              var cost;
              var totalcost = 0;
-             $('td:nth-child(1)').each(function(){
+             $('td:nth-child(7)').each(function(){
               cost = $(this).html();
               totalcost+=parseInt(cost);
                 $('#totaluser').text(totalcost)
@@ -298,13 +298,14 @@
         <tbody>
             {% for q in fulllist %}
             <tr>
-                <td class="colors">{{q.id}}</td>
+                
                 <td  class="colors">{{q.date_user}}</td>
                 <td class="colors">{{q.user_id}}</td>
                 <td class="colors">{{q.user_name}}</td>
                 <td class="colors" > {{q.prepaidbill}}</td>
                 <td class="colors" > {{q.service_chagre}}</td>
                 <td class="colors" > {{q.payment_method}}</td>
+                <td class="colors">{{q.id}}</td>
     
              
                   
