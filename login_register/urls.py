@@ -44,7 +44,9 @@ urlpatterns = [
     path('Employ',OFFICE_Employ.as_view(),name='Employ'),
     path('Pickup',OFFICE_Pickup.as_view(),name='Pickup'),
     path('bkpayment',bkashpayment.as_view(),name='bkpayment'),
-    path('update',updatedailyline.as_view(),name='update'),
+    path('update',updatedailyline.as_view(),name='updssate'),
+    path('uspdate',updatedata,name='update'),
+
 
 ]
 

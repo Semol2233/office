@@ -423,11 +423,10 @@ class updatedailyline(LoginRequiredMixin,ListView):
     template_name= 'goninda/dalyconnection.html'
 
 
-class updatedaisslyline(LoginRequiredMixin,ListView):
-    context_object_name = 'fulllddist'
-    model = userupdate
-    template_name= 'goninda/dalyconnection.html'
-    queryset    = userupdate.objects.last()
+def updatedata(request):
+    allupdatedate = userupdate.objects.all()
+    lastconnection = userupdate.objects.last()
+    return render(request,"goninda/dalyconnection.html",{"dataone":allupdatedate,"datatwo":lastconnection})
 
 
 
