@@ -266,6 +266,7 @@
     <table class="table table-bordered mt-5">
         <thead>
           <tr>
+            <th scope="col" class="colors">SN</th>
             <th scope="col" class="colors">User name</th>
             <th scope="col" class="colors">User Id</th>
             <th scope="col" class="colors">User Name</th>
@@ -282,6 +283,7 @@
         <tbody>
             {% for q in fulllist %}
             <tr>
+                <th scope="row" class="colors">{{q.id}}</th>
                 <th scope="row" class="colors">{{q.date_user}}</th>
                 <td class="colors">{{q.user_id}}</td>
                 <td class="colors">{{q.user_name}}</td>
