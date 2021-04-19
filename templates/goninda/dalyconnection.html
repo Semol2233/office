@@ -205,7 +205,7 @@
           <h1 id="totalcost" style=" font-weight: bold;"  ></h1>
         </div>
         <div class="col text-light dfcdd">
-          <h1 id="totassssslcost" style=" font-weight: bold;"  ></h1>
+          <h1 id="totaluser" style=" font-weight: bold;"  ></h1>
         </div>
       
         </div>
@@ -269,10 +269,10 @@
       {
              var cost;
              var totalcost = 0;
-             $('td:nth-child(0)').each(function(){
+             $('td:nth-child(1)').each(function(){
               cost = $(this).html();
               totalcost+=parseInt(cost);
-                $('#totassssslcost').text(totalcost)
+                $('#totaluser').text(totalcost)
     
              });
       });
@@ -298,7 +298,7 @@
         <tbody>
             {% for q in fulllist %}
             <tr>
-                <th scope="row" class="colors">{{q.id}}</th>
+                <td class="colors">{{q.id}}</td>
                 <th scope="row" class="colors">{{q.date_user}}</th>
                 <td class="colors">{{q.user_id}}</td>
                 <td class="colors">{{q.user_name}}</td>
