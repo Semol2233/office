@@ -417,4 +417,11 @@ class bkashpayment(LoginRequiredMixin,ListView):
 
 
 
+class updatedailyline(LoginRequiredMixin,ListView):
+    context_object_name = 'fulllist'
+    model = userupdate
+    template_name= 'goninda/dalyconnection.html'
+
+
+
 
