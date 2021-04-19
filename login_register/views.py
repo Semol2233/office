@@ -382,7 +382,7 @@ class OFFICE_internetbill(LoginRequiredMixin,ListView):
     context_object_name = 'fulllis'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Orange',date__range=["2021-04-11", "2021-04-30"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='orange',date__range=["2021-04-11", "2021-04-30"])
 
 
 class OFFICE_Electric(LoginRequiredMixin,ListView):
