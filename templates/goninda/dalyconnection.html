@@ -204,6 +204,9 @@
         <div class="col text-light dfcdd">
           <h1 id="totalcost" style=" font-weight: bold;"  ></h1>
         </div>
+        <div class="col text-light dfcdd">
+          <h1 id="totassssslcost" style=" font-weight: bold;"  ></h1>
+        </div>
       
         </div>
     </div>
@@ -242,7 +245,7 @@
       {
              var cost;
              var totalcost = 0;
-             $('td:nth-child(4)').each(function(){
+             $('td:nth-child(5)').each(function(){
               cost = $(this).html();
               totalcost+=parseInt(cost);
                 $('#totalcost').text(totalcost)
@@ -254,10 +257,22 @@
       {
              var cost;
              var totalcost = 0;
-             $('td:nth-child(5)').each(function(){
+             $('td:nth-child(6)').each(function(){
               cost = $(this).html();
               totalcost+=parseInt(cost);
                 $('#totassslcost').text(totalcost)
+    
+             });
+      });
+
+      $(document).ready(function()
+      {
+             var cost;
+             var totalcost = 0;
+             $('td:nth-child(1)').each(function(){
+              cost = $(this).html();
+              totalcost+=parseInt(cost);
+                $('#totassssslcost').text(totalcost)
     
              });
       });
