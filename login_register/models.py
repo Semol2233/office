@@ -175,3 +175,19 @@ class userupdate(models.Model):
     def __str__(self):
         return self.user_name
 
+
+
+
+class loon(models.Model):
+    PAYMENT = (
+        ('B', 'BKASH'),
+        ('P', 'PREPAIDBILL'),
+        ('M', 'MONTHLYBILL'),
+        ('R', 'ROUTER')
+    )
+    loon_date = models.DateTimeField()
+    loon      = models.CharField(max_length=1, choices=PAYMENT)
+    how_many  =  models.CharField(max_length=255)
+    why_loon  =  models.TextField()
+
+

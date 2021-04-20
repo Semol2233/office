@@ -15,3 +15,7 @@ admin.site.register(bkashuserpaymanet)
 admin.site.register(router_brnd)
 admin.site.register(router)
 admin.site.register(userupdate)
+admin.site.register(loon)
+
+
+
