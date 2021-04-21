@@ -46,7 +46,8 @@ urlpatterns = [
     path('bkpayment',bkashpayment.as_view(),name='bkpayment'),
     path('update',updatedailyline.as_view(),name='updssate'),
     path('uspdate',updatessdata,name='update'),
-
+    path('loon',looan,name='loon'),
+ 
 
 ]
 

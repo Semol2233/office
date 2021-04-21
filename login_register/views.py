@@ -433,3 +433,20 @@ def updatessdata(request):
 
 
 
+# class loosan(LoginRequiredMixin,ListView):
+#     context_object_name = 'fulsllist'
+#     model = loon
+#     template_name= 'goninda/loon.html'
+
+
+
+
+def looan(request):
+    BDDDKASH = loon.objects.filter(loon_source__contains='B')
+    PREPAIDBILL = loon.objects.filter(loon_source__contains='P')
+    MONTHLYBILL = loon.objects.filter(loon_source__contains='M')
+    ROUTER = loon.objects.filter(loon_source__contains='R')
+    alldata = loon.objects.all()
+
+
+    return render(request,"goninda/loon.html",{'alldata':alldata,'BKASH':BDDDKASH,'PREPjjAIDBILL':PREPAIDBILL,'MONTHLYBILL':MONTHLYBILL,'ROUTER':ROUTER})

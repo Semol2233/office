@@ -186,8 +186,12 @@ class loon(models.Model):
         ('R', 'ROUTER')
     )
     loon_date = models.DateTimeField()
-    loon      = models.CharField(max_length=1, choices=PAYMENT)
+    loon_source     = models.CharField(max_length=1, choices=PAYMENT)
     how_many  =  models.CharField(max_length=255)
     why_loon  =  models.TextField()
 
+
+
+    def __str__(self):
+        return self.why_loon
 

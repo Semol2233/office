@@ -18,6 +18,17 @@
    
   </head>
 
+
+
+
+
+
+
+
+
+
+
+
   <body style="background-color: #1d1b1b;">
     {% if user.is_authenticated %}
 
@@ -76,9 +87,6 @@
                 <li class="nav-item my-2 my-lg-0">
                     <a class="nav-link active" href="{% url 'update' %}"><span class="text-muted "></span>Connection</a>
                 </li>
-                <li class="nav-item my-2 my-lg-0">
-                  <a class="nav-link active" href="{% url 'loon' %}"><span class="text-muted "></span>Loon</a>
-              </li>
 
                 <li class="nav-item my-2 my-lg-0">
                     <a class="nav-link active" href="{% url 'logout' %}"><span class="text-muted "></span>Logout</a>
@@ -120,8 +128,6 @@
                           <a class="nav-link" href="#"> Admin</a>
                       </li>
                       {% endif %} -->
-
-                      
     
                       <li class="nav-item my-2 my-lg-0">
                         <a class="nav-link active" href="{% url 'logout' %}"><span class="text-muted "></span>Logout</a>
@@ -196,27 +202,39 @@
   <div class="row  d-flex justify-content-between">
     <div class="col-sm" style="color: blanchedalmond;">
       <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
-        <div class="card-header">New Connection</div>
+        <div class="card-header">Bkash</div>
         <div class="card-body text-primary">
-          <h5  style=" font-weight: bold;"  class="card-title">{{datatwo.user_sn}}</h5>
+          <h5  id="bkash" style=" font-weight: bold;"  class="card-title"></h5>
         
         </div>
       </div>
     </div>
     <div class="col-sm" style="color: blanchedalmond;">
       <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
-        <div class="card-header">Service Charge</div>
+        <div class="card-header">PREPAIDBILL</div>
         <div class="card-body text-primary">
-          <h5 id="totalcost" style=" font-weight: bold;" class="card-title"></h5>
+          <h5 id="PREPAIDBILL" style=" font-weight: bold;" class="card-title"></h5>
         
         </div>
       </div>
     </div>
     <div class="col-sm" style="color: blanchedalmond;">
       <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
-        <div class="card-header">Prepaidbill</div>
+        <div class="card-header">MONTHLYBILL</div>
         <div class="card-body text-primary">
-          <h5 id="totassslcost" style=" font-weight: bold;"   class="card-title"></h5>
+          <h5 id="MONTHLYBILL" style=" font-weight: bold;"   class="card-title"></h5>
+        
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="col-sm" style="color: blanchedalmond;">
+      <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
+        <div class="card-header">ROUTER</div>
+        <div class="card-body text-primary">
+          <h5 id="ROUTER" style=" font-weight: bold;"   class="card-title"></h5>
         
         </div>
       </div>
@@ -234,7 +252,7 @@
     
       .colors{
     
-        color: aliceblue;
+        color: #1d1b1b;
       }
     
       .centered {
@@ -256,113 +274,207 @@
     
     
     <script>
-    
       $(document).ready(function()
       {
              var cost;
              var totalcost = 0;
-             $('td:nth-child(4)').each(function(){
+             $('td:nth-child(3)').each(function(){
               cost = $(this).html();
               totalcost+=parseInt(cost);
-                $('#totalcost').text(totalcost)
+                $('#bkash').text(totalcost)
     
              });
       });
+
 
       $(document).ready(function()
       {
              var cost;
              var totalcost = 0;
-             $('td:nth-child(5)').each(function(){
+             $('td:nth-child(6)').each(function(){
               cost = $(this).html();
               totalcost+=parseInt(cost);
-                $('#totassslcost').text(totalcost)
+                $('#PREPAIDBILL').text(totalcost)
     
              });
       });
+
 
       $(document).ready(function()
       {
              var cost;
              var totalcost = 0;
-             $('td:nth-child(7)').each(function(){
+             $('td:nth-child(10)').each(function(){
               cost = $(this).html();
               totalcost+=parseInt(cost);
-                $('#totaluser').text(totalcost)
+                $('#MONTHLYBILL').text(totalcost)
+    
+             });
+      });
+
+
+
+      $(document).ready(function()
+      {
+             var cost;
+             var totalcost = 0;
+             $('td:nth-child(12)').each(function(){
+              cost = $(this).html();
+              totalcost+=parseInt(cost);
+                $('#ROUTER').text(totalcost)
     
              });
       });
     </script>
     
-    <table class="table table-bordered mt-2 table-hover table-dark">
-        <thead>
-          <tr>
-            
-            <th scope="col" class="colors">Date</th>
-            <th scope="col" class="colors">User Id</th>
-            <th scope="col" class="colors">User Name</th>
-            <th scope="col" class="colors">prepaidbill</th>
-            <th scope="col" class="colors">Service Chrage</th>
-            <th scope="col" class="colors">Payment Method</th>
-            <th scope="col" class="colors">SN</th>
-    
-        
-    
-            
-    
-          </tr>
-        </thead>
-        <tbody>
-            {% for q in dataone %}
-            <tr>
-                
-                <td  class="colors">{{q.date_user}}</td>
-                <td class="colors">{{q.user_id}}</td>
-                <td class="colors">{{q.user_name}}</td>
-                <td class="colors" > {{q.prepaidbill}}</td>
-                <td class="colors" > {{q.service_chagre}}</td>
-                <td class="colors" > {{q.payment_method}}</td>
-                <td class="colors">{{q.user_sn}}</td>
-    
-             
-                  
-    
-                {% if request.user.is_superuser%}
-    
-                <!-- <td class="colors"><a href="{% url 'up' q.id%}"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="{% url 'del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td> -->
-              </tr>
-              {% else%}
-              <td class="colors"><a href="#"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="#"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td>
-              {% endif %}
-    
-    
-          {% endfor %} 
-          <script>
-    
-            $(document).ready(function()
-            {
-                   var cost;
-                   var totalcost = 0;
-                   $('td:nth-child(4)').each(function(){
-                    cost = $(this).html();
-                    totalcost+=parseInt(cost);
-                      $('#tosstalcost').text(totalcost)
+
+
+
+
+
+
+
+
+
+
+   <div style="width: 1px; height: 1px;">
+    <table>
+      <thead>
+        <tr>
           
-                   });
-            });
-          </script>
-          <tr>
-            <td class="colors" colspan="3">Total</td>
-            <td class="colors"  id="tosstalcost" colspan="10"></td>
-          </tr>
-        </tbody>
-       
-      </table>
+          <th scope="col" class="colors">Date</th>
+          <th scope="col" class="colors">User Id</th>
+          <th scope="col" class="colors">User Name</th>
+          <th scope="col" class="colors">prepaidbill</th>
+          <th scope="col" class="colors">Service Chrage</th>
+          <th scope="col" class="colors">Payment Method</th>
+          <th scope="col" class="colors">SN</th>
+  
       
+  
+          
+  
+        </tr>
+ 
+    
+          {% for q in BKASH %}
+         
+              
+              <td  class="colors">{{q.loon_date}}</td>
+              <td class="colors">{{q.loon}}</td>
+              <td class="colors">{{q.how_many}}</td>
+              <td class="colors" > {{q.why_loon}}</td>
+  
+        {% endfor %} 
+
+
+        {% for r in PREPjjAIDBILL %}
+         
+              
+        <td  class="colors">{{r.loon_date}}</td>
+        <td class="colors">{{r.how_many}}</td>
+     
+
+  {% endfor %}
+  {% for q in MONTHLYBILL %}
+         
+              
+
+  <td class="colors">{{q.loon}}</td>
+  <td class="colors">{{q.how_many}}</td>
+ 
+
+{% endfor %} 
+
+
+
+{% for q in ROUTER %}
+         
+              
+
+<td class="colors">{{q.loon}}</td>
+<td class="colors">{{q.how_many}}</td> -->
+
+
+{% endfor %} 
+        <script>
+  
+          $(document).ready(function()
+          {
+                 var cost;
+                 var totalcost = 0;
+                 $('td:nth-child(3)').each(function(){
+                  cost = $(this).html();
+                  totalcost+=parseInt(cost);
+                    $('#tosstalcost').text(totalcost)
+        
+                 });
+          });
+        </script>
+        <tr>
+          <td class="colors" colspan="3">Total</td>
+          <td class="colors"  id="tosstalcost" colspan="10"></td>
+        </tr>
+      </tbody>
+     
+    </table>
+    
+   </div>
     
     {% endblock  %}
     
 </div>
+
+
+<!-- <div class="container">
+
+  
+  <div class="card-columns">
+    {% for q in alldata %}
+    <div class="card" style="background-color: rgb(136, 135, 135);">
+      <blockquote class="blockquote  card-body">
+        <p>{{q.loon_source}}</p>
+
+
+        <footer class="blockquote-footer">
+          <small class="text-muted">
+            <cite title="Source Title">{{q.how_many}} BDT</cite>
+            
+          </small>
+        </footer>
+      </blockquote>
+    </div>
+    
+   
+    {% endfor %} 
+  </div>
+  
+
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
