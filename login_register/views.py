@@ -450,3 +450,27 @@ def looan(request):
 
 
     return render(request,"goninda/loon.html",{'alldata':alldata,'BKASH':BDDDKASH,'PREPjjAIDBILL':PREPAIDBILL,'MONTHLYBILL':MONTHLYBILL,'ROUTER':ROUTER})
+
+
+
+
+
+# def montlybillview(request):
+#     bill = monthlybill.objects.all()
+#     paid_user = monthlybill.objects.filter(payment_status__name=True).count()
+#     print(paid_user)
+#     return render(request,"goninda/montlybill.html",{'bill':bill,'paidsuser':paid_user})
+
+class montlybillview(LoginRequiredMixin,ListView):
+    model = monthlybill
+    template_name= 'goninda/montlybill.html'
+
+    def get_context_data(self, **kwargs):
+         context = super(montlybillview, self).get_context_data(**kwargs)
+         context['alldata'] = monthlybill.objects.all()
+         context['totaluser'] = monthlybill.objects.all().count()
+         context['paiduser'] = monthlybill.objects.filter(payment_status=True).count()
+         context['unpaiduser'] = monthlybill.objects.filter(payment_status=False).count()
+         return context
+
+

@@ -16,6 +16,13 @@ admin.site.register(router_brnd)
 admin.site.register(router)
 admin.site.register(userupdate)
 admin.site.register(loon)
+admin.site.register(monthlybill)
+admin.site.register(payment_methods)
+admin.site.register(pkg)
+
+
+
+
 
 
 

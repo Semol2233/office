@@ -151,7 +151,7 @@ class router(models.Model):
     Price         =      models.CharField(max_length=255)
 
     def __str__(self):
-        return self.RounterBrand
+        return self.Price
 
 
 
@@ -181,7 +181,7 @@ class userupdate(models.Model):
 class loon(models.Model):
     PAYMENT = (
         ('B', 'BKASH'),
-        ('P', 'PREPAIDBILL'),
+        ('P', 'SERVICE CHRAGE'),
         ('M', 'MONTHLYBILL'),
         ('R', 'ROUTER')
     )
@@ -195,3 +195,28 @@ class loon(models.Model):
     def __str__(self):
         return self.why_loon
 
+class payment_methods(models.Model):
+    methosd = models.CharField(max_length=255)
+    
+    def __str__(self):
+        return self.methosd
+
+class pkg(models.Model):
+    pkg_list = models.CharField(max_length=255)
+    
+    def __str__(self):
+        return self.pkg_list
+
+class monthlybill(models.Model):
+    activiton_date   = models.DateTimeField()
+    user_id          = models.CharField(max_length=255)
+    user_phonenumber = models.CharField(max_length=255)
+    payment_method   = models.ForeignKey(payment_methods, on_delete=models.CASCADE)
+    pay_date         = models.DateTimeField()
+    payment_status   = models.BooleanField(default=False)
+    previus_due      = models.CharField(max_length=255)
+    pkg              = models.ForeignKey(pkg, on_delete=models.CASCADE)
+    description      = models.TextField()
+
+    def __str__(self):
+        return self.user_id

@@ -47,6 +47,8 @@ urlpatterns = [
     path('update',updatedailyline.as_view(),name='updssate'),
     path('uspdate',updatessdata,name='update'),
     path('loon',looan,name='loon'),
+    path('bill',montlybillview.as_view(),name='montslybillview'),
+
  
 
 ]
