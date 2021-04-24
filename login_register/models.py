@@ -212,11 +212,11 @@ class monthlybill(models.Model):
     user_id          = models.CharField(max_length=255)
     user_phonenumber = models.CharField(max_length=255)
     payment_method   = models.ForeignKey(payment_methods, on_delete=models.CASCADE)
-    pay_date         = models.DateTimeField()
+    pay_date         = models.DateTimeField(blank=True)
     payment_status   = models.BooleanField(default=False)
-    previus_due      = models.CharField(max_length=255)
+    previus_due      = models.CharField(max_length=255,blank=True)
     pkg              = models.ForeignKey(pkg, on_delete=models.CASCADE)
-    description      = models.TextField()
+    description      = models.TextField(blank=True)
 
     def __str__(self):
         return self.user_id

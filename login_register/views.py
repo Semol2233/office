@@ -409,13 +409,6 @@ class OFFICE_Pickup(LoginRequiredMixin,ListView):
 
 
 
-class bkashpayment(LoginRequiredMixin,ListView):
-    context_object_name = 'fulllist'
-    model = bkashuserpaymanet
-    template_name= 'goninda/nk.html'
-  
-
-
 
 class updatedailyline(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
@@ -474,3 +467,27 @@ class montlybillview(LoginRequiredMixin,ListView):
          return context
 
 
+
+from django.db.models import Sum
+
+class bkashpayment(LoginRequiredMixin,ListView):
+    model = monthlybill
+    template_name= 'goninda/nk.html'
+
+    def get_context_data(self, **kwargs):
+         context = super(bkashpayment, self).get_context_data(**kwargs)
+         context['ddfcdc'] = monthlybill.objects.aggregate(Sum('pkg'))
+         context['totaluser'] = monthlybill.objects.all().count()
+         context['paiduser'] = monthlybill.objects.filter(payment_status=True).count()
+         context['unpaiduser'] = monthlybill.objects.filter(payment_status=False).count()
+         return context
+  
+
+
+# class bkashpayment(LoginRequiredMixin,ListView):
+#     context_object_name = 'fulllist'
+#     model = bkashuserpaymanet
+#     template_name= 'goninda/nk.html'
+  
+
+# objects.filter(payment_method__methosd__contains='CASH').annotate(due_taka_total=Sum('duetaka__customer_due')).order_by('-customer_updated')
