@@ -22,7 +22,7 @@ urlpatterns = [
     path('ponlist',indexs,name='wsrn'),
     path('areacode',loc_lshotlist,name='wssrn'),
 
-    path('scsc',dailybing_view.as_view(),name='ijdfcsdj'),
+    path('scsc',dailybing_view.as_view(),name='ijdfcdj'),
     path('',daulycost_list.as_view(),name='ijdfscdj'),
 
 
