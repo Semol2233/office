@@ -208,9 +208,9 @@ class pkg(models.Model):
         return self.pkg_list
 
 class monthlybill(models.Model):
-    activiton_date   = models.DateTimeField()
+    activiton_date   = models.DateTimeField(null=True, blank=True)
     user_id          = models.CharField(max_length=255)
-    user_phonenumber = models.CharField(max_length=255)
+    user_phonenumber = models.CharField(max_length=255,blank=True)
     payment_method   = models.ForeignKey(payment_methods, on_delete=models.CASCADE)
     pay_date         = models.DateTimeField(null=True, blank=True)
     payment_status   = models.BooleanField(default=False)
