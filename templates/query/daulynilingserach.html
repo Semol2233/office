@@ -1,3 +1,4 @@
+
 <!doctype html>
 {% load static %}
 <html lang="en">
@@ -149,265 +150,211 @@
       </div>
     </nav>
    
-    <!-- <div class="container mt-2">
-    <div class="container mt-5 card  shadow-lg p-3 mb-5 bg-white rounded"></div>
-    <form method="POST">
-        {% csrf_token %}
-        
-        {% if fail %}
-           <p class="text-danger"><strong>User name or password wrong</strong></p>
-        {% endif %}
-        <div class="form-group">
-            <label for="user">UserName</label>
-            <input type="text" name="username" id="user" class="form-control" placeholder="Enter Name...">
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" class="form-control" placeholder="******">
-        </div>
-        <input type="submit" class="btn btn-success" value="Login">
-    </form>
-</div>
-</div> -->
+{% block content %}
 
 
-<!--      
-<div class="container mt-3 card col-sm-5 shadow-lg p-3 mb-5 bg-white rounded">
-    <form method="POST">
-        {% csrf_token %}
-        
-        {% if fail %}
-           <p class="text-danger"><strong>User name or password wrong</strong></p>
-        {% endif %}
-        <div class="form-group">
-            <label for="user">UserName</label>
-            <input type="text" name="username" id="user" class="form-control" placeholder="Enter Name...">
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" class="form-control" placeholder="******">
-        </div>
-        <input type="submit" class="btn btn-success" value="Login">
-    </form>
-
-
-
-</div> -->
-
+{% if submitbutton == 'Search' and request.GET.q != '' %}
+{% if results %}
 
 
 <div class="container mt-4">
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-    </svg></button>
-  
-  
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+      </svg></button>
+    
+    
 </div>
 
 
 <div class="container mt-3">
 
-  <div class="collapse multi-collapse" id="multiCollapseExample2">
-      <div class="card card-body">
-        <form class="form-inline my-2 my-lg-0" action="{% url 'datad' %}" method="GET" value="{{request.GET.f}}">
-            <input class="form-control mr-sm-2" type="date" placeholder="Search" name="f" value="{{request.GET.f}}">
-            <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="subtmit" value="Search" style="color: rgb(0, 0, 0);"/></input>
-          </form>
+    <div class="collapse multi-collapse" id="multiCollapseExample2">
+        <div class="card card-body">
+          <form class="form-inline my-2 my-lg-0" action="{% url 'srdaily' %}" method="GET" value="{{request.GET.f}}">
+              <input class="form-control mr-sm-2" type="date" placeholder="Search" name="f" value="{{request.GET.f}}">
+              <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="subtmit" value="Search" style="color: rgb(0, 0, 0);"/></input>
+            </form>
+        </div>
       </div>
-    </div>
+  
+  </div>
+
+<style>
+  .colors{
+    color: aliceblue;
+  }
+</style>
+
+<div class="container">
+    <h5 class="colors" style="margin-top: 30px;">Results for <b>{{ request.GET.f }}</b></h5>
+<br/><br/>
+<script>
+
+  $(document).ready(function()
+  {
+         var cost;
+         var totalcost = 0;
+         $('td:nth-child(4)').each(function(){
+          cost = $(this).html();
+          totalcost+=parseInt(cost);
+            $('#tosstalcost').text(totalcost)
+
+         });
+  });
+</script>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th class="colors" scope="col">ID</th>
+      <th class="colors" scope="col">Date</th>
+      <th class="colors" scope="col">Profile</th>
+      <th class="colors" scope="col">Cost</th>
+      <th class="colors" scope="col">Description</th>
+    
+
+    </tr>
+  </thead>
+  <tbody>
+      {% for q in results %}
+      <tr>
+          <th class="colors" scope="row">{{q.id}}</th>
+          <td class="colors">{{q.date}}</td>
+          <td class="colors" > {{q.cost_profile.cost_name}}</td>
+          <td class="colors" > {{q.cost}}</td>
+          <td class="colors" > {{q.description}}</td>
+
+          {% if request.user.is_superuser%}
+
+        
+          <!-- <td><a href="{% url 'up' q.id%}"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="{% url 'del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td> -->
+
+        </tr>
+        {% else%}
+        <td><a href="#"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="#"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td>
+        {% endif %}
+
+
+    {% endfor %} 
+
+  </tbody>
+  <tr>
+    <td class="colors" colspan="3">Total</td>
+    <td class="colors"  id="tosstalcost" colspan="10"></td>
+  </tr>
+</table>
+
+
 
 </div>
 
 
 
- <div class="container d-flex justify-content-between">
-  <h5 class="mt-4 " style="color: blanchedalmond;">
-    10.4 - 10.5
-  </h5>
- </div> 
+
+
+{% else %}
 
 <div class="container mt-4">
-  <div class="row  d-flex justify-content-between">
-    <div class="col-sm" style="color: blanchedalmond;">
-      <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
-        <div class="card-header">New Connection</div>
-        <div class="card-body text-primary">
-          <h5  style=" font-weight: bold;"  class="card-title">{{datatwo.user_sn}}</h5>
-        
-        </div>
-      </div>
-    </div>
-    <div class="col-sm" style="color: blanchedalmond;">
-      <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
-        <div class="card-header">Prepaidbill</div>
-        <div class="card-body text-primary">
-          <h5 id="totalcost" style=" font-weight: bold;" class="card-title"></h5>
-        
-        </div>
-      </div>
-    </div>
-    <div class="col-sm" style="color: blanchedalmond;">
-      <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
-        <div class="card-header">Service Charge</div>
-        <div class="card-body text-primary">
-          <h5 id="totassslcost" style=" font-weight: bold;"   class="card-title"></h5>
-        
-        </div>
-      </div>
-    </div>
-  </div>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+      </svg></button>
+    
+    
 </div>
 
 
+<div class="container mt-3">
 
-<div class="container mt-1">
-    
-    {% block content %}
+    <div class="collapse multi-collapse" id="multiCollapseExample2">
+        <div class="card card-body">
+          <form class="form-inline my-2 my-lg-0" action="{% url 'srdaily' %}" method="GET" value="{{request.GET.f}}">
+              <input class="form-control mr-sm-2" type="date" placeholder="Search" name="f" value="{{request.GET.f}}">
+              <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="subtmit" value="Search" style="color: rgb(0, 0, 0);"/></input>
+            </form>
+        </div>
+      </div>
+  
+  </div>
 
-    <style>
-    
-      .colors{
-    
-        color: aliceblue;
-      }
-    
-      .centered {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    
-    .centsered {
-      position: absolute;
-      top: 35%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    
-    
-    </style>
-    
-    
-    <script>
-    
-      $(document).ready(function()
-      {
-             var cost;
-             var totalcost = 0;
-             $('td:nth-child(4)').each(function(){
-              cost = $(this).html();
-              totalcost+=parseInt(cost);
-                $('#totalcost').text(totalcost)
-    
-             });
-      });
+<div class="container mt-5">
+    <div class="alert alert-primary" role="alert">
+        No search results for this query
+      </div>
 
-      $(document).ready(function()
-      {
-             var cost;
-             var totalcost = 0;
-             $('td:nth-child(5)').each(function(){
-              cost = $(this).html();
-              totalcost+=parseInt(cost);
-                $('#totassslcost').text(totalcost)
-    
-             });
-      });
 
-      $(document).ready(function()
-      {
-             var cost;
-             var totalcost = 0;
-             $('td:nth-child(7)').each(function(){
-              cost = $(this).html();
-              totalcost+=parseInt(cost);
-                $('#totaluser').text(totalcost)
-    
-             });
-      });
-    </script>
-    
-    <table class="table table-bordered mt-2 table-hover table-dark">
+
+
+      <style>
+        .colors{
+          color: aliceblue;
+        }
+      </style>
+      <h5 class="colors" style="margin-top: 30px;">Results for <b>{{ request.GET.f }}</b></h5>
+      <br/><br/>
+      <script>
+      
+        $(document).ready(function()
+        {
+               var cost;
+               var totalcost = 0;
+               $('td:nth-child(4)').each(function(){
+                cost = $(this).html();
+                totalcost+=parseInt(cost);
+                  $('#tosstalcost').text(totalcost)
+      
+               });
+        });
+      </script>
+      
+      <table class="table table-bordered">
         <thead>
           <tr>
-            
-            <th scope="col" class="colors">Date</th>
-            <th scope="col" class="colors">User Id</th>
-            <th scope="col" class="colors">User Name</th>
-            <th scope="col" class="colors">prepaidbill</th>
-            <th scope="col" class="colors">Service Chrage</th>
-            <th scope="col" class="colors">Payment Method</th>
-            <th scope="col" class="colors">SN</th>
-    
-        
-    
-            
-    
+            <th class="colors" scope="col">ID</th>
+            <th class="colors" scope="col">Date</th>
+            <th class="colors" scope="col">Profile</th>
+            <th class="colors" scope="col">Cost</th>
+            <th class="colors" scope="col">Description</th>
+          
+      
           </tr>
         </thead>
         <tbody>
-            {% for q in dataone %}
+            {% for q in results %}
             <tr>
-                
-                <td  class="colors">{{q.date_user}}</td>
-                <td class="colors">{{q.user_id}}</td>
-                <td class="colors">{{q.user_name}}</td>
-                <td class="colors" > {{q.prepaidbill}}</td>
-                <td class="colors" > {{q.service_chagre}}</td>
-                <td class="colors" > {{q.payment_method}}</td>
-                <td class="colors">{{q.user_sn}}</td>
-    
-             
-                  
-    
+                <th class="colors" scope="row">{{q.id}}</th>
+                <td class="colors">{{q.date}}</td>
+                <td class="colors" > {{q.cost_profile.cost_name}}</td>
+                <td class="colors" > {{q.cost}}</td>
+                <td class="colors" > {{q.description}}</td>
+      
                 {% if request.user.is_superuser%}
-    
-                <!-- <td class="colors"><a href="{% url 'up' q.id%}"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="{% url 'del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td> -->
+      
+              
+                <!-- <td><a href="{% url 'up' q.id%}"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="{% url 'del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td> -->
+      
               </tr>
               {% else%}
-              <td class="colors"><a href="#"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="#"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td>
+              <td><a href="#"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="#"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td>
               {% endif %}
-    
-    
+      
+      
           {% endfor %} 
-          <script>
-    
-            $(document).ready(function()
-            {
-                   var cost;
-                   var totalcost = 0;
-                   $('td:nth-child(4)').each(function(){
-                    cost = $(this).html();
-                    totalcost+=parseInt(cost);
-                      $('#tosstalcost').text(totalcost)
-          
-                   });
-            });
-          </script>
-          <tr>
-            <td class="colors" colspan="3">Total</td>
-            <td class="colors"  id="tosstalcost" colspan="10"></td>
-          </tr>
+      
         </tbody>
-       
+        <tr>
+          <td class="colors" colspan="3">Total</td>
+          <td class="colors"  id="tosstalcost" colspan="10"></td>
+        </tr>
       </table>
       
+      
+      
+      
+{% endif %}
+{% endif %}
+
+{% endblock content %}
     
-    {% endblock  %}
-    
-</div>
-
-
-
-
-
-<script>
-  $('.datepicker').datepicker({
-    format: 'dd/mm/yyyy'
- });
-</script>
-
 
 
 

@@ -304,7 +304,7 @@ class daulycost_list(LoginRequiredMixin,ListView):
     model = dailybilling
     template_name= 'goninda/list.html'
     #queryset = dailybilling.objects.filter(created_date__gte=datetime.now() - timedelta(days=1))
-    queryset = dailybilling.objects.filter(date__range=["2021-04-11", "2021-04-30"]).exclude(cost_profile__cost_name__contains='Advance salary')
+    queryset = dailybilling.objects.filter(date__range=["2021-04-11", "2021-05-11"]).exclude(cost_profile__cost_name__contains='Advance salary')
 
 
 
@@ -329,7 +329,7 @@ class OFFICE_COST(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Office Cost',date__range=["2021-04-11", "2021-04-30"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Office Cost',date__range=["2021-04-11", "2021-05-11"])
 
 
 
@@ -337,7 +337,7 @@ class OFFICE_bike(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Bike Cost',date__range=["2021-04-11", "2021-04-30"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Bike Cost',date__range=["2021-04-11", "2021-05-11"])
 
 
 
@@ -345,14 +345,14 @@ class OFFICE_family(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Family',date__range=["2021-04-11", "2021-04-30"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Family',date__range=["2021-04-11", "2021-05-11"])
 
 
 class OFFICE_product(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Product Cost',date__range=["2021-04-11", "2021-04-30"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Product Cost',date__range=["2021-04-11", "2021-05-11"])
 
 
 
@@ -360,14 +360,14 @@ class OFFICE_salllery(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Salary',date__range=["2021-04-11", "2021-04-30"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Salary',date__range=["2021-04-11", "2021-05-11"])
 
 
 class OFFICE_trnasportcost(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Transport Cost',date__range=["2021-04-11", "2021-04-30"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Transport Cost',date__range=["2021-04-11", "2021-05-11"])
 
 
 
@@ -375,21 +375,21 @@ class OFFICE_Chika(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Chika',date__range=["2021-04-11", "2021-04-30"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Chika',date__range=["2021-04-11", "2021-05-11"])
 
 
 class OFFICE_internetbill(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='orange',date__range=["2021-04-11", "2021-04-30"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='orange',date__range=["2021-04-11", "2021-05-11"])
 
 
 class OFFICE_Electric(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Electric Cost',date__range=["2021-04-11", "2021-04-30"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Electric Cost',date__range=["2021-04-11", "2021-05-11"])
 
 
 
@@ -397,7 +397,7 @@ class OFFICE_Employ(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Employ Cost',date__range=["2021-04-11", "2021-04-30"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Employ Cost',date__range=["2021-04-11", "2021-05-11"])
 
 
 
@@ -405,7 +405,7 @@ class OFFICE_Pickup(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Pickup Cost',date__range=["2021-04-11", "2021-04-30"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Pickup Cost',date__range=["2021-04-11", "2021-05-11"])
 
 
 
@@ -491,3 +491,50 @@ class bkashpayment(LoginRequiredMixin,ListView):
   
 
 # objects.filter(payment_method__methosd__contains='CASH').annotate(due_taka_total=Sum('duetaka__customer_due')).order_by('-customer_updated')
+# class API_objedfcts(APIView, PaginationHandlerMixin):
+#     pagination_class = StandadrdResultsSetPagination
+
+#     def get(self, request, category, *args, **kwargs):
+#         authors = tag_createors.objects.filter(tagSlug=category).values('tagSlug','tag_name')
+#         if authors:
+#             posts = PostCreate.objects.filter(tag_creator__tagSlug=category).values('title', 'slug', 'photo','release_date','view','SeoTitle','SeoMetaDes','Seoimgalt').order_by('-id')
+#             for author in list(authors):
+#                 response = {
+#                 'tagSlug': author['tagSlug'],
+#                 'tag_name': author['tag_name']
+
+#                 }
+#             page = self.paginate_queryset(list(posts))
+#             response['List'] = page
+#             paginated_response = self.get_paginated_response(response)
+#             return JsonResponse(paginated_response.data, safe=False)
+#         return HttpResponse('No matching data found', status=404)
+
+
+
+
+
+def qurydata(request):
+    if request.method == 'GET':
+        query= request.GET.get('f')
+        submitbutton= request.GET.get('subtmit')
+        results= userupdate.objects.filter(Q(date_user__icontains=query))
+        context={'results': results,
+                     'submitbutton': submitbutton}
+        return render(request, 'query/connectionnew.html', context)
+    else:
+        return render(request, 'query/connectionnew.html')
+
+
+
+def dailyserach(request):
+    if request.method == 'GET':
+        query= request.GET.get('f')
+        submitbutton= request.GET.get('subtmit')
+        results= dailybilling.objects.filter(Q(date__icontains=query))
+        context={'results': results,
+                     'submitbutton': submitbutton}
+        return render(request, 'query/daulynilingserach.html', context)
+    else:
+        return render(request, 'query/daulynilingserach.html')
+

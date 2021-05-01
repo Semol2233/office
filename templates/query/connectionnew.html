@@ -1,0 +1,569 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <title>Hey</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'css_file/style.css' %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+  <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+   
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&display=swap" rel="stylesheet">
+  </head>
+<style>
+    .dycgdych{
+
+        font-family: 'Hind Siliguri', sans-serif;
+    }
+</style>
+  <body style="background-color: #1d1b1b;">
+    {% if user.is_authenticated %}
+
+
+       
+        <nav class="navbar navbar-expand-sm navbar-dark    navbar-default " style="background-color: #343a40;">
+            <div class="container">
+              <a class="navbar-brand dfdfdefe" href="{% url 'ijdfscdj' %}" style="font-weight: bold;   text-transform: uppercase;">Hey</a>
+              <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                  aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+      
+
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+                <li class="nav-item">
+                    <a class="nav-link dycgdych">  <span class="text-white"><i  class="fa fa-user text-success"> </i> {{ request.user.username }}</span></a>
+                  </li>
+
+
+                  <!-- {% if user.is_superuser %}
+                  <li class="nav-item">
+                      <a class="nav-link" href="#"> Admin</a>
+                  </li>
+                  {% endif %} -->
+                  {% if request.user.is_superuser %}
+                  <!-- <li class="nav-item my-2 my-lg-0">
+                    <a class="nav-link active" href="{% url 'wrn' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Create Package</a>
+                </li> -->
+                {% endif %}
+
+                <!-- <li class="nav-item my-2 my-lg-0">
+                    <a class="nav-link active" href="{% url 'user' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>User Uplode</a>
+                </li> -->
+                {% if request.user.is_superuser %}
+                <!-- <li class="nav-item my-2 my-lg-0">
+                    <a class="nav-link active" href="{% url 'wsrn' %}"><span class="text-success"></span>PON</a>
+                </li> -->
+
+                <!-- <li class="nav-item my-2 my-lg-0">
+                    <a class="nav-link active" href="#"><span class="text-success"></span>Area ID</a>
+                </li> -->
+                {% endif %}
+
+
+                <li class="nav-item my-2 my-lg-0">
+                    <a class="nav-link active dycgdych" href="#"><span class="text-muted "></span>Router</a>
+                </li>
+
+                <li class="nav-item my-2 my-lg-0">
+                    <a class="nav-link active dycgdych" href="{% url 'bkpayment' %}"><span class="text-muted "></span>Bkash</a>
+                </li>
+                
+                <li class="nav-item my-2 my-lg-0">
+                    <a class="nav-link active dycgdych" href="{% url 'update' %}"><span class="text-muted "></span>Connection</a>
+                </li>
+
+                <li class="nav-item my-2 my-lg-0">
+                    <a class="nav-link active dycgdych" href="{% url 'loon' %}"><span class="text-muted "></span>Loon</a>
+                </li>
+
+                <li class="nav-item my-2 my-lg-0">
+                    <a class="nav-link active dycgdych" href="{% url 'montslybillview' %}"><span class="text-muted "></span>Monthly Bill</a>
+                </li>
+                <li class="nav-item my-2 my-lg-0">
+                    <a class="nav-link active dycgdych" href="{% url 'logout' %}"><span class="text-muted "></span>Logout</a>
+                </li>
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action="{% url 'serach' %}" method="GET" value="{{request.GET.q}}">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" value="{{request.GET.q}}">
+                <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="submit" value="Search" style="color: white;"/></input>
+            </form>
+            {% else %}
+            
+          
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'lsoc' %}">Location</a>
+                  </li>
+                     
+                <li class="nav-item">
+                    <a class="nav-link">  <span class="text-white"><i  class="fa fa-user text-success"> </i> {{ request.user.username }}</span></a>
+                  </li>
+
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="text-success"><i class="fa fa-plus"></i></span> Uplode
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Vlan</a>
+                            <a class="dropdown-item" href="#"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Location</a>
+    
+                           
+                        </div>
+                      </li> -->
+                      <!-- {% if user.is_superuser %}
+                      <li class="nav-item">
+                          <a class="nav-link" href="#"> Admin</a>
+                      </li>
+                      {% endif %} -->
+    
+                      <li class="nav-item my-2 my-lg-0">
+                        <a class="nav-link active" href="{% url 'logout' %}"><span class="text-muted "></span>Logout</a>
+                    </li>
+    
+    
+                </ul>
+
+                
+            
+
+            {% endif %}
+
+
+        </div>
+      </div>
+    </nav>
+   
+    {% if submitbutton == 'Search' and request.GET.q != '' %}
+{% if results %}
+<div class="conatiner mt-3">
+  <form class="form-inline my-2 my-lg-0" action="{% url 'datad' %}" method="GET" value="{{request.GET.f}}">
+    <input class="form-control mr-sm-2" type="date" placeholder="Search" name="f" value="{{request.GET.f}}">
+    <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="subtmit" value="Search" style="color: white;"/></input>
+  </form>
+</div>
+  
+  
+  
+   <div class="container d-flex justify-content-between">
+    <h5 class="mt-4 " style="color: blanchedalmond;">
+      10.4 - 10.5
+    </h5>
+   </div> 
+  
+  <div class="container mt-4">
+    <div class="row  d-flex justify-content-between">
+      <div class="col-sm" style="color: blanchedalmond;">
+        <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
+          <div class="card-header">New Connection</div>
+          <div class="card-body text-primary">
+            <h5  style=" font-weight: bold;"  class="card-title">{{datatwo.user_sn}}</h5>
+          
+          </div>
+        </div>
+      </div>
+      <div class="col-sm" style="color: blanchedalmond;">
+        <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
+          <div class="card-header">Prepaidbill</div>
+          <div class="card-body text-primary">
+            <h5 id="totalcost" style=" font-weight: bold;" class="card-title"></h5>
+          
+          </div>
+        </div>
+      </div>
+      <div class="col-sm" style="color: blanchedalmond;">
+        <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
+          <div class="card-header">Service Charge</div>
+          <div class="card-body text-primary">
+            <h5 id="totassslcost" style=" font-weight: bold;"   class="card-title"></h5>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <div class="container mt-1">
+      
+      {% block content %}
+  
+      <style>
+      
+        .colors{
+      
+          color: aliceblue;
+        }
+      
+        .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      
+      .centsered {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      
+      
+      </style>
+      
+      
+      <script>
+      
+        $(document).ready(function()
+        {
+               var cost;
+               var totalcost = 0;
+               $('td:nth-child(4)').each(function(){
+                cost = $(this).html();
+                totalcost+=parseInt(cost);
+                  $('#totalcost').text(totalcost)
+      
+               });
+        });
+  
+        $(document).ready(function()
+        {
+               var cost;
+               var totalcost = 0;
+               $('td:nth-child(5)').each(function(){
+                cost = $(this).html();
+                totalcost+=parseInt(cost);
+                  $('#totassslcost').text(totalcost)
+      
+               });
+        });
+  
+        $(document).ready(function()
+        {
+               var cost;
+               var totalcost = 0;
+               $('td:nth-child(7)').each(function(){
+                cost = $(this).html();
+                totalcost+=parseInt(cost);
+                  $('#totaluser').text(totalcost)
+      
+               });
+        });
+      </script>
+      
+      <table class="table table-bordered mt-2 table-hover table-dark">
+          <thead>
+            <tr>
+              
+              <th scope="col" class="colors">Date</th>
+              <th scope="col" class="colors">User Id</th>
+              <th scope="col" class="colors">User Name</th>
+              <th scope="col" class="colors">prepaidbill</th>
+              <th scope="col" class="colors">Service Chrage</th>
+              <th scope="col" class="colors">Payment Method</th>
+              <th scope="col" class="colors">SN</th>
+      
+          
+      
+              
+      
+            </tr>
+          </thead>
+          <tbody>
+              {% for q in results %}
+              <tr>
+                  
+                  <td  class="colors">{{q.date_user}}</td>
+                  <td class="colors">{{q.user_id}}</td>
+                  <td class="colors">{{q.user_name}}</td>
+                  <td class="colors" > {{q.prepaidbill}}</td>
+                  <td class="colors" > {{q.service_chagre}}</td>
+                  <td class="colors" > {{q.payment_method}}</td>
+                  <td class="colors">{{q.user_sn}}</td>
+      
+               
+                    
+      
+                  {% if request.user.is_superuser%}
+      
+                  <!-- <td class="colors"><a href="{% url 'up' q.id%}"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="{% url 'del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td> -->
+                </tr>
+                {% else%}
+                <td class="colors"><a href="#"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="#"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td>
+                {% endif %}
+      
+      
+            {% endfor %} 
+            <script>
+      
+              $(document).ready(function()
+              {
+                     var cost;
+                     var totalcost = 0;
+                     $('td:nth-child(4)').each(function(){
+                      cost = $(this).html();
+                      totalcost+=parseInt(cost);
+                        $('#tosstalcost').text(totalcost)
+            
+                     });
+              });
+            </script>
+            <tr>
+              <td class="colors" colspan="3">Total</td>
+              <td class="colors"  id="tosstalcost" colspan="10"></td>
+            </tr>
+          </tbody>
+         
+        </table>
+        
+      
+      {% endblock  %}
+      
+  </div>
+  
+  
+  
+  
+  
+  
+      {% else %}
+    
+<div class="container mt-5">
+    <div class="alert alert-primary" role="alert">
+        No search results for this query
+      </div>
+
+      <form class="form-inline my-2 my-lg-0" action="{% url 'datad' %}" method="GET" value="{{request.GET.f}}">
+        <input class="form-control mr-sm-2" type="date" placeholder="Search" name="f" value="{{request.GET.f}}">
+        <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="subtmit" value="Search" style="color: white;"/></input>
+      </form>
+      
+      
+      
+       <div class="container d-flex justify-content-between">
+        <h5 class="mt-4 " style="color: blanchedalmond;">
+          10.4 - 10.5
+        </h5>
+       </div> 
+      
+      <div class="container mt-4">
+        <div class="row  d-flex justify-content-between">
+          <div class="col-sm" style="color: blanchedalmond;">
+            <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
+              <div class="card-header">New Connection</div>
+              <div class="card-body text-primary">
+                <h5  style=" font-weight: bold;"  class="card-title">{{datatwo.user_sn}}</h5>
+              
+              </div>
+            </div>
+          </div>
+          <div class="col-sm" style="color: blanchedalmond;">
+            <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
+              <div class="card-header">Prepaidbill</div>
+              <div class="card-body text-primary">
+                <h5 id="totalcost" style=" font-weight: bold;" class="card-title"></h5>
+              
+              </div>
+            </div>
+          </div>
+          <div class="col-sm" style="color: blanchedalmond;">
+            <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
+              <div class="card-header">Service Charge</div>
+              <div class="card-body text-primary">
+                <h5 id="totassslcost" style=" font-weight: bold;"   class="card-title"></h5>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+      <div class="container mt-1">
+          
+       
+      
+          <style>
+          
+            .colors{
+          
+              color: aliceblue;
+            }
+          
+            .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+          
+          .centsered {
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+          
+          
+          </style>
+          
+          
+          <script>
+          
+            $(document).ready(function()
+            {
+                   var cost;
+                   var totalcost = 0;
+                   $('td:nth-child(4)').each(function(){
+                    cost = $(this).html();
+                    totalcost+=parseInt(cost);
+                      $('#totalcost').text(totalcost)
+          
+                   });
+            });
+      
+            $(document).ready(function()
+            {
+                   var cost;
+                   var totalcost = 0;
+                   $('td:nth-child(5)').each(function(){
+                    cost = $(this).html();
+                    totalcost+=parseInt(cost);
+                      $('#totassslcost').text(totalcost)
+          
+                   });
+            });
+      
+            $(document).ready(function()
+            {
+                   var cost;
+                   var totalcost = 0;
+                   $('td:nth-child(7)').each(function(){
+                    cost = $(this).html();
+                    totalcost+=parseInt(cost);
+                      $('#totaluser').text(totalcost)
+          
+                   });
+            });
+          </script>
+          
+          <table class="table table-bordered mt-2 table-hover table-dark">
+              <thead>
+                <tr>
+                  
+                  <th scope="col" class="colors">Date</th>
+                  <th scope="col" class="colors">User Id</th>
+                  <th scope="col" class="colors">User Name</th>
+                  <th scope="col" class="colors">prepaidbill</th>
+                  <th scope="col" class="colors">Service Chrage</th>
+                  <th scope="col" class="colors">Payment Method</th>
+                  <th scope="col" class="colors">SN</th>
+          
+              
+          
+                  
+          
+                </tr>
+              </thead>
+              <tbody>
+                  {% for q in results %}
+                  <tr>
+                      
+                      <td  class="colors">{{q.date_user}}</td>
+                      <td class="colors">{{q.user_id}}</td>
+                      <td class="colors">{{q.user_name}}</td>
+                      <td class="colors" > {{q.prepaidbill}}</td>
+                      <td class="colors" > {{q.service_chagre}}</td>
+                      <td class="colors" > {{q.payment_method}}</td>
+                      <td class="colors">{{q.user_sn}}</td>
+          
+                   
+                        
+          
+                      {% if request.user.is_superuser%}
+          
+                      <!-- <td class="colors"><a href="{% url 'up' q.id%}"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="{% url 'del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td> -->
+                    </tr>
+                    {% else%}
+                    <td class="colors"><a href="#"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="#"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td>
+                    {% endif %}
+          
+          
+                {% endfor %} 
+                <script>
+          
+                  $(document).ready(function()
+                  {
+                         var cost;
+                         var totalcost = 0;
+                         $('td:nth-child(4)').each(function(){
+                          cost = $(this).html();
+                          totalcost+=parseInt(cost);
+                            $('#tosstalcost').text(totalcost)
+                
+                         });
+                  });
+                </script>
+                <tr>
+                  <td class="colors" colspan="3">Total</td>
+                  <td class="colors"  id="tosstalcost" colspan="10"></td>
+                </tr>
+              </tbody>
+             
+            </table>
+            
+          
+   
+          
+      </div>
+</div>
+    {% endif %}
+    {% endif %}
+    
+       
+</div>
+
+
+
+ 
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+

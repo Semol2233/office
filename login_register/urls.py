@@ -23,7 +23,9 @@ urlpatterns = [
     path('areacode',loc_lshotlist,name='wssrn'),
 
     path('scsc',dailybing_view.as_view(),name='ijdfcdj'),
-    path('',daulycost_list.as_view(),name='ijdfscdj'),
+    path('',daulycost_list.as_view(),name='ijdfscdj'), 
+    path('data',qurydata,name='datad'),
+    path('srdaily',dailyserach,name='srdaily'),
 
 
 

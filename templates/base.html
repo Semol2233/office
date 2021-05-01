@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
   <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
@@ -191,7 +192,35 @@
         <input type="submit" class="btn btn-success" value="Login">
     </form>
 </div> -->
+
+
+
+
 <div class="container mt-4">
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+      </svg></button>
+    
+    
+</div>
+
+
+<div class="container mt-3">
+
+    <div class="collapse multi-collapse" id="multiCollapseExample2">
+        <div class="card card-body">
+          <form class="form-inline my-2 my-lg-0" action="{% url 'srdaily' %}" method="GET" value="{{request.GET.f}}">
+              <input class="form-control mr-sm-2" type="date" placeholder="Search" name="f" value="{{request.GET.f}}">
+              <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="subtmit" value="Search" style="color: rgb(0, 0, 0);"/></input>
+            </form>
+        </div>
+      </div>
+  
+  </div>
+
+
+
+<div class="container mt-2">
     <h3 style="color: aliceblue;">#Filter</h3>  
 </div>        
 <div class="container d-flex justify-content-between mt-1">
