@@ -210,7 +210,7 @@
   <div class="collapse multi-collapse" id="multiCollapseExample2">
       <div class="card card-body">
         <form class="form-inline my-2 my-lg-0" action="{% url 'datad' %}" method="GET" value="{{request.GET.f}}">
-            <input class="form-control mr-sm-2" type="date" placeholder="Search" name="f" value="{{request.GET.f}}">
+            <input class="form-control mr-sm-2" type="text" placeholder="mm-dd-yyyy" name="f" value="{{request.GET.f}}">
             <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="subtmit" value="Search" style="color: rgb(0, 0, 0);"/></input>
           </form>
       </div>
