@@ -126,3 +126,39 @@ class dailyscosst(forms.ModelForm):
         self.fields['cost_profile'].empty_label="List"
 
 
+
+
+
+
+
+
+
+
+
+
+
+class DateIsnput(forms.DateInput):
+    input_type = 'date'
+
+class dailybillupdatefoms(forms.ModelForm):
+    class Meta:
+        model = monthlybill
+        fields = ['payment_method','pay_date','payment_status','pkg','description']
+        widgets = {
+            'pay_date':DateIsnput(),
+            'payment_method':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
+            'pkg':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
+            'description':forms.Textarea(attrs={'class':'form-control','placeholder':'office nasta..'}),
+            'payment_status': forms.CheckboxInput(attrs={'class': 'required checkbox form-control'}),  
+        }
+
+    def __init__(self,*args, **kwargs):
+        super(dailybillupdatefoms,self).__init__(*args, **kwargs)
+        self.fields['payment_method'].empty_label="List"
+
+    def __init__(self,*args, **kwargs):
+        super(dailybillupdatefoms,self).__init__(*args, **kwargs)
+        self.fields['pkg'].empty_label="pkg"
+
+
+

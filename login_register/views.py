@@ -460,7 +460,7 @@ class montlybillview(LoginRequiredMixin,ListView):
 
     def get_context_data(self, **kwargs):
          context = super(montlybillview, self).get_context_data(**kwargs)
-         context['alldata'] = monthlybill.objects.all()
+         context['alldata'] = monthlybill.objects.all().order_by('-id')
          context['totaluser'] = monthlybill.objects.all().count()
          context['paiduser'] = monthlybill.objects.filter(payment_status=True).count()
          context['unpaiduser'] = monthlybill.objects.filter(payment_status=False).count()
@@ -538,3 +538,11 @@ def dailyserach(request):
     else:
         return render(request, 'query/daulynilingserach.html')
 
+
+
+
+
+class montlybill_update(LoginRequiredMixin, UpdateView):
+    form_class = dailybillupdatefoms
+    model = monthlybill
+    template_name = 'goninda/loc_update.html'
