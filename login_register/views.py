@@ -479,6 +479,10 @@ class bkashpayment(LoginRequiredMixin,ListView):
          context['ddfcdc'] = monthlybill.objects.aggregate(Sum('pkg'))
          context['bkshuser'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH')
          context['countbkash'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH').count()
+         context['countCASH'] = monthlybill.objects.filter(payment_method__methosd__contains='CASH').count()
+         context['countNAGAD'] = monthlybill.objects.filter(payment_method__methosd__contains='NAGAD').count()
+
+
          context['totaluser'] = monthlybill.objects.all().count()
          context['paiduser'] = monthlybill.objects.filter(payment_status=True).count()
          context['unpaiduser'] = monthlybill.objects.filter(payment_status=False).count()
