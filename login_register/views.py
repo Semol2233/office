@@ -477,6 +477,8 @@ class bkashpayment(LoginRequiredMixin,ListView):
     def get_context_data(self, **kwargs):
          context = super(bkashpayment, self).get_context_data(**kwargs)
          context['ddfcdc'] = monthlybill.objects.aggregate(Sum('pkg'))
+         context['bkshuser'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH')
+         context['countbkash'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH').count()
          context['totaluser'] = monthlybill.objects.all().count()
          context['paiduser'] = monthlybill.objects.filter(payment_status=True).count()
          context['unpaiduser'] = monthlybill.objects.filter(payment_status=False).count()
@@ -546,3 +548,32 @@ class montlybill_update(LoginRequiredMixin, UpdateView):
     form_class = dailybillupdatefoms
     model = monthlybill
     template_name = 'goninda/loc_update.html'
+
+
+
+
+
+
+class bkashtotal(LoginRequiredMixin,ListView):
+    context_object_name = 'bkshuser'
+    model = monthlybill
+    template_name= 'goninda/bkashtotal.html'
+    queryset = monthlybill.objects.filter(payment_method__methosd__contains='BKASH')
+
+
+
+
+class cash(LoginRequiredMixin,ListView):
+    context_object_name = 'bkshuser'
+    model = monthlybill
+    template_name= 'goninda/cash.html'
+    queryset = monthlybill.objects.filter(payment_method__methosd__contains='CASH')
+
+
+class nagad(LoginRequiredMixin,ListView):
+    context_object_name = 'bkshuser'
+    model = monthlybill
+    template_name= 'goninda/nagad.html'
+    queryset = monthlybill.objects.filter(payment_method__methosd__contains='NAGAD')
+
+

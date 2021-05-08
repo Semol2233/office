@@ -52,6 +52,13 @@ urlpatterns = [
     path('uspdate',updatessdata,name='update'),
     path('loon',looan,name='loon'),
     path('bill',montlybillview.as_view(),name='montslybillview'),
+    path('bkash',bkashtotal.as_view(),name='bkashtotal'),
+
+    path('cash',cash.as_view(),name='cash'),
+    path('nagad',nagad.as_view(),name='nagad'),
+
+
+
 
  
 
