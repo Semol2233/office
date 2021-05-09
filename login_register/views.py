@@ -593,8 +593,12 @@ class unpaid(LoginRequiredMixin,ListView):
     
 
 class paydate(LoginRequiredMixin,ListView):
-    context_object_name = 'alldata'
     model = monthlybill
     template_name= 'goninda/montlybill.html'
-    queryset =  monthlybill.objects.filter(pay_date__range=["2021-05-09", "2021-05-11"])
 
+    def get_context_data(self, **kwargs):
+         context = super(bkashpayment, self).get_context_data(**kwargs)
+         context['alldata'] = monthlybill.objects.filter(pay_date__range=["2021-05-09", "2021-05-11"])
+         context['count'] = monthlybill.objects.filter(pay_date__range=["2021-05-09", "2021-05-11"]).count()
+         return context
+  
