@@ -581,3 +581,13 @@ class nagad(LoginRequiredMixin,ListView):
     queryset = monthlybill.objects.filter(payment_method__methosd__contains='NAGAD')
 
 
+class unpaid(LoginRequiredMixin,ListView):
+
+    context_object_name = 'alldata'
+    model = monthlybill
+    template_name= 'goninda/montlybill.html'
+    queryset =  monthlybill.objects.filter(payment_status=False)
+
+
+
+    

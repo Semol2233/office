@@ -56,6 +56,8 @@ urlpatterns = [
 
     path('cash',cash.as_view(),name='cash'),
     path('nagad',nagad.as_view(),name='nagad'),
+    path('unpaid',unpaid.as_view(),name='unpaid'),
+
 
 
 
