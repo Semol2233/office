@@ -597,7 +597,7 @@ class paydate(LoginRequiredMixin,ListView):
     template_name= 'goninda/montlybill.html'
 
     def get_context_data(self, **kwargs):
-         context = super(bkashpayment, self).get_context_data(**kwargs)
+         context = super(paydate, self).get_context_data(**kwargs)
          context['alldata'] = monthlybill.objects.filter(pay_date__range=["2021-05-09", "2021-05-11"])
          context['count'] = monthlybill.objects.filter(pay_date__range=["2021-05-09", "2021-05-11"]).count()
          return context
