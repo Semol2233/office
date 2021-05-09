@@ -58,6 +58,9 @@ urlpatterns = [
     path('nagad',nagad.as_view(),name='nagad'),
     path('unpaid',unpaid.as_view(),name='unpaid'),
 
+    path('9-10',paydate.as_view(),name='9to10'),
+
+
 
 
 

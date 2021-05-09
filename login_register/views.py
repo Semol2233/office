@@ -591,3 +591,10 @@ class unpaid(LoginRequiredMixin,ListView):
 
 
     
+
+class paydate(LoginRequiredMixin,ListView):
+    context_object_name = 'alldata'
+    model = monthlybill
+    template_name= 'goninda/montlybill.html'
+    queryset =  monthlybill.objects.filter(pay_date__range=["2021-05-09", "2021-05-11"])
+
