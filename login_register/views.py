@@ -457,10 +457,12 @@ def looan(request):
 class montlybillview(LoginRequiredMixin,ListView):
     model = monthlybill
     template_name= 'goninda/montlybill.html'
+    
 
     def get_context_data(self, **kwargs):
+         exclude_list = ['21507', '21547']
          context = super(montlybillview, self).get_context_data(**kwargs)
-         context['alldata'] = monthlybill.objects.all().order_by('-id')
+         context['alldata'] = monthlybill.objects.all().order_by('-id').exclude(user_id__contains=exclude_list)
          context['totaluser'] = monthlybill.objects.all().count()
          context['paiduser'] = monthlybill.objects.filter(payment_status=True).count()
          context['unpaiduser'] = monthlybill.objects.filter(payment_status=False).count()
