@@ -460,17 +460,15 @@ class montlybillview(LoginRequiredMixin,ListView):
     
 
     def get_context_data(self, **kwargs):
-         exclude_list = ['21507', '21547']
          context = super(montlybillview, self).get_context_data(**kwargs)
-         context['alldata'] = monthlybill.objects.all().order_by('-id').exclude(user_id__contains=exclude_list)
-         context['totaluser'] = monthlybill.objects.all().count()
-         context['paiduser'] = monthlybill.objects.filter(payment_status=True).count()
-         context['unpaiduser'] = monthlybill.objects.filter(payment_status=False).count()
+         context['alldata'] = monthlybill.objects.all().order_by('-id').exclude(month__month__contains="May")
+         context['totaluser'] = monthlybill.objects.all().count().exclude(month__month__contains="May")
+         context['paiduser'] = monthlybill.objects.filter(payment_status=True).count().exclude(month__month__contains="May")
+         context['unpaiduser'] = monthlybill.objects.filter(payment_status=False).count().exclude(month__month__contains="May")
          return context
 
 
 
-from django.db.models import Sum
 
 class bkashpayment(LoginRequiredMixin,ListView):
     model = monthlybill
@@ -604,3 +602,5 @@ class paydate(LoginRequiredMixin,ListView):
          context['count'] = monthlybill.objects.filter(pay_date__range=["2021-05-09", "2021-05-11"]).count()
          return context
   
+
+
