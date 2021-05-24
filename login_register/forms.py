@@ -143,7 +143,7 @@ class DateIsnput(forms.DateInput):
 class dailybillupdatefoms(forms.ModelForm):
     class Meta:
         model = monthlybill
-        fields = ['payment_method','pay_date','payment_status','pkg','description','date']
+        fields = ['payment_method','pay_date','payment_status','pkg','description','date','month']
         widgets = {
             'date':DateIsnput(),
             'pay_date':DateIsnput(),
@@ -151,6 +151,8 @@ class dailybillupdatefoms(forms.ModelForm):
             'pkg':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
             'description':forms.Textarea(attrs={'class':'form-control','placeholder':'office nasta..'}),
             'payment_status': forms.CheckboxInput(attrs={'class': 'required checkbox form-control'}),  
+            'month': forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}), 
+
         }
 
     def __init__(self,*args, **kwargs):
@@ -162,4 +164,6 @@ class dailybillupdatefoms(forms.ModelForm):
         self.fields['pkg'].empty_label="pkg"
 
 
-
+    def __init__(self,*args, **kwargs):
+        super(dailybillupdatefoms,self).__init__(*args, **kwargs)
+        self.fields['month'].empty_label="Selet Month"
