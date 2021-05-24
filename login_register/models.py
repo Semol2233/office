@@ -208,6 +208,7 @@ class pkg(models.Model):
         return self.pkg_list
 
 class monthlybill(models.Model):
+    date             = models.DateTimeField(null=True, blank=True)
     activiton_date   = models.DateTimeField(null=True, blank=True)
     user_id          = models.CharField(max_length=255)
     user_phonenumber = models.CharField(max_length=255,blank=True)
