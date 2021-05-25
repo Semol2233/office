@@ -469,7 +469,7 @@ class montlybillview(LoginRequiredMixin,ListView):
 
 
 
-
+from django.db.models import  Sum
 class bkashpayment(LoginRequiredMixin,ListView):
     model = monthlybill
     template_name= 'goninda/nk.html'
