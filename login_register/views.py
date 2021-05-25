@@ -476,11 +476,11 @@ class bkashpayment(LoginRequiredMixin,ListView):
 
     def get_context_data(self, **kwargs):
          context = super(bkashpayment, self).get_context_data(**kwargs)
-         context['ddfcdc'] = monthlybill.objects.aggregate(Sum('pkg'))
-         context['bkshuser'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH')
-         context['countbkash'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH').count()
-         context['countCASH'] = monthlybill.objects.filter(payment_method__methosd__contains='CASH').count()
-         context['countNAGAD'] = monthlybill.objects.filter(payment_method__methosd__contains='NAGAD').count()
+         context['ddfcdc'] = monthlybill.objects.exclude(month__month__contains="May").aggregate(Sum('pkg'))
+         context['bkshuser'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH').exclude(month__month__contains="May")
+         context['countbkash'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH').exclude(month__month__contains="May").count()
+         context['countCASH'] = monthlybill.objects.filter(payment_method__methosd__contains='CASH').exclude(month__month__contains="May").count()
+         context['countNAGAD'] = monthlybill.objects.filter(payment_method__methosd__contains='NAGAD').exclude(month__month__contains="May").count()
 
 
          context['totaluser'] = monthlybill.objects.all().count()

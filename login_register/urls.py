@@ -31,11 +31,6 @@ urlpatterns = [
 
 
 
-
-
-
-
-
     path('office_cost',OFFICE_COST.as_view(),name='vddvd'),
     path('bike',OFFICE_bike.as_view(),name='bike'),
     path('family',OFFICE_family.as_view(),name='family'),
