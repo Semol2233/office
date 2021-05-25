@@ -51,7 +51,7 @@ urlpatterns = [
     path('update',updatedailyline.as_view(),name='updssate'),
     path('uspdate',updatessdata,name='update'),
     path('loon',looan,name='loon'),
-    path('S',montlybillview.as_view(),name='montslybillview'),
+    path('bill',montlybillview.as_view(),name='montslybillview'),
     path('bkash',bkashtotal.as_view(),name='bkashtotal'),
 
     path('cash',cash.as_view(),name='cash'),
