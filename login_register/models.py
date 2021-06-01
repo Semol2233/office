@@ -224,7 +224,7 @@ class monthlybill(models.Model):
     user_phonenumber = models.CharField(max_length=255,blank=True)
     payment_method   = models.ForeignKey(payment_methods, on_delete=models.CASCADE)
     month   = models.ForeignKey(month_bill, on_delete=models.CASCADE,null=True, blank=True)
-
+    auto_date =  models.DateTimeField(default=timezone.now)
     pay_date         = models.DateTimeField(null=True, blank=True)
     payment_status   = models.BooleanField(default=False)
     previus_due      = models.CharField(max_length=255,blank=True)
