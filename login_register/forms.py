@@ -143,18 +143,27 @@ class DateIsnput(forms.DateInput):
 class dailybillupdatefoms(forms.ModelForm):
     class Meta:
         model = monthlybill
-        fields = ['month']
+        fields = ['payment_method','pay_date','payment_status','pkg','description','auto_date','month','user_id']
         widgets = {
-            'month': forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}), 
+            'auto_date':DateIsnput(),
+            'pay_date':DateIsnput(),
+            'payment_method':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
+            'pkg':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
+            'description':forms.Textarea(attrs={'class':'form-control','placeholder':'..'}),
+            'payment_status': forms.CheckboxInput(attrs={'class': 'form-check-input'}),  
+            'month': forms.Select(attrs={'class':'form-control'}), 
+            'user_id': forms.TextInput(attrs={'class':'form-control'})
+
 
         }
 
+    def __init__(self,*args, **kwargs):
+        super(dailybillupdastefoms,self).__init__(*args, **kwargs)
+        self.fields['pkg'].empty_label="Selet Month"
 
     def __init__(self,*args, **kwargs):
-        super(dailybillupdatefoms,self).__init__(*args, **kwargs)
-        self.fields['month'].empty_label="Selet Month"
-
-
+        super(dailybillupdastefoms,self).__init__(*args, **kwargs)
+        self.fields['month'].empty_label="Month"
 
 
 
