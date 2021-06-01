@@ -158,11 +158,11 @@ class dailybillupdatefoms(forms.ModelForm):
         }
 
     def __init__(self,*args, **kwargs):
-        super(dailybillupdastefoms,self).__init__(*args, **kwargs)
+        super(dailybillupdatefoms,self).__init__(*args, **kwargs)
         self.fields['pkg'].empty_label="Selet Month"
 
     def __init__(self,*args, **kwargs):
-        super(dailybillupdastefoms,self).__init__(*args, **kwargs)
+        super(dailybillupdatefoms,self).__init__(*args, **kwargs)
         self.fields['month'].empty_label="Month"
 
 
