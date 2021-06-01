@@ -55,7 +55,7 @@ urlpatterns = [
 
     path('9-10',paydate.as_view(),name='9to10'),
 
-    path('add',adddmontlybill_front.as_view(),name='unpaid'),
+    path('add',adddmontlybill_front.as_view(),name='unpssaid'),
 
 
 

@@ -610,4 +610,3 @@ class adddmontlybill_front(LoginRequiredMixin,CreateView):
     model = monthlybill
     template_name = 'nv/uplode_monthbill.html'
 
-
