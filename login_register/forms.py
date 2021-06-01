@@ -164,9 +164,9 @@ class DateIssnput(forms.DateInput):
 class dailybillupdastefoms(forms.ModelForm):
     class Meta:
         model = monthlybill
-        fields = ['payment_method','pay_date','payment_status','pkg','description','date','month','user_id']
+        fields = ['payment_method','pay_date','payment_status','pkg','description','auto_date','month','user_id']
         widgets = {
-            'date':DateIssnput(),
+            'auto_date':DateIssnput(),
             'pay_date':DateIsnput(),
             'payment_method':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
             'pkg':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
