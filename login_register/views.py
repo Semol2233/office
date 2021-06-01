@@ -547,7 +547,7 @@ def dailyserach(request):
 
 
 class montlybill_update(LoginRequiredMixin, UpdateView):
-    form_class = dailybillupdatefoms
+    form_class = dailybillupdastefoms
     model = monthlybill
     template_name = 'goninda/loc_update.html'
 
