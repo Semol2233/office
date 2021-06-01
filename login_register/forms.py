@@ -158,33 +158,30 @@ class dailybillupdatefoms(forms.ModelForm):
 
 
 
-# class DateIsnput(forms.DateInput):
-#     input_type = 'date'
+class DateIssnput(forms.DateInput):
+    input_type = 'date'
 
-# class dailybillupdatefoms(forms.ModelForm):
-#     class Meta:
-#         model = monthlybill
-#         fields = ['payment_method','pay_date','payment_status','pkg','description','date','month']
-#         widgets = {
-#             'date':DateIsnput(),
-#             'pay_date':DateIsnput(),
-#             'payment_method':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
-#             'pkg':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
-#             'description':forms.Textarea(attrs={'class':'form-control','placeholder':'office nasta..'}),
-#             'payment_status': forms.CheckboxInput(attrs={'class': 'required checkbox form-control'}),  
-#             'month': forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}), 
-
-#         }
-
-#     def __init__(self,*args, **kwargs):
-#         super(dailybillupdatefoms,self).__init__(*args, **kwargs)
-#         self.fields['payment_method'].empty_label="List"
-
-#     def __init__(self,*args, **kwargs):
-#         super(dailybillupdatefoms,self).__init__(*args, **kwargs)
-#         self.fields['pkg'].empty_label="pkg"
+class dailybillupdastefoms(forms.ModelForm):
+    class Meta:
+        model = monthlybill
+        fields = ['payment_method','pay_date','payment_status','pkg','description','date','month','user_id']
+        widgets = {
+            'date':DateIssnput(),
+            'pay_date':DateIsnput(),
+            'payment_method':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
+            'pkg':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
+            'description':forms.Textarea(attrs={'class':'form-control','placeholder':'..'}),
+            'payment_status': forms.CheckboxInput(attrs={'class': 'form-check-input'}),  
+            'month': forms.Select(attrs={'class':'form-control'}), 
+            'user_id': forms.TextInput(attrs={'class':'form-control'})
 
 
-#     def __init__(self,*args, **kwargs):
-#         super(dailybillupdatefoms,self).__init__(*args, **kwargs)
-#         self.fields['month'].empty_label="Selet Month"
+        }
+
+    def __init__(self,*args, **kwargs):
+        super(dailybillupdastefoms,self).__init__(*args, **kwargs)
+        self.fields['pkg'].empty_label="Selet Month"
+
+    def __init__(self,*args, **kwargs):
+        super(dailybillupdastefoms,self).__init__(*args, **kwargs)
+        self.fields['month'].empty_label="Month"

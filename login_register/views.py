@@ -481,8 +481,6 @@ class bkashpayment(LoginRequiredMixin,ListView):
          context['countbkash'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH').exclude(month__month__contains="May").count()
          context['countCASH'] = monthlybill.objects.filter(payment_method__methosd__contains='CASH').exclude(month__month__contains="May").count()
          context['countNAGAD'] = monthlybill.objects.filter(payment_method__methosd__contains='NAGAD').exclude(month__month__contains="May").count()
-
-
          context['totaluser'] = monthlybill.objects.all().count()
          context['paiduser'] = monthlybill.objects.filter(payment_status=True).count()
          context['unpaiduser'] = monthlybill.objects.filter(payment_status=False).count()
@@ -602,5 +600,14 @@ class paydate(LoginRequiredMixin,ListView):
          context['count'] = monthlybill.objects.filter(pay_date__range=["2021-05-09", "2021-05-11"]).count()
          return context
   
+
+
+
+
+class adddmontlybill_front(LoginRequiredMixin,CreateView):
+
+    form_class = dailybillupdastefoms
+    model = monthlybill
+    template_name = 'nv/uplode_monthbill.html'
 
 
