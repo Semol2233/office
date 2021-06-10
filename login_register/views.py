@@ -610,3 +610,14 @@ class adddmontlybill_front(LoginRequiredMixin,CreateView):
     model = monthlybill
     template_name = 'nv/uplode_monthbill.html'
 
+
+
+
+class unpaidmay(LoginRequiredMixin,ListView):
+
+    context_object_name = 'alldata'
+    model = monthlybill
+    template_name= 'goninda/montlybill.html'
+    queryset =  monthlybill.objects.filter(payment_status=False).exclude(month__month__contains="June")
+
+
