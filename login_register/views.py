@@ -329,7 +329,7 @@ class OFFICE_COST(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Office Cost',date__range=["2021-05-11", "2021-06-11"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Office Cost',date__range=["2021-06-11", "2021-07-11"])
 
 
 
@@ -337,7 +337,7 @@ class OFFICE_bike(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Bike Cost',date__range=["2021-05-11", "2021-06-11"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Bike Cost',date__range=["2021-06-11", "2021-07-11"])
 
 
 
@@ -345,14 +345,14 @@ class OFFICE_family(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Family',date__range=["2021-05-11", "2021-06-11"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Family',date__range=["2021-06-11", "2021-07-11"])
 
 
 class OFFICE_product(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Product Cost',date__range=["2021-05-11", "2021-06-11"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Product Cost',date__range=["2021-06-11", "2021-07-11"])
 
 
 
@@ -360,14 +360,14 @@ class OFFICE_salllery(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Salary',date__range=["2021-05-11", "2021-06-11"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Salary',date__range=["2021-06-11", "2021-07-11"])
 
 
 class OFFICE_trnasportcost(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Transport Cost',date__range=["2021-05-11", "2021-06-11"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Transport Cost',date__range=["2021-06-11", "2021-07-11"])
 
 
 
@@ -375,21 +375,21 @@ class OFFICE_Chika(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Chika',date__range=["2021-05-11", "2021-06-11"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Chika',date__range=["2021-06-11", "2021-07-11"])
 
 
 class OFFICE_internetbill(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='orange',date__range=["2021-05-11", "2021-06-11"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='orange',date__range=["2021-06-11", "2021-07-11"])
 
 
 class OFFICE_Electric(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Electric Cost',date__range=["2021-05-11", "2021-06-11"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Electric Cost',date__range=["2021-06-11", "2021-07-11"])
 
 
 
@@ -397,7 +397,7 @@ class OFFICE_Employ(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Employ Cost',date__range=["2021-05-11", "2021-06-11"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Employ Cost',date__range=["2021-06-11", "2021-07-11"])
 
 
 
@@ -405,7 +405,7 @@ class OFFICE_Pickup(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Pickup Cost',date__range=["2021-05-11", "2021-06-11"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Pickup Cost',date__range=["2021-06-11", "2021-07-11"])
 
 
 
@@ -417,8 +417,8 @@ class updatedailyline(LoginRequiredMixin,ListView):
 
 
 def updatessdata(request):
-    allupdatedate = userupdate.objects.filter(date_user__range=["2021-05-11", "2021-06-11"])
-    lastconnection = userupdate.objects.filter(date_user__range=["2021-05-11", "2021-06-11"]).last()
+    allupdatedate = userupdate.objects.filter(date_user__range=["2021-06-11", "2021-07-11"])
+    lastconnection = userupdate.objects.filter(date_user__range=["2021-06-11", "2021-07-11"]).last()
     return render(request,"goninda/dalyconnection.html",{"dataone":allupdatedate,"datatwo":lastconnection})
 
 
@@ -461,10 +461,10 @@ class montlybillview(LoginRequiredMixin,ListView):
 
     def get_context_data(self, **kwargs):
          context = super(montlybillview, self).get_context_data(**kwargs)
-         context['alldata'] = monthlybill.objects.all().order_by('-id').exclude(month__month__contains="May")
+         context['alldata'] = monthlybill.objects.all().order_by('-id').exclude(month__month__contains="June")
          context['totaluser'] = monthlybill.objects.all().exclude(month__month__contains="May").count()
-         context['paiduser'] = monthlybill.objects.filter(payment_status=True).exclude(month__month__contains="May").count()
-         context['unpaiduser'] = monthlybill.objects.filter(payment_status=False).exclude(month__month__contains="May").count()
+         context['paiduser'] = monthlybill.objects.filter(payment_status=True).exclude(month__month__contains="June").count()
+         context['unpaiduser'] = monthlybill.objects.filter(payment_status=False).exclude(month__month__contains="June").count()
          return context
 
 
@@ -477,10 +477,10 @@ class bkashpayment(LoginRequiredMixin,ListView):
     def get_context_data(self, **kwargs):
          context = super(bkashpayment, self).get_context_data(**kwargs)
          context['ddfcdc'] = monthlybill.objects.exclude(month__month__contains="May").aggregate(Sum('pkg'))
-         context['bkshuser'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH').exclude(month__month__contains="May")
-         context['countbkash'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH').exclude(month__month__contains="May").count()
-         context['countCASH'] = monthlybill.objects.filter(payment_method__methosd__contains='CASH').exclude(month__month__contains="May").count()
-         context['countNAGAD'] = monthlybill.objects.filter(payment_method__methosd__contains='NAGAD').exclude(month__month__contains="May").count()
+         context['bkshuser'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH').exclude(month__month__contains="June")
+         context['countbkash'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH').exclude(month__month__contains="June").count()
+         context['countCASH'] = monthlybill.objects.filter(payment_method__methosd__contains='CASH').exclude(month__month__contains="June").count()
+         context['countNAGAD'] = monthlybill.objects.filter(payment_method__methosd__contains='NAGAD').exclude(month__month__contains="June").count()
          context['totaluser'] = monthlybill.objects.all().count()
          context['paiduser'] = monthlybill.objects.filter(payment_status=True).count()
          context['unpaiduser'] = monthlybill.objects.filter(payment_status=False).count()
@@ -560,7 +560,7 @@ class bkashtotal(LoginRequiredMixin,ListView):
     context_object_name = 'bkshuser'
     model = monthlybill
     template_name= 'goninda/bkashtotal.html'
-    queryset = monthlybill.objects.filter(payment_method__methosd__contains='BKASH').exclude(month__month__contains="May")
+    queryset = monthlybill.objects.filter(payment_method__methosd__contains='BKASH').exclude(month__month__contains="June")
 
 
 
@@ -569,14 +569,14 @@ class cash(LoginRequiredMixin,ListView):
     context_object_name = 'bkshuser'
     model = monthlybill
     template_name= 'goninda/cash.html'
-    queryset = monthlybill.objects.filter(payment_method__methosd__contains='CASH').exclude(month__month__contains="May")
+    queryset = monthlybill.objects.filter(payment_method__methosd__contains='CASH').exclude(month__month__contains="June")
 
 
 class nagad(LoginRequiredMixin,ListView):
     context_object_name = 'bkshuser'
     model = monthlybill
     template_name= 'goninda/nagad.html'
-    queryset = monthlybill.objects.filter(payment_method__methosd__contains='NAGAD').exclude(month__month__contains="May")
+    queryset = monthlybill.objects.filter(payment_method__methosd__contains='NAGAD').exclude(month__month__contains="June")
 
 
 class unpaid(LoginRequiredMixin,ListView):
@@ -584,7 +584,7 @@ class unpaid(LoginRequiredMixin,ListView):
     context_object_name = 'alldata'
     model = monthlybill
     template_name= 'goninda/montlybill.html'
-    queryset =  monthlybill.objects.filter(payment_status=False).exclude(month__month__contains="May")
+    queryset =  monthlybill.objects.filter(payment_status=False).exclude(month__month__contains="June")
 
 
 
@@ -596,8 +596,8 @@ class paydate(LoginRequiredMixin,ListView):
 
     def get_context_data(self, **kwargs):
          context = super(paydate, self).get_context_data(**kwargs)
-         context['alldata'] = monthlybill.objects.filter(pay_date__range=["2021-05-09", "2021-05-11"])
-         context['count'] = monthlybill.objects.filter(pay_date__range=["2021-05-09", "2021-05-11"]).count()
+         context['alldata'] = monthlybill.objects.filter(pay_date__range=["2021-06-11", "2021-07-11"])
+         context['count'] = monthlybill.objects.filter(pay_date__range=["2021-06-11", "2021-07-11"]).count()
          return context
   
 
