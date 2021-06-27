@@ -304,7 +304,7 @@ class daulycost_list(LoginRequiredMixin,ListView):
     model = dailybilling
     template_name= 'goninda/list.html'
     #queryset = dailybilling.objects.filter(created_date__gte=datetime.now() - timedelta(days=1))
-    queryset = dailybilling.objects.filter(date__range=["2021-05-11", "2021-06-11"]).exclude(cost_profile__cost_name__contains='Advance salary')
+    queryset = dailybilling.objects.filter(date__range=["2021-06-11", "2021-07-11"]).exclude(cost_profile__cost_name__contains='Advance salary')
 
 
 
