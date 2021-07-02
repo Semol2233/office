@@ -417,8 +417,8 @@ class updatedailyline(LoginRequiredMixin,ListView):
 
 
 def updatessdata(request):
-    allupdatedate = userupdate.objects.filter(date_user__range=["2021-05-11", "2021-06-11"])
-    lastconnection = userupdate.objects.filter(date_user__range=["2021-05-11", "2021-06-11"]).last()
+    allupdatedate = userupdate.objects.filter(date_user__range=["2021-06-11", "2021-07-11"])
+    lastconnection = userupdate.objects.filter(date_user__range=["2021-06-11", "2021-07-11"]).last()
     return render(request,"goninda/dalyconnection.html",{"dataone":allupdatedate,"datatwo":lastconnection})
 
 
@@ -479,8 +479,8 @@ class bkashpayment(LoginRequiredMixin,ListView):
          context['ddfcdc'] = monthlybill.objects.exclude(month__month__contains="May").aggregate(Sum('pkg'))
          context['bkshuser'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH',month__month__contains="June")
          context['countbkash'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH',month__month__contains="June").count()
-         context['countCASH'] = monthlybill.objects.filter(payment_method__methosd__contains='CASH').exclude(month__month__contains="May").count()
-         context['countNAGAD'] = monthlybill.objects.filter(payment_method__methosd__contains='NAGAD').exclude(month__month__contains="May").count()
+         context['countCASH'] = monthlybill.objects.filter(payment_method__methosd__contains='CASH',month__month__contains="June").count()
+         context['countNAGAD'] = monthlybill.objects.filter(payment_method__methosd__contains='NAGAD',month__month__contains="June").count()
          context['totaluser'] = monthlybill.objects.all().count()
          context['paiduser'] = monthlybill.objects.filter(payment_status=True).count()
          context['unpaiduser'] = monthlybill.objects.filter(payment_status=False).count()
