@@ -1,0 +1,87 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <title>Hey</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'css_file/style.css' %}">
+    <!-- Bootstrap CSS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container mt-1">
+    
+    {% block content %}
+
+    
+    
+    <table class="table table-bordered mt-2 table-hover table-dark">
+      <thead>
+        <tr>
+          
+       
+          <th scope="col" class="colors">User Id</th>
+
+          <th scope="col" class="colors">Payment Method</th>
+          <th scope="col" class="colors">Payment Status</th>
+          <th scope="col" class="colors">Previous Due</th>
+          <th scope="col" class="colors">Pkg</th>
+          <th scope="col" class="colors">Short Msg</th>
+
+          
+  
+      
+  
+          
+  
+        </tr>
+      </thead>
+      <tbody>
+          {% for q in bkshuser %}
+          <tr>
+              
+             
+              <td >{{q.user_id}}</td>
+          
+              <td class="colors" > {{q.payment_method}}</td>
+              <td class="colors" > {{q.payment_status}}</td>
+              <td class="colors">{{q.previus_due}}</td>
+              <td class="colors">{{q.pkg}}</td>
+              <td class="colors">{{q.description}}</td>
+    
+  
+        {% endfor %} 
+
+      
+      </tbody>
+     
+    </table>
+    
+      
+    
+    {% endblock  %}
+    
+</div>
+
+
+
+
+
+
+
+  
+  </body>
+</html>
+

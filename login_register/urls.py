@@ -57,6 +57,8 @@ urlpatterns = [
 
     path('add',adddmontlybill_front.as_view(),name='unpssaid'),
     path('mayunpaid',unpaidmay.as_view(),name='un'),
+    path('sheet',nbox.as_view(),name='ung'),
+
 
 
 
