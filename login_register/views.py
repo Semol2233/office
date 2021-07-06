@@ -490,12 +490,13 @@ class bkashpayment(ListView):
   
 
 from django.db.models import  Sum
+
 class nbox(ListView):
     model = monthlybill
     template_name= 'nbox/nk.html'
 
     def get_context_data(self, **kwargs):
-         context = super(bkashpayment, self).get_context_data(**kwargs)
+         context = super(nbox, self).get_context_data(**kwargs)
          context['ddfcdc'] = monthlybill.objects.filter(month__month__startswith="July").aggregate(Sum('pkg'))
          context['bkshuser'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH',month__month__startswith="July")
          context['countbkash'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH',month__month__startswith="July").count()
