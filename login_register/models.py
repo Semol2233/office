@@ -154,6 +154,11 @@ class router(models.Model):
         return self.Price
 
 
+class pkg_names(models.Model):
+    pkgname = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.month
 
 
 
@@ -166,6 +171,7 @@ class userupdate(models.Model):
     date_user =  models.DateTimeField()
     user_sn =  models.CharField(max_length=255,default=000)
     user_id = models.CharField(max_length=255)
+    pkg_namess        = models.ForeignKey(pkg_names, on_delete=models.CASCADE,null=True, blank=True)
     user_name = models.CharField(max_length=255)
     prepaidbill = models.CharField(max_length=255)
     service_chagre = models.CharField(max_length=255)
@@ -232,7 +238,7 @@ class monthlybill(models.Model):
     month   = models.ForeignKey(month_bill, on_delete=models.CASCADE,null=True, blank=True)
     auto_date =  models.DateTimeField(default=timezone.now)
     pay_date         = models.DateTimeField(null=True, blank=True)
-    pkg_names         = models.ForeignKey(pkg_name, on_delete=models.CASCADE,null=True, blank=True)
+    pkg_names        = models.ForeignKey(pkg_name, on_delete=models.CASCADE,null=True, blank=True)
     payment_status   = models.BooleanField(default=False)
     previus_due      = models.CharField(max_length=255,blank=True)
     pkg              = models.ForeignKey(pkg, on_delete=models.CASCADE)
