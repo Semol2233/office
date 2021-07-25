@@ -216,6 +216,12 @@ class month_bill(models.Model):
     def __str__(self):
         return self.month
 
+class pkg_name(models.Model):
+    pkgname = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.month
+
 
 class monthlybill(models.Model):
     date             = models.DateTimeField(null=True, blank=True)
@@ -226,6 +232,7 @@ class monthlybill(models.Model):
     month   = models.ForeignKey(month_bill, on_delete=models.CASCADE,null=True, blank=True)
     auto_date =  models.DateTimeField(default=timezone.now)
     pay_date         = models.DateTimeField(null=True, blank=True)
+    pkg_names         = models.ForeignKey(pkg_name, on_delete=models.CASCADE,null=True, blank=True)
     payment_status   = models.BooleanField(default=False)
     previus_due      = models.CharField(max_length=255,blank=True)
     pkg              = models.ForeignKey(pkg, on_delete=models.CASCADE)

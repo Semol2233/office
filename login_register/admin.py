@@ -20,6 +20,8 @@ admin.site.register(monthlybill)
 admin.site.register(payment_methods)
 admin.site.register(pkg)
 admin.site.register(month_bill)
+admin.site.register(pkg_name)
+
 
 
 
