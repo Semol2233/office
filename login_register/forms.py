@@ -194,3 +194,5 @@ class dailybillupdastefoms(forms.ModelForm):
     def __init__(self,*args, **kwargs):
         super(dailybillupdastefoms,self).__init__(*args, **kwargs)
         self.fields['month'].empty_label="Month"
+
+
