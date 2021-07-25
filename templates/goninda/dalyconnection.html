@@ -259,21 +259,30 @@
     <div class="col-sm" style="color: blanchedalmond;">
       <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
         <div class="card-header">Service Charge</div>
-        <button type="button" class="btn btn-primary position-relative">
-          Silver
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            {{usertype1.pkg_namess}}
-           
-          </span>
-        </button>
+       <div class="container">
+         <div class="row">
+           <div class="col">
+            <button type="button" class="btn btn-primary position-relative">
+              Silver
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {{usertype1.pkg_namess}}
+               
+              </span>
+            </button>
+    
+           </div>
+           <div class="col">
 
-        <button type="button" class="btn btn-primary position-relative">
-          Golden
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            {{usertype2.pkg_namess}}
-            
-          </span>
-        </button>
+            <button type="button" class="btn btn-primary position-relative">
+              Golden
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {{usertype2.pkg_namess}}
+                
+              </span>
+            </button>
+           </div>
+         </div>
+       </div>
       </div>
     </div>
   </div>
