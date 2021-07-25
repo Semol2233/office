@@ -419,8 +419,8 @@ class updatedailyline(LoginRequiredMixin,ListView):
 def updatessdata(request):
     allupdatedate = userupdate.objects.filter(date_user__range=["2021-07-11", "2021-08-11"])
     lastconnection = userupdate.objects.filter(date_user__range=["2021-07-11", "2021-08-11"]).last()
-    totalsilveruser = monthlybill.objects.filter(pkg_namess__pkgname__startswith="Silver").count()
-    totalgoldenuser = monthlybill.objects.filter(pkg_namess__pkgname__startswith="Silver").count()
+    totalsilveruser = userupdate.objects.filter(pkg_namess__pkgname__startswith="Silver").count()
+    totalgoldenuser = userupdate.objects.filter(pkg_namess__pkgname__startswith="Silver").count()
     return render(request,"goninda/dalyconnection.html",{"dataone":allupdatedate,"datatwo":lastconnection,"usertype1":totalsilveruser,"usertype2":totalgoldenuser,})
 
 
