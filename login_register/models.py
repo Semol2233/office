@@ -158,7 +158,7 @@ class pkg_names(models.Model):
     pkgname = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.month
+        return self.pkgname
 
 
 
