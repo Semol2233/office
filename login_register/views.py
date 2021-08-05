@@ -592,7 +592,7 @@ class bkashtotal(LoginRequiredMixin,ListView):
     context_object_name = 'bkshuser'
     model = monthlybill
     template_name= 'goninda/bkashtotal.html'
-    queryset = monthlybill.objects.filter(payment_method__methosd__contains='BKASH',month__month__startswith="July")
+    queryset = monthlybill.objects.filter(payment_method__methosd__contains='BKASH',month__month__startswith="August")
 
 
 
@@ -600,14 +600,14 @@ class cash(LoginRequiredMixin,ListView):
     context_object_name = 'bkshuser'
     model = monthlybill
     template_name= 'goninda/cash.html'
-    queryset = monthlybill.objects.filter(payment_method__methosd__contains='CASH',month__month__startswith="July")
+    queryset = monthlybill.objects.filter(payment_method__methosd__contains='CASH',month__month__startswith="August")
 
 
 class nagad(LoginRequiredMixin,ListView):
     context_object_name = 'bkshuser'
     model = monthlybill
     template_name= 'goninda/nagad.html'
-    queryset = monthlybill.objects.filter(payment_method__methosd__contains='NAGAD',month__month__startswith="July")
+    queryset = monthlybill.objects.filter(payment_method__methosd__contains='NAGAD',month__month__startswith="August")
 
 
 class unpaid(LoginRequiredMixin,ListView):
@@ -615,7 +615,7 @@ class unpaid(LoginRequiredMixin,ListView):
     context_object_name = 'alldata'
     model = monthlybill
     template_name= 'goninda/montlybill.html'
-    queryset =  monthlybill.objects.filter(payment_status=False,month__month__startswith="July")
+    queryset =  monthlybill.objects.filter(payment_status=False,month__month__startswith="August")
 
 
 
@@ -649,6 +649,6 @@ class unpaidmay(LoginRequiredMixin,ListView):
     context_object_name = 'alldata'
     model = monthlybill
     template_name= 'goninda/montlybill.html'
-    queryset =  monthlybill.objects.filter(payment_status=False).exclude(month__month__contains="June")
+    queryset =  monthlybill.objects.filter(payment_status=False).exclude(month__month__contains="August")
 
 
