@@ -468,10 +468,10 @@ class montlybillview(LoginRequiredMixin,ListView):
 
     def get_context_data(self, **kwargs):
          context = super(montlybillview, self).get_context_data(**kwargs)
-         context['alldata'] = monthlybill.objects.filter(month__month__startswith="July")
-         context['totaluser'] = monthlybill.objects.filter(month__month__startswith="July").count()
-         context['paiduser'] = monthlybill.objects.filter(payment_status=True,month__month__startswith="July").count()
-         context['unpaiduser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith="July").count()
+         context['alldata'] = monthlybill.objects.filter(month__month__startswith="August")
+         context['totaluser'] = monthlybill.objects.filter(month__month__startswith="August").count()
+         context['paiduser'] = monthlybill.objects.filter(payment_status=True,month__month__startswith="August").count()
+         context['unpaiduser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith="August").count()
          
          return context
 
@@ -485,11 +485,11 @@ class bkashpayment(ListView):
 
     def get_context_data(self, **kwargs):
          context = super(bkashpayment, self).get_context_data(**kwargs)
-         context['ddfcdc'] = monthlybill.objects.filter(month__month__startswith="July").aggregate(Sum('pkg'))
-         context['bkshuser'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH',month__month__startswith="July")
-         context['countbkash'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH',month__month__startswith="July").count()
-         context['countCASH'] = monthlybill.objects.filter(payment_method__methosd__contains='CASH',month__month__startswith="July").count()
-         context['countNAGAD'] = monthlybill.objects.filter(payment_method__methosd__contains='NAGAD',month__month__startswith="July").count()
+         context['ddfcdc'] = monthlybill.objects.filter(month__month__startswith="August").aggregate(Sum('pkg'))
+         context['bkshuser'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH',month__month__startswith="August")
+         context['countbkash'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH',month__month__startswith="August").count()
+         context['countCASH'] = monthlybill.objects.filter(payment_method__methosd__contains='CASH',month__month__startswith="August").count()
+         context['countNAGAD'] = monthlybill.objects.filter(payment_method__methosd__contains='NAGAD',month__month__startswith="August").count()
          context['totaluser'] = monthlybill.objects.all().count()
          context['paiduser'] = monthlybill.objects.filter(payment_status=True).count()
          context['unpaiduser'] = monthlybill.objects.filter(payment_status=False).count()
