@@ -200,12 +200,12 @@ class dailybillupdastefoms(forms.ModelForm):
 
     def __init__(self,*args, **kwargs):
         super(dailybillupdastefoms,self).__init__(*args, **kwargs)
-        self.fields['activities'].empty_label="Month"
+        self.fields['activities'].empty_label="Connection Status"
 
 
     def __init__(self,*args, **kwargs):
         super(dailybillupdastefoms,self).__init__(*args, **kwargs)
-        self.fields['Pack_name'].empty_label="Month"
+        self.fields['Pack_name'].empty_label="Pkg Name"
 
 
 
