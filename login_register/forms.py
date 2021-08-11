@@ -143,16 +143,16 @@ class DateIsnput(forms.DateInput):
 class dailybillupdatefoms(forms.ModelForm):
     class Meta:
         model = monthlybill
-        fields = ['payment_method','pay_date','payment_status','pkg','description','auto_date','month','user_id']
+        fields = ['payment_method','pay_date','payment_status','pkg','description','auto_date','month','user_id','activities','Pack_name']
         widgets = {
             'auto_date':DateIsnput(),
             'pay_date':DateIsnput(),
-            'payment_method':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
-            'pkg':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
-            'description':forms.Textarea(attrs={'class':'form-control','placeholder':'..'}),
+            'payment_method':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost.5555..'}),
+            'pkg':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost.dfd55555..'}),
+            'description':forms.Textarea(attrs={'class':'form-control','placeholder':'.dfdf555555d.'}),
             'payment_status': forms.CheckboxInput(attrs={'class': 'form-check-input'}),  
             'month': forms.Select(attrs={'class':'form-control'}), 
-            'user_id': forms.TextInput(attrs={'class':'form-control'})
+            'user_id': forms.TextInput(attrs={'class':'form-control'}),
 
 
         }
@@ -173,7 +173,7 @@ class DateIssnput(forms.DateInput):
 class dailybillupdastefoms(forms.ModelForm):
     class Meta:
         model = monthlybill
-        fields = ['payment_method','pay_date','payment_status','pkg','description','auto_date','month','user_id']
+        fields = ['payment_method','pay_date','payment_status','activities','Pack_name','pkg','description','auto_date','month','user_id']
         widgets = {
             'auto_date':DateIssnput(),
             'pay_date':DateIsnput(),
@@ -182,7 +182,10 @@ class dailybillupdastefoms(forms.ModelForm):
             'description':forms.Textarea(attrs={'class':'form-control','placeholder':'..'}),
             'payment_status': forms.CheckboxInput(attrs={'class': 'form-check-input'}),  
             'month': forms.Select(attrs={'class':'form-control'}), 
-            'user_id': forms.TextInput(attrs={'class':'form-control'})
+            'user_id': forms.TextInput(attrs={'class':'form-control'}),
+            'activities': forms.Select(attrs={'class':'form-control'}),
+            'Pack_name': forms.Select(attrs={'class':'form-control'})
+
 
 
         }
@@ -194,5 +197,15 @@ class dailybillupdastefoms(forms.ModelForm):
     def __init__(self,*args, **kwargs):
         super(dailybillupdastefoms,self).__init__(*args, **kwargs)
         self.fields['month'].empty_label="Month"
+
+    def __init__(self,*args, **kwargs):
+        super(dailybillupdastefoms,self).__init__(*args, **kwargs)
+        self.fields['activities'].empty_label="Month"
+
+
+    def __init__(self,*args, **kwargs):
+        super(dailybillupdastefoms,self).__init__(*args, **kwargs)
+        self.fields['Pack_name'].empty_label="Month"
+
 
 
