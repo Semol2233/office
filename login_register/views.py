@@ -729,7 +729,13 @@ class unpaid(LoginRequiredMixin,ListView):
 
 
 
-    
+class unpaidjuly(LoginRequiredMixin,ListView):
+    context_object_name = 'alldata'
+    model = monthlybill
+    template_name= 'goninda/montlybill.html'
+    queryset =  monthlybill.objects.filter(payment_status=False,month__month__startswith="July")
+
+
 
 class paydate(LoginRequiredMixin,ListView):
     model = monthlybill
