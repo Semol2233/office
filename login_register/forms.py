@@ -143,9 +143,9 @@ class DateIsnput(forms.DateInput):
 class dailybillupdatefoms(forms.ModelForm):
     class Meta:
         model = monthlybill
-        fields = ['payment_method','pay_date','payment_status','pkg','description','auto_date','month','user_id','activities','Pack_name']
+        fields = ['payment_method','pay_date','payment_status','pkg','description','month','user_id','activities','Pack_name']
         widgets = {
-            'auto_date':DateIsnput(),
+     
             'pay_date':DateIsnput(),
             'payment_method':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost.5555..'}),
             'pkg':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost.dfd55555..'}),
@@ -166,6 +166,16 @@ class dailybillupdatefoms(forms.ModelForm):
         self.fields['month'].empty_label="Month"
 
 
+    def __init__(self,*args, **kwargs):
+        super(dailybillupdastefoms,self).__init__(*args, **kwargs)
+        self.fields['activities'].empty_label="Connection Status"
+
+
+    def __init__(self,*args, **kwargs):
+        super(dailybillupdastefoms,self).__init__(*args, **kwargs)
+        self.fields['Pack_name'].empty_label="Pkg Name"
+
+
 
 class DateIssnput(forms.DateInput):
     input_type = 'date'
@@ -173,9 +183,9 @@ class DateIssnput(forms.DateInput):
 class dailybillupdastefoms(forms.ModelForm):
     class Meta:
         model = monthlybill
-        fields = ['payment_method','pay_date','payment_status','activities','Pack_name','pkg','description','auto_date','month','user_id']
+        fields = ['payment_method','pay_date','payment_status','activities','Pack_name','pkg','description','month','user_id']
         widgets = {
-            'auto_date':DateIssnput(),
+            
             'pay_date':DateIsnput(),
             'payment_method':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
             'pkg':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
