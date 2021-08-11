@@ -209,32 +209,20 @@
   <div class="row  d-flex justify-content-between">
     <div class="col-sm" style="color: blanchedalmond;">
       <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
-        <div class="card-header">Total Amount BKASH</div>
+        <div class="card-header">Total Cash Selver</div>
         <div class="card-body text-primary">
-          <h5  style=" font-weight: bold;"   class="card-title"></h5>
+          <h5  style=" font-weight: bold;" id="totalcost"  class="card-title"></h5>
         
         </div>
       </div>
     </div>
-    <div class="col-sm" style="color: blanchedalmond;">
-      <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
-        <div class="card-header">Total Amount CASH</div>
-        <div class="card-body text-primary">
-          <h5  style=" font-weight: bold;" id="totalcost" class="card-title"></h5>
-        
-        </div>
-      </div>
-    </div>
-    <div class="col-sm" style="color: blanchedalmond;">
-      <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
-        <div class="card-header">Total Amount NAGAD</div>
-        <div class="card-body text-primary">
-          <h5  style=" font-weight: bold;"   class="card-title"></h5>
-        </div>
-      </div>
-    </div>
+
+
   </div>
 </div>
+
+
+
 
 
 
@@ -269,13 +257,9 @@
 
 <div class="container mt-1">
     
-
-
-  <a class="btn btn-primary" href="{% url 'selver_cash' %}" role="button">Silver - CASH</a>
-  <a class="btn btn-primary" href="{% url 'bkashtotal' %}" role="button">Golden - CASH</a>
-  <a class="btn btn-primary" href="{% url 'bkashtotal' %}" role="button">Daimond - CASH</a>
-  <a class="btn btn-primary" href="{% url 'bkashtotal' %}" role="button">Star - CASH</a>
-  <a class="btn btn-primary" href="{% url 'bkashtotal' %}" role="button">Sky - CASH</a>
+    <a class="btn btn-primary" href="{% url 'selver_cash' %}" role="button">Silver - CASH</a>
+    <a class="btn btn-primary" href="{% url 'golden_cash' %}" role="button">Golden - CASH</a>
+    <a class="btn btn-primary" href="{% url 'Daimond_cash' %}" role="button">Daimond - CASH</a>
 
     {% block content %}
 
@@ -344,7 +328,7 @@
           </tr>
         </thead>
         <tbody>
-            {% for q in bkshuser %}
+            {% for q in selver_cash %}
             <tr>
                 
                 <!-- <td  class="colors">{{q.activiton_date}}</td> -->
@@ -389,7 +373,6 @@
         </tbody>
        
       </table>
-      
     
     {% endblock  %}
     

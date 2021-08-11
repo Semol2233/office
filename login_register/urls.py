@@ -59,6 +59,21 @@ urlpatterns = [
     path('mayunpaid',unpaidmay.as_view(),name='un'),
     path('sheet',nbox.as_view(),name='ung'),
 
+    path('cash_selver',cash_selver.as_view(),name='selver_cash'),
+    path('golden_selver',golden_cash.as_view(),name='golden_cash'),
+    path('Daimond_cash',Daimond_cash.as_view(),name='Daimond_cash'),
+
+
+    path('selver_bk',selver_bk.as_view(),name='selver_bk'),
+    path('goldenbk',goldenbk.as_view(),name='goldenbk'),
+    path('daimondbk',daimondbk.as_view(),name='daimondbk'),
+
+
+    
+    
+
+
+
 
 
 

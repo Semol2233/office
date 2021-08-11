@@ -201,22 +201,18 @@
   <a href="{% url 'unpssaid' %}"><h1 style="color: blanchedalmond;">ADD</h1></a>
  </div> 
 
+
+
+
+
 <div class="container mt-4">
   <div class="row  d-flex justify-content-between">
     <div class="col-sm" style="color: blanchedalmond;">
       <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
-        <div class="card-header">Paid User</div>
-        <div class="card-body text-primary">
-          <h5  style=" font-weight: bold;"  class="card-title">{{ paiduser }} </h5>
-        
+        <div class="card-header">Paid User
         </div>
-      </div>
-    </div>
-    <div class="col-sm" style="color: blanchedalmond;">
-      <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
-        <div class="card-header">Unpaid</div>
         <div class="card-body text-primary">
-          <h5  style=" font-weight: bold;" class="card-title">{{unpaiduser}}</h5>
+          <h5  style=" font-weight: bold;"  class="card-title">{{paiduser}}</h5>
         
         </div>
       </div>
@@ -230,18 +226,105 @@
         </div>
       </div>
     </div>
-
     <div class="col-sm" style="color: blanchedalmond;">
       <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
-        <div class="card-header">Pay Bill  9-10 </div>
+        <div class="card-header">Total decline Connection</div>
         <div class="card-body text-primary">
-          <h5  style=" font-weight: bold;"   class="card-title">{{ count}}</h5>
+          <h5  style=" font-weight: bold;"   class="card-title">{{ decline}}</h5>
         
         </div>
       </div>
     </div>
-  </div>
+
+    <div class="col-sm" style="color: blanchedalmond;">
+      <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
+        <div class="card-header">Unpaid</div>
+        <div class="card-body text-primary">
+          <h5  style=" font-weight: bold;" class="card-title">{{unpaiduser}}</h5>
+        
+        </div>
+      </div>
+    </div>
+   
+
+
+
+    <div class="col-sm-2" style="color: blanchedalmond;">
+     <div class="row">
+       <div class="col">
+        <button type="button" class="btn btn-primary position-relative" style="margin-right: 10px;">
+          Silver
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {{selver}}
+           
+          </span>
+        </button>
+    
+        <button type="button" class="btn btn-primary position-relative">
+          Golden
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {{Gold}}
+            
+          </span>
+        </button>
+       </div>
+
+
+
+
+       <div class="col" style="margin-top: 10px;">
+        <button type="button" class="btn btn-primary position-relative" style="margin-right: 10px;">
+          Daimond
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {{Diamond}}
+           
+          </span>
+        </button>
+
+        <button type="button" class="btn btn-primary position-relative">
+          Star
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {{star}}
+            
+          </span>
+        </button>
+       </div>
+
+       <div class="col" style="margin-top: 10px;">
+        <button type="button" class="btn btn-primary position-relative" style="margin-right: 10px;">
+          Sky
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {{sky}}
+            
+          </span>
+        </button>
+       </div>
+
+
+
+
+
+     </div>
+    
+  
+    </div>
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div class="container mt-1">

@@ -469,9 +469,21 @@ class montlybillview(LoginRequiredMixin,ListView):
     def get_context_data(self, **kwargs):
          context = super(montlybillview, self).get_context_data(**kwargs)
          context['alldata'] = monthlybill.objects.filter(month__month__startswith="August")
-         context['totaluser'] = monthlybill.objects.filter(month__month__startswith="August").count()
-         context['paiduser'] = monthlybill.objects.filter(payment_status=True,month__month__startswith="August").count()
-         context['unpaiduser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith="August").count()
+         context['totaluser'] = monthlybill.objects.filter(month__month__startswith="August").exclude(activities__act_line__startswith="declined").count()
+         context['paiduser'] = monthlybill.objects.filter(payment_status=True,month__month__startswith="August").exclude(activities__act_line__startswith="declined").count()
+         context['unpaiduser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith="August").exclude(activities__act_line__startswith="declined").count()
+         context['decline'] = monthlybill.objects.filter(activities__act_line__startswith="declined").count()
+
+
+
+         context['selver'] = monthlybill.objects.filter(payment_status=True,month__month__startswith="August",Pack_name__pkgnamebill__startswith="Selver").exclude(activities__act_line__startswith="declined").count()
+         context['Gold'] = monthlybill.objects.filter(payment_status=True,month__month__startswith="August",Pack_name__pkgnamebill__startswith="Gold").exclude(activities__act_line__startswith="declined").count()
+         context['Diamond'] = monthlybill.objects.filter(payment_status=True,month__month__startswith="August",Pack_name__pkgnamebill__startswith="Daimond").exclude(activities__act_line__startswith="declined").count()
+         context['star'] = monthlybill.objects.filter(payment_status=True,month__month__startswith="August",Pack_name__pkgnamebill__startswith="Star").exclude(activities__act_line__startswith="declined").count()
+         context['sky'] = monthlybill.objects.filter(payment_status=True,month__month__startswith="August",Pack_name__pkgnamebill__startswith="Sky").exclude(activities__act_line__startswith="declined").count()
+
+
+
          
          return context
 
@@ -601,6 +613,104 @@ class cash(LoginRequiredMixin,ListView):
     model = monthlybill
     template_name= 'goninda/cash.html'
     queryset = monthlybill.objects.filter(payment_method__methosd__contains='CASH',month__month__startswith="August")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#1
+class cash_selver(LoginRequiredMixin,ListView):
+    context_object_name = 'selver_cash'
+    model = monthlybill
+    template_name= 'pkg_data/selver.html'
+    queryset = monthlybill.objects.filter(payment_method__methosd__contains='CASH',month__month__startswith="August",Pack_name__pkgnamebill__startswith="Selver").exclude(activities__act_line__startswith="declined")
+
+
+
+#2
+class golden_cash(LoginRequiredMixin,ListView):
+    context_object_name = 'selver_cash'
+    model = monthlybill
+    template_name= 'pkg_data/golden.html'
+    queryset = monthlybill.objects.filter(payment_method__methosd__contains='CASH',month__month__startswith="August",Pack_name__pkgnamebill__startswith="Gold").exclude(activities__act_line__startswith="declined")
+
+
+
+#3
+class Daimond_cash(LoginRequiredMixin,ListView):
+    context_object_name = 'selver_cash'
+    model = monthlybill
+    template_name= 'pkg_data/daimond.html'
+    queryset = monthlybill.objects.filter(payment_method__methosd__contains='CASH',month__month__startswith="August",Pack_name__pkgnamebill__startswith="Daimond").exclude(activities__act_line__startswith="declined")
+
+
+
+
+#4
+class selver_bk(LoginRequiredMixin,ListView):
+    context_object_name = 'selver_cash'
+    model = monthlybill
+    template_name= 'pkg_data/bk/selverbk.html'
+    queryset = monthlybill.objects.filter(payment_method__methosd__contains='BKASH',month__month__startswith="August",Pack_name__pkgnamebill__startswith="Selver").exclude(activities__act_line__startswith="declined")
+
+
+#5
+class goldenbk(LoginRequiredMixin,ListView):
+    context_object_name = 'selver_cash'
+    model = monthlybill
+    template_name= 'pkg_data/bk/goldbk.html'
+    queryset = monthlybill.objects.filter(payment_method__methosd__contains='BKASH',month__month__startswith="August",Pack_name__pkgnamebill__startswith="Gold").exclude(activities__act_line__startswith="declined")
+
+
+
+class daimondbk(LoginRequiredMixin,ListView):
+    context_object_name = 'selver_cash'
+    model = monthlybill
+    template_name= 'pkg_data/bk/daimondbk.html'
+    queryset = monthlybill.objects.filter(payment_method__methosd__contains='BKASH',month__month__startswith="August",Pack_name__pkgnamebill__startswith="Daimond").exclude(activities__act_line__startswith="declined")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 class nagad(LoginRequiredMixin,ListView):

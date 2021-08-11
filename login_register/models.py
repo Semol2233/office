@@ -228,7 +228,20 @@ class pkg_name(models.Model):
     def __str__(self):
         return self.month
 
+class actrline(models.Model):
+    act_line = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.act_line
+
+class pkg_namesbill(models.Model):
+    pkgnamebill = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.pkgnamebill
+
+
+testvalue = 'dfcdcf'
 class monthlybill(models.Model):
     date             = models.DateTimeField(null=True, blank=True)
     activiton_date   = models.DateTimeField(null=True, blank=True)
@@ -243,6 +256,9 @@ class monthlybill(models.Model):
     previus_due      = models.CharField(max_length=255,blank=True)
     pkg              = models.ForeignKey(pkg, on_delete=models.CASCADE)
     description      = models.TextField(blank=True)
+    activities       = models.ForeignKey(actrline, on_delete=models.CASCADE,null=True, blank=True)
+    Pack_name        = models.ForeignKey(pkg_namesbill, on_delete=models.CASCADE,null=True, blank=True)
+
 
     def __str__(self):
         return self.user_id
