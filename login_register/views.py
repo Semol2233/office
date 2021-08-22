@@ -416,14 +416,15 @@ class updatedailyline(LoginRequiredMixin,ListView):
     template_name= 'goninda/dalyconnection.html'
 
 
+date = "2021-08-11", "2021-09-11"
 def updatessdata(request):
-    allupdatedate = userupdate.objects.filter(date_user__range=["2021-07-11", "2021-08-11"])
-    lastconnection = userupdate.objects.filter(date_user__range=["2021-07-11", "2021-08-11"]).last()
-    totalsilveruser = userupdate.objects.filter(date_user__range=["2021-07-11", "2021-08-11"],pkg_namess__pkgname__startswith="Silver").count()
-    totalgoldenuser = userupdate.objects.filter(date_user__range=["2021-07-11", "2021-08-11"],pkg_namess__pkgname__startswith="Gold").count()
-    totalskyenuser = userupdate.objects.filter(date_user__range=["2021-07-11", "2021-08-11"],pkg_namess__pkgname__startswith="Sky").count()
-    totaldaimondenuser = userupdate.objects.filter(date_user__range=["2021-07-11", "2021-08-11"],pkg_namess__pkgname__startswith="Daimond").count()
-    totalstarenuser = userupdate.objects.filter(date_user__range=["2021-07-11", "2021-08-11"],pkg_namess__pkgname__startswith="Star").count()
+    allupdatedate = userupdate.objects.filter(date_user__range=[date])
+    lastconnection = userupdate.objects.filter(date_user__range=[date]).last()
+    totalsilveruser = userupdate.objects.filter(date_user__range=[date],pkg_namess__pkgname__startswith="Silver").count()
+    totalgoldenuser = userupdate.objects.filter(date_user__range=[date],pkg_namess__pkgname__startswith="Gold").count()
+    totalskyenuser = userupdate.objects.filter(date_user__range=[date],pkg_namess__pkgname__startswith="Sky").count()
+    totaldaimondenuser = userupdate.objects.filter(date_user__range=[date],pkg_namess__pkgname__startswith="Daimond").count()
+    totalstarenuser = userupdate.objects.filter(date_user__range=[date],pkg_namess__pkgname__startswith="Star").count()
 
 
     return render(request,"goninda/dalyconnection.html",{"dataone":allupdatedate,"datatwo":lastconnection,"usertype1":totalsilveruser,"usertype2":totalgoldenuser,"usertype3":totalskyenuser,"usertype4":totaldaimondenuser,"usertype5":totalstarenuser})
