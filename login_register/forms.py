@@ -228,13 +228,17 @@ class DateIssnput(forms.DateInput):
 class routerupdate(forms.ModelForm):
     class Meta:
         model = router
-        fields = ['date_router','RounterBrand','Price','payment_methogd']
+        fields = ['date_router','RounterBrand','Price','payment_methogd','Userid','description']
         widgets = {
             
             'date_router':DateIsnput(),
             'RounterBrand':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
             'payment_methogd':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
             'Price':forms.TextInput(attrs={'class':'form-control','placeholder':'..'}),
+            'Userid':forms.TextInput(attrs={'class':'form-control','placeholder':'..'}),
+            'description':forms.Textarea(attrs={'class':'form-control','placeholder':'..'}),
+
+
 
 
 
@@ -248,3 +252,57 @@ class routerupdate(forms.ModelForm):
     def __init__(self,*args, **kwargs):
         super(routerupdate,self).__init__(*args, **kwargs)
         self.fields['payment_methogd'].empty_label="Pay With" 
+
+
+
+
+
+
+class lodfdsfon(forms.ModelForm):
+    class Meta:
+        model = loon
+        fields = ['loon_date','loon_source','how_many','why_loon']
+        widgets = {
+            
+            'loon_date':DateIsnput(),
+            'loon_source':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
+            'why_loon':forms.Textarea(attrs={'class':'form-control','placeholder':'..'}),
+            'how_many':forms.TextInput(attrs={'class':'form-control','placeholder':'..'}),
+
+
+        }
+
+    def __init__(self,*args, **kwargs):
+        super(lodfdsfon,self).__init__(*args, **kwargs)
+        self.fields['loon_source'].empty_label="Loon Source"
+
+
+
+
+class dalyconnection(forms.ModelForm):
+    class Meta:
+        model = userupdate
+        fields = ['date_user','user_sn','user_id','pkg_namess','user_name','prepaidbill','service_chagre','payment_method','auto_date']
+        widgets = {
+            
+            'date_user':DateIsnput(),
+            'user_sn':forms.TextInput(attrs={'class':'form-control','placeholder':'..'}),
+            'user_id':forms.TextInput(attrs={'class':'form-control','placeholder':'..'}),
+            'user_name':forms.TextInput(attrs={'class':'form-control','placeholder':'..'}),
+            'prepaidbill':forms.TextInput(attrs={'class':'form-control','placeholder':'..'}),
+            'service_chagre':forms.TextInput(attrs={'class':'form-control','placeholder':'..'}),
+            'pkg_namess':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
+            'payment_method':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
+            'auto_date':forms.TextInput(attrs={'class':'form-control','placeholder':'..'}),
+
+        }
+
+    def __init__(self,*args, **kwargs):
+        super(dalyconnection,self).__init__(*args, **kwargs)
+        self.fields['pkg_namess'].empty_label="PKG"
+
+
+    def __init__(self,*args, **kwargs):
+        super(dalyconnection,self).__init__(*args, **kwargs)
+        self.fields['payment_method'].empty_label="Pay With"
+

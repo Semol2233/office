@@ -162,6 +162,8 @@ class router(models.Model):
     RounterBrand      =      models.ForeignKey(router_brnd, on_delete=models.CASCADE)
     Price             =      models.CharField(max_length=255)
     payment_methogd    =      models.ForeignKey(router_payment, on_delete=models.CASCADE,null=True, blank=True)
+    Userid           =         models.CharField(max_length=255, blank=True)
+    description      =    models.TextField(blank=True)
  
 
 
@@ -201,6 +203,9 @@ class userupdate(models.Model):
     def __str__(self):
         return self.user_name
 
+    def get_absolute_url(self):
+        return reverse('update')
+
 
 class loonsource(models.Model):
     loons = models.CharField(max_length=255)
@@ -220,6 +225,12 @@ class loon(models.Model):
 
     def __str__(self):
         return self.why_loon
+
+
+    def get_absolute_url(self):
+        return reverse('loon')
+
+
 
 class payment_methods(models.Model):
     methosd = models.CharField(max_length=255)

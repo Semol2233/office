@@ -70,7 +70,13 @@ urlpatterns = [
     path('unpaidjuly',unpaidjuly.as_view(),name='dasimondbk'),
     path('Router',routersell.as_view(),name='daseimondbk'),
 
-    path('postsouter',updatedailyline.as_view(),name='daseimossndddbk'),
+    path('postsouter',routerpost.as_view(),name='daseimossndddbk'),
+    path('loonpost',loonpost.as_view(),name='dasseimossndddbk'),
+    path('dlycon',dailyconnectionpost.as_view(),name='dlycon'),
+
+
+
+    
 
   
 

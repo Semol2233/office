@@ -8,46 +8,49 @@
         <form method="post" style="width: 657px;">
             {% csrf_token %}
             <div class="form-row">
-              <div class="form-group col-md-2 mb-0" style="color: aliceblue; width: 134px;">
-                {{ form.Userid|as_crispy_field }}
+              <div class="form-group col-md-5 mb-0" style="color: aliceblue; width: 134px;">
+                {{ form.date_user|as_crispy_field }}
+              </div>
+              <div class="form-group col-md-2 mb-0" style="color: aliceblue;">
+                {{ form.user_sn|as_crispy_field }}
               </div>
               <div class="form-group col-md-5 mb-0" style="color: aliceblue;">
-                {{ form.date_router|as_crispy_field }}
-              </div>
-              <div class="form-group col-md-5 mb-0" style="color: aliceblue;">
-                {{ form.RounterBrand|as_crispy_field }}
+                {{ form.user_id|as_crispy_field }}
               </div>
     
               <div class="form-group col-md-5 mb-0" style="color: aliceblue; width: 100px;">
-                {{ form.Price|as_crispy_field }}
+                {{ form.pkg_namess|as_crispy_field }}
               </div>  
     
           
 
 
               <div class="form-group col-md-5 mb-0" style="color: aliceblue;">
-                {{ form.payment_methogd|as_crispy_field }}
+                {{ form.user_name|as_crispy_field }}
               </div>  
 
 
               <div class="form-group col-md-5 mb-0" style="color: aliceblue;">
-               
+                {{ form.prepaidbill|as_crispy_field }}
               </div>  
               
 
               <div class="form-group col-md-5 mb-0" style="color: aliceblue;">
-                
+                {{ form.service_chagre|as_crispy_field }}
               </div>  
+              <div class="form-group col-md-5 mb-0" style="color: aliceblue; " >
+                {{ form.payment_method|as_crispy_field }}
+              </div>
             </div>
             
             
             <div class="form-row">
     
     
-                <div class="form-group col-md-12 mb-0" style="color: aliceblue; " >
-                    {{ form.description|as_crispy_field }}
-                  </div>
-
+    
+                  <div class="form-check form-switch col-md-5 mb-0" style="color: aliceblue;">
+                  
+                  </div> 
                   <div class="col-md-5 mb-0" style="color: aliceblue;">
                     <button type="submit" class="btn btn-light">POST</button>
                   </div> 

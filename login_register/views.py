@@ -808,5 +808,25 @@ def updateyssdata(request):
 
 class routerpost(CreateView,LoginRequiredMixin):
     form_class = routerupdate
-    model = Post_Asn
+    model = router
     template_name = 'nv/uplode_router.html'
+
+
+
+
+class loonpost(CreateView,LoginRequiredMixin):
+    form_class = lodfdsfon
+    model = loon
+    template_name = 'nv/uplode_loon.html'
+
+
+
+class dailyconnectionpost(CreateView,LoginRequiredMixin):
+    form_class = dalyconnection
+    model = userupdate
+    template_name = 'nv/uplode_userupdate.html'
+
+
+
+
+

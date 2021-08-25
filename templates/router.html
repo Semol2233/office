@@ -322,11 +322,13 @@
         <thead>
           <tr>
             
-            <th scope="col" class="colors">ID</th>
+            <th scope="col" class="colors">User Id</th>
             <th scope="col" class="colors">Date</th>
             <th scope="col" class="colors">Router Brand</th>
             <th scope="col" class="colors">Price</th>
             <th scope="col" class="colors">Payment Status</th>
+            <th scope="col" class="colors">Description</th>
+
 
 
 
@@ -342,11 +344,13 @@
         <tbody>
             {% for q in fulllist %}
             <tr>
-                <td  class="colors">{{q.id}}</td>
+                <td  class="colors">{{q.Userid}}</td>
                 <td  class="colors">{{q.date_router}}</td>
                 <td class="colors">{{q.RounterBrand}}</td>
                 <td class="colors">{{q.Price}}</td>
                 <td class="colors">{{q.payment_methogd}}</td>
+                <td class="colors">{{q.description}}</td>
+
 
                 
         

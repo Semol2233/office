@@ -9,24 +9,24 @@
             {% csrf_token %}
             <div class="form-row">
               <div class="form-group col-md-2 mb-0" style="color: aliceblue; width: 134px;">
-                {{ form.Userid|as_crispy_field }}
+                {{ form.loon_date|as_crispy_field }}
               </div>
               <div class="form-group col-md-5 mb-0" style="color: aliceblue;">
-                {{ form.date_router|as_crispy_field }}
+                {{ form.loon_source|as_crispy_field }}
               </div>
               <div class="form-group col-md-5 mb-0" style="color: aliceblue;">
-                {{ form.RounterBrand|as_crispy_field }}
+                {{ form.how_many|as_crispy_field }}
               </div>
     
               <div class="form-group col-md-5 mb-0" style="color: aliceblue; width: 100px;">
-                {{ form.Price|as_crispy_field }}
+              
               </div>  
     
           
 
 
               <div class="form-group col-md-5 mb-0" style="color: aliceblue;">
-                {{ form.payment_methogd|as_crispy_field }}
+               
               </div>  
 
 
@@ -45,7 +45,7 @@
     
     
                 <div class="form-group col-md-12 mb-0" style="color: aliceblue; " >
-                    {{ form.description|as_crispy_field }}
+                    {{ form.why_loon|as_crispy_field }}
                   </div>
 
                   <div class="col-md-5 mb-0" style="color: aliceblue;">
