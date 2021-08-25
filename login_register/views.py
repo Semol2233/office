@@ -10,7 +10,7 @@ from django.views.generic import TemplateView,CreateView,ListView,DeleteView,Det
 from django.urls import reverse,reverse_lazy
 from django.db.models import Q 
 
-
+from .date import datedata
 from datetime import datetime, timedelta
 
 # Create your views here.
@@ -300,12 +300,15 @@ class dailybing_view(LoginRequiredMixin,CreateView):
 
 
 class daulycost_list(LoginRequiredMixin,ListView):
+
+
     context_object_name = 'fulllist'
+
     model = dailybilling
     template_name= 'goninda/list.html'
     #queryset = dailybilling.objects.filter(created_date__gte=datetime.now() - timedelta(days=1))
-    queryset = dailybilling.objects.filter(date__range=["2021-07-11", "2021-08-11"]).exclude(cost_profile__cost_name__contains='Advance salary')
-
+    # queryset = dailybilling.objects.filter(date__range=["202-08-11", "2021-09-11"]).exclude(cost_profile__cost_name__contains='Advance salary')
+    queryset = dailybilling.objects.filter(date__range=datedata)
 
 
 # class daulycost_list(LoginRequiredMixin,ListView):
@@ -329,7 +332,7 @@ class OFFICE_COST(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Office Cost',date__range=["2021-07-11", "2021-08-11"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Office Cost',date__range=datedata)
 
 
 
@@ -337,7 +340,7 @@ class OFFICE_bike(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Bike Cost',date__range=["2021-07-11", "2021-08-11"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Bike Cost',date__range=datedata)
 
 
 
@@ -345,14 +348,14 @@ class OFFICE_family(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Family',date__range=["2021-07-11", "2021-08-11"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Family',date__range=datedata)
 
 
 class OFFICE_product(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Product Cost',date__range=["2021-07-11", "2021-08-11"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Product Cost',date__range=datedata)
 
 
 
@@ -360,14 +363,14 @@ class OFFICE_salllery(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Salary',date__range=["2021-07-11", "2021-08-11"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Salary',date__range=datedata)
 
 
 class OFFICE_trnasportcost(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Transport Cost',date__range=["2021-07-11", "2021-08-11"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Transport Cost',date__range=datedata)
 
 
 
@@ -375,21 +378,21 @@ class OFFICE_Chika(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Chika',date__range=["2021-07-11", "2021-08-11"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Chika',date__range=datedata)
 
 
 class OFFICE_internetbill(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='orange',date__range=["2021-07-11", "2021-08-11"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='orange',date__range=datedata)
 
 
 class OFFICE_Electric(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Electric Cost',date__range=["2021-07-11", "2021-08-11"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Electric Cost',date__range=datedata)
 
 
 
@@ -397,7 +400,7 @@ class OFFICE_Employ(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Employ Cost',date__range=["2021-07-11", "2021-08-11"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Employ Cost',date__range=datedata)
 
 
 
@@ -405,7 +408,7 @@ class OFFICE_Pickup(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = dailybilling
     template_name= 'goninda/cost.html'
-    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Pickup Cost',date__range=["2021-07-11", "2021-08-11"])
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Pickup Cost',date__range=datedata)
 
 
 
@@ -417,13 +420,13 @@ class updatedailyline(LoginRequiredMixin,ListView):
 
 
 def updatessdata(request):
-    allupdatedate = userupdate.objects.filter(date_user__range=["2021-08-11", "2021-09-11"])
-    lastconnection = userupdate.objects.filter(date_user__range=["2021-08-11", "2021-09-11"]).last()
-    totalsilveruser = userupdate.objects.filter(date_user__range=["2021-08-11", "2021-09-11"],pkg_namess__pkgname__startswith="Silver").count()
-    totalgoldenuser = userupdate.objects.filter(date_user__range=["2021-08-11", "2021-09-11"],pkg_namess__pkgname__startswith="Gold").count()
-    totalskyenuser = userupdate.objects.filter(date_user__range=["2021-08-11", "2021-09-11"],pkg_namess__pkgname__startswith="Sky").count()
-    totaldaimondenuser = userupdate.objects.filter(date_user__range=["2021-08-11", "2021-09-11"],pkg_namess__pkgname__startswith="Daimond").count()
-    totalstarenuser = userupdate.objects.filter(date_user__range=["2021-08-11", "2021-09-11"],pkg_namess__pkgname__startswith="Star").count()
+    allupdatedate = userupdate.objects.filter(date_user__range=datedata)
+    lastconnection = userupdate.objects.filter(date_user__range=datedata).last()
+    totalsilveruser = userupdate.objects.filter(date_user__range=datedata,pkg_namess__pkgname__startswith="Silver").count()
+    totalgoldenuser = userupdate.objects.filter(date_user__range=datedata,pkg_namess__pkgname__startswith="Gold").count()
+    totalskyenuser = userupdate.objects.filter(date_user__range=datedata,pkg_namess__pkgname__startswith="Sky").count()
+    totaldaimondenuser = userupdate.objects.filter(date_user__range=datedata,pkg_namess__pkgname__startswith="Daimond").count()
+    totalstarenuser = userupdate.objects.filter(date_user__range=datedata,pkg_namess__pkgname__startswith="Star").count()
 
 
     return render(request,"goninda/dalyconnection.html",{"dataone":allupdatedate,"datatwo":lastconnection,"usertype1":totalsilveruser,"usertype2":totalgoldenuser,"usertype3":totalskyenuser,"usertype4":totaldaimondenuser,"usertype5":totalstarenuser})
