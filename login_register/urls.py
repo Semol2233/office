@@ -43,8 +43,7 @@ urlpatterns = [
     path('Employ',OFFICE_Employ.as_view(),name='Employ'),
     path('Pickup',OFFICE_Pickup.as_view(),name='Pickup'),
     path('bkpayment',bkashpayment.as_view(),name='bkpayment'),
-    path('updssate',updatedailyline.as_view(),name='updssate'),
-    path('uspdate',updatessdata,name='update'),
+    path('updssate',updatedailyline.as_view(),name='update'),
     path('loon',looan,name='loon'),
     path('bill',montlybillview.as_view(),name='montslybillview'),
     path('bkash',bkashtotal.as_view(),name='bkashtotal'),
@@ -71,9 +70,9 @@ urlpatterns = [
     path('unpaidjuly',unpaidjuly.as_view(),name='dasimondbk'),
     path('Router',routersell.as_view(),name='daseimondbk'),
 
-    path('postsouter',routerpost.as_view(),name='daseimossndddbk'),
+    path('postsouter',updatedailyline.as_view(),name='daseimossndddbk'),
 
-    path('posssstsouter',updatedailyline.as_view(),name='daseimossnddssdbk'),
+  
 
 
 
