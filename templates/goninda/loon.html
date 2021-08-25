@@ -140,10 +140,7 @@
                 </ul>
 
                 
-                <form class="form-inline my-2 my-lg-0" action="{% url 'serach' %}" method="GET" value="{{request.GET.q}}">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" value="03-{{request.GET.q}}">
-                    <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="submit" value="Search" style="color: white;"/></input>
-                </form>
+            
 
             {% endif %}
 
@@ -151,7 +148,6 @@
         </div>
       </div>
     </nav>
-   
    
     <!-- <div class="container mt-2">
     <div class="container mt-5 card  shadow-lg p-3 mb-5 bg-white rounded"></div>
@@ -193,58 +189,58 @@
         </div>
         <input type="submit" class="btn btn-success" value="Login">
     </form>
+
+
+
 </div> -->
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+</div>
+
+
    
 
- <div class="container d-flex justify-content-between">
-  <h5 class="mt-4 " style="color: blanchedalmond;">
-    10.4 - 10.5
-  </h5>
- </div> 
+  <!-- <div class="row">
 
-<div class="container mt-4">
-  <div class="row  d-flex justify-content-between">
-    <div class="col-sm" style="color: blanchedalmond;">
-      <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
-        <div class="card-header">Bkash</div>
-        <div class="card-body text-primary">
-          <h5  id="bkash" style=" font-weight: bold;"  class="card-title"></h5>
-        
-        </div>
-      </div>
-    </div>
-    <div class="col-sm" style="color: blanchedalmond;">
-      <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
-        <div class="card-header">PREPAIDBILL</div>
-        <div class="card-body text-primary">
-          <h5 id="PREPAIDBILL" style=" font-weight: bold;" class="card-title"></h5>
-        
-        </div>
-      </div>
-    </div>
-    <div class="col-sm" style="color: blanchedalmond;">
-      <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
-        <div class="card-header">MONTHLYBILL</div>
-        <div class="card-body text-primary">
-          <h5 id="MONTHLYBILL" style=" font-weight: bold;"   class="card-title"></h5>
-        
-        </div>
-      </div>
-    </div>
+    <div class="col-sm-1" style="margin-top: 10px;">
+      <button type="button" class="btn btn-primary position-relative" style="margin-right: 10px;">
+        Sky
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          {{usertype5}}
+          
+        </span>
+      </button>
+     </div>
+
+     <div class="col-sm-1" style="margin-top: 10px;">
+      <button type="button" class="btn btn-primary position-relative" style="margin-right: 10px;">
+        Sky
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          {{usertype5}}
+          
+        </span>
+      </button>
+     </div>
+  </div> -->
 
 
 
-    <div class="col-sm" style="color: blanchedalmond;">
-      <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
-        <div class="card-header">ROUTER</div>
-        <div class="card-body text-primary">
-          <h5 id="ROUTER" style=" font-weight: bold;"   class="card-title"></h5>
-        
-        </div>
-      </div>
-    </div>
-  </div>
+
+ 
 </div>
+
+
 
 
 
@@ -256,7 +252,7 @@
     
       .colors{
     
-        color: #1d1b1b;
+        color: aliceblue;
       }
     
       .centered {
@@ -278,213 +274,125 @@
     
     
     <script>
+    
       $(document).ready(function()
       {
              var cost;
              var totalcost = 0;
-             $('td:nth-child(3)').each(function(){
+             $('td:nth-child(4)').each(function(){
               cost = $(this).html();
               totalcost+=parseInt(cost);
-                $('#bkash').text(totalcost)
+                $('#totalcost').text(totalcost)
     
              });
       });
 
-
       $(document).ready(function()
       {
              var cost;
              var totalcost = 0;
-             $('td:nth-child(6)').each(function(){
+             $('td:nth-child(5)').each(function(){
               cost = $(this).html();
               totalcost+=parseInt(cost);
-                $('#PREPAIDBILL').text(totalcost)
+                $('#totassslcost').text(totalcost)
     
              });
       });
 
-
       $(document).ready(function()
       {
              var cost;
              var totalcost = 0;
-             $('td:nth-child(10)').each(function(){
+             $('td:nth-child(7)').each(function(){
               cost = $(this).html();
               totalcost+=parseInt(cost);
-                $('#MONTHLYBILL').text(totalcost)
-    
-             });
-      });
-
-
-
-      $(document).ready(function()
-      {
-             var cost;
-             var totalcost = 0;
-             $('td:nth-child(12)').each(function(){
-              cost = $(this).html();
-              totalcost+=parseInt(cost);
-                $('#ROUTER').text(totalcost)
+                $('#totaluser').text(totalcost)
     
              });
       });
     </script>
     
+    <table class="table table-bordered mt-2 table-hover table-dark rounded mt-4">
+        <thead>
+          <tr>
+            
+            <th scope="col" class="colors">ID</th>
+            <th scope="col" class="colors">Date</th>
+            <th scope="col" class="colors">Loon Source</th>
+            <th scope="col" class="colors">Loon Ammount</th>
+            <th scope="col" class="colors">Why Loon</th>
 
 
 
+           
 
-
-
-
-
-
-
-   <div style="width: 1px; height: 1px;">
-    <table>
-      <thead>
-        <tr>
-          
-          <th scope="col" class="colors">Date</th>
-          <th scope="col" class="colors">User Id</th>
-          <th scope="col" class="colors">User Name</th>
-          <th scope="col" class="colors">prepaidbill</th>
-          <th scope="col" class="colors">Service Chrage</th>
-          <th scope="col" class="colors">Payment Method</th>
-          <th scope="col" class="colors">SN</th>
-  
-      
-  
-          
-  
-        </tr>
- 
     
-          {% for q in BKASH %}
-         
-              
-              <td  class="colors">{{q.loon_date}}</td>
-              <td class="colors">{{q.loon}}</td>
-              <td class="colors">{{q.how_many}}</td>
-              <td class="colors" > {{q.why_loon}}</td>
-  
-        {% endfor %} 
-
-
-        {% for r in PREPjjAIDBILL %}
-         
-              
-        <td  class="colors">{{r.loon_date}}</td>
-        <td class="colors">{{r.how_many}}</td>
-     
-
-  {% endfor %}
-  {% for q in MONTHLYBILL %}
-         
-              
-
-  <td class="colors">{{q.loon}}</td>
-  <td class="colors">{{q.how_many}}</td>
- 
-
-{% endfor %} 
-
-
-
-{% for q in ROUTER %}
-         
-              
-
-<td class="colors">{{q.loon}}</td>
-<td class="colors">{{q.how_many}}</td> -->
-
-
-{% endfor %} 
-        <script>
-  
-          $(document).ready(function()
-          {
-                 var cost;
-                 var totalcost = 0;
-                 $('td:nth-child(3)').each(function(){
-                  cost = $(this).html();
-                  totalcost+=parseInt(cost);
-                    $('#tosstalcost').text(totalcost)
         
-                 });
-          });
-        </script>
-        <tr>
-          <td class="colors" colspan="3">Total</td>
-          <td class="colors"  id="tosstalcost" colspan="10"></td>
-        </tr>
-      </tbody>
-     
-    </table>
     
-   </div>
+            
+    
+          </tr>
+        </thead>
+        <tbody>
+            {% for q in alldata %}
+            <tr>
+                <td  class="colors">{{q.id}}</td>
+                <td  class="colors">{{q.loon_date}}</td>
+                <td class="colors">{{q.loon_source}}</td>
+                <td class="colors">{{q.how_many}}</td>
+                <td class="colors">{{q.why_loon}}</td>
+
+                
+        
+             
+                  
+    
+                {% if request.user.is_superuser%}
+    
+                <!-- <td class="colors"><a href="{% url 'up' q.id%}"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="{% url 'del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td> -->
+              </tr>
+              {% else%}
+              <td class="colors"><a href="#"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="#"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td>
+              {% endif %}
+    
+    
+          {% endfor %} 
+          <script>
+    
+            $(document).ready(function()
+            {
+                   var cost;
+                   var totalcost = 0;
+                   $('td:nth-child(4)').each(function(){
+                    cost = $(this).html();
+                    totalcost+=parseInt(cost);
+                      $('#tosstalcost').text(totalcost)
+          
+                   });
+            });
+          </script>
+          <tr>
+            <td class="colors" colspan="3">Total</td>
+            <td class="colors"  id="tosstalcost" colspan="10"></td>
+          </tr>
+        </tbody>
+       
+      </table>
+      
     
     {% endblock  %}
     
 </div>
 
 
-<!-- <div class="container">
-
-  
-  <div class="card-columns">
-    {% for q in alldata %}
-    <div class="card" style="background-color: rgb(136, 135, 135);">
-      <blockquote class="blockquote  card-body">
-        <p>{{q.loon_source}}</p>
-
-
-        <footer class="blockquote-footer">
-          <small class="text-muted">
-            <cite title="Source Title">{{q.how_many}} BDT</cite>
-            
-          </small>
-        </footer>
-      </blockquote>
-    </div>
-    
-   
-    {% endfor %} 
-  </div>
-  
-
-</div> -->
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<script>
+  $('.datepicker').datepicker({
+    format: 'dd/mm/yyyy'
+ });
+</script>
 
 
 

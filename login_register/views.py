@@ -442,14 +442,8 @@ def updatessdata(request):
 
 
 def looan(request):
-    BDDDKASH = loon.objects.filter(loon_source__contains='B')
-    PREPAIDBILL = loon.objects.filter(loon_source__contains='P')
-    MONTHLYBILL = loon.objects.filter(loon_source__contains='M')
-    ROUTER = loon.objects.filter(loon_source__contains='R')
     alldata = loon.objects.all()
-
-
-    return render(request,"goninda/loon.html",{'alldata':alldata,'BKASH':BDDDKASH,'PREPjjAIDBILL':PREPAIDBILL,'MONTHLYBILL':MONTHLYBILL,'ROUTER':ROUTER})
+    return render(request,"goninda/loon.html",{'alldata':alldata,})
 
 
 
@@ -787,5 +781,21 @@ class unpaidmay(LoginRequiredMixin,ListView):
     model = monthlybill
     template_name= 'goninda/montlybill.html'
     queryset =  monthlybill.objects.filter(payment_status=False).exclude(month__month__contains="August")
+
+
+
+
+
+
+class routersell(LoginRequiredMixin,ListView):
+    context_object_name = 'fulllist'
+    model = router
+    template_name= 'router.html'
+
+
+def updatessdata(request):
+    allupdatedate = userupdate.objects.filter(date_user__range=["2021-08-11", "2021-09-11"])
+
+    return render(request,"router.html",{"usertype5":allupdatedate})
 
 

@@ -138,6 +138,16 @@ class bkashuserpaymanet(models.Model):
 
 
 
+
+class router_payment(models.Model):
+    rpay = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.rpay
+
+
+
+
 class router_brnd(models.Model):
     router_brand = models.CharField(max_length=255)
 
@@ -146,9 +156,14 @@ class router_brnd(models.Model):
 
 
 class router(models.Model):
-    date_router   =      models.DateTimeField()
-    RounterBrand  =      models.ForeignKey(router_brnd, on_delete=models.CASCADE)
-    Price         =      models.CharField(max_length=255)
+
+
+    date_router       =      models.DateTimeField()
+    RounterBrand      =      models.ForeignKey(router_brnd, on_delete=models.CASCADE)
+    Price             =      models.CharField(max_length=255)
+    payment_methogd    =      models.ForeignKey(router_payment, on_delete=models.CASCADE,null=True, blank=True)
+ 
+
 
     def __str__(self):
         return self.Price
@@ -182,17 +197,17 @@ class userupdate(models.Model):
         return self.user_name
 
 
+class loonsource(models.Model):
+    loons = models.CharField(max_length=255)
+    
+    def __str__(self):
+        return self.loons
 
 
 class loon(models.Model):
-    PAYMENT = (
-        ('B', 'BKASH'),
-        ('P', 'SERVICE CHRAGE'),
-        ('M', 'MONTHLYBILL'),
-        ('R', 'ROUTER')
-    )
+
     loon_date = models.DateTimeField()
-    loon_source     = models.CharField(max_length=1, choices=PAYMENT)
+    loon_source     = models.ForeignKey(loonsource, on_delete=models.CASCADE,null=True, blank=True)
     how_many  =  models.CharField(max_length=255)
     why_loon  =  models.TextField()
 
