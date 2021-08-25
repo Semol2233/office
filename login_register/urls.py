@@ -71,6 +71,9 @@ urlpatterns = [
     path('unpaidjuly',unpaidjuly.as_view(),name='dasimondbk'),
     path('Router',routersell.as_view(),name='daseimondbk'),
 
+    path('postsouter',routerpost.as_view(),name='daseimossndddbk'),
+
+
 
 
 

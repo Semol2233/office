@@ -169,6 +169,11 @@ class router(models.Model):
         return self.Price
 
 
+    def get_absolute_url(self):
+        return reverse('daseimondbk')
+
+
+
 class pkg_names(models.Model):
     pkgname = models.CharField(max_length=255)
 

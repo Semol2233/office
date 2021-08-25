@@ -219,3 +219,32 @@ class dailybillupdastefoms(forms.ModelForm):
 
 
 
+
+
+
+class DateIssnput(forms.DateInput):
+    input_type = 'date'
+
+class routerupdate(forms.ModelForm):
+    class Meta:
+        model = router
+        fields = ['date_router','RounterBrand','Price','payment_methogd']
+        widgets = {
+            
+            'date_router':DateIsnput(),
+            'RounterBrand':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
+            'payment_methogd':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
+            'Price':forms.TextInput(attrs={'class':'form-control','placeholder':'..'}),
+
+
+
+        }
+
+    def __init__(self,*args, **kwargs):
+        super(routerupdate,self).__init__(*args, **kwargs)
+        self.fields['RounterBrand'].empty_label="Router Brand"
+
+  
+    def __init__(self,*args, **kwargs):
+        super(routerupdate,self).__init__(*args, **kwargs)
+        self.fields['payment_methogd'].empty_label="Pay With" 

@@ -799,3 +799,11 @@ def updatessdata(request):
     return render(request,"router.html",{"usertype5":allupdatedate})
 
 
+
+
+
+
+class routerpost(CreateView,LoginRequiredMixin):
+    form_class = routerupdate
+    model = Post_Asn
+    template_name = 'nv/uplode_router.html'
