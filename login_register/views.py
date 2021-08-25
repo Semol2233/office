@@ -419,6 +419,9 @@ class updatedailyline(LoginRequiredMixin,ListView):
     template_name= 'goninda/dalyconnection.html'
 
 
+
+
+
 def updatessdata(request):
     allupdatedate = userupdate.objects.filter(date_user__range=["2021-08-11", "2021-09-11"])
     lastconnection = userupdate.objects.filter(date_user__range=["2021-08-11", "2021-09-11"]).last()
