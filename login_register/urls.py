@@ -43,7 +43,7 @@ urlpatterns = [
     path('Employ',OFFICE_Employ.as_view(),name='Employ'),
     path('Pickup',OFFICE_Pickup.as_view(),name='Pickup'),
     path('bkpayment',bkashpayment.as_view(),name='bkpayment'),
-    path('update',updatedailyline.as_view(),name='updssate'),
+    path('updssate',updatedailyline.as_view(),name='updssate'),
     path('uspdate',updatessdata,name='update'),
     path('loon',looan,name='loon'),
     path('bill',montlybillview.as_view(),name='montslybillview'),
@@ -72,6 +72,9 @@ urlpatterns = [
     path('Router',routersell.as_view(),name='daseimondbk'),
 
     path('postsouter',routerpost.as_view(),name='daseimossndddbk'),
+
+    path('posssstsouter',updatedailyline.as_view(),name='daseimossnddssdbk'),
+
 
 
 
