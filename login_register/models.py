@@ -298,3 +298,19 @@ class monthlybill(models.Model):
     def get_absolute_url(self):
         return reverse('montslybillview')
 
+
+
+
+class s_router(models.Model):
+    date                = models.DateTimeField(null=True, blank=True)
+    userid              = models.CharField(max_length=255,blank=True)
+    router_model        = models.ForeignKey(router_brnd, on_delete=models.CASCADE)
+    description         = models.TextField(blank=True)
+    status              = models.BooleanField(default=False) 
+
+
+    def get_absolute_url(self):
+        return reverse('dlysucdon')
+
+
+

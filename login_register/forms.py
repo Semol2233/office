@@ -306,3 +306,41 @@ class dalyconnection(forms.ModelForm):
         super(dalyconnection,self).__init__(*args, **kwargs)
         self.fields['payment_method'].empty_label="Pay With"
 
+
+
+
+
+class srouters(forms.ModelForm):
+    class Meta:
+        model = s_router
+        fields = ['date','userid','router_model','description','status']
+        widgets = {
+            
+            'date':DateIsnput(),
+            'userid':forms.TextInput(attrs={'class':'form-control','placeholder':'..'}),
+            'router_model':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
+            'description':forms.Textarea(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
+            'status':forms.CheckboxInput(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
+
+          
+        }
+
+    def __init__(self,*args, **kwargs):
+        super(srouters,self).__init__(*args, **kwargs)
+        self.fields['router_model'].empty_label="Router Brand"
+
+
+
+class sroutssers(forms.ModelForm):
+    class Meta:
+        model = s_router
+        fields = ['status']
+        widgets = {
+            
+           
+            'status':forms.CheckboxInput(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
+
+          
+        }
+
+

@@ -829,4 +829,45 @@ class dailyconnectionpost(CreateView,LoginRequiredMixin):
 
 
 
+class uplode_srouter(CreateView,LoginRequiredMixin):
+    form_class = srouters
+    model = s_router
+    template_name = 's_router/support.html'
+
+
+
+
+
+class s_routerlist(LoginRequiredMixin,ListView):
+    context_object_name = 'agglldata'
+    model = s_router
+    template_name= 's_router/list_srouter.html'
+    queryset =  s_router.objects.filter(status=False)
+
+
+
+
+
+class s_routerlist_update(LoginRequiredMixin, UpdateView):
+    form_class = sroutssers
+    model = s_router
+    template_name = 's_router/update.html'
+
+
+
+
+class s_routerlist(LoginRequiredMixin,ListView):
+    context_object_name = 'agglldata'
+    model = s_router
+    template_name= 's_router/list_srouter.html'
+    queryset =  s_router.objects.filter(status=False)
+
+
+
+
+# class novus_employ(LoginRequiredMixin,ListView):
+#     context_object_name = 'aggllssdata'
+#     model = n_empoly
+#     template_name= 's_router/userlist.html'
+
 

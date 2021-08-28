@@ -73,8 +73,10 @@ urlpatterns = [
     path('postsouter',routerpost.as_view(),name='daseimossndddbk'),
     path('loonpost',loonpost.as_view(),name='dasseimossndddbk'),
     path('dlycon',dailyconnectionpost.as_view(),name='dlycon'),
-
-
+    path('routerup',uplode_srouter.as_view(),name='dlyscon'),
+    path('routerdup',s_routerlist.as_view(),name='dlysucdon'),
+    path('up_srouter/<int:pk>/',s_routerlist_update.as_view(),name='up_srouters'),
+ 
 
     
 

@@ -25,6 +25,10 @@ admin.site.register(actrline)
 admin.site.register(pkg_namesbill)
 admin.site.register(router_payment)
 admin.site.register(loonsource)
+admin.site.register(s_router)
+
+
+
 
 
 
