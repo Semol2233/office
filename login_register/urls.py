@@ -76,7 +76,9 @@ urlpatterns = [
     path('routerup',uplode_srouter.as_view(),name='dlyscon'),
     path('routerdup',s_routerlist.as_view(),name='dlysucdon'),
     path('up_srouter/<int:pk>/',s_routerlist_update.as_view(),name='up_srouters'),
-    path('ip',iplist_block.as_view(),name='ip')
+    path('ip',iplist_block.as_view(),name='ip'),
+    path('unpaidagust',unpaidAugust.as_view(),name='ag')
+
 
  
 
