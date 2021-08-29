@@ -870,4 +870,9 @@ class s_routerlist(LoginRequiredMixin,ListView):
 #     model = n_empoly
 #     template_name= 's_router/userlist.html'
 
+class iplist_block(LoginRequiredMixin,ListView):
+    context_object_name = 'iplist'
+    model = publicipnote
+    template_name= 's_router/iplist.html'
+
 

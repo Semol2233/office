@@ -314,3 +314,11 @@ class s_router(models.Model):
 
 
 
+class publicipnote(models.Model):
+    date        = models.DateTimeField(null=True, blank=True)
+    ipfrefix     = models.CharField(max_length=255)
+    description         = models.TextField(blank=True)
+
+
+    def __str__(self):
+        return self.ipfrefix
