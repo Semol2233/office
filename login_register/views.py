@@ -759,7 +759,8 @@ class unpaidAugust(LoginRequiredMixin,ListView):
     context_object_name = 'alldata'
     model = monthlybill
     template_name= 'goninda/montlybill.html'
-    queryset =  monthlybill.objects.filter(payment_status=False,month__month__startswith="August")
+    queryset =  monthlybill.objects.filter(payment_status=False,month__month__startswith="August").exclude(activities__act_line__startswith="declined")
+
 
 class paydate(LoginRequiredMixin,ListView):
     model = monthlybill
