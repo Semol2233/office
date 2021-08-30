@@ -322,3 +322,28 @@ class publicipnote(models.Model):
 
     def __str__(self):
         return self.ipfrefix
+
+
+
+
+
+class source_ex(models.Model):
+    sourceen = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.sourceen
+
+
+class Extraincome(models.Model):
+    date            =  models.DateTimeField(null=True, blank=True)
+    Source          =  models.ForeignKey(source_ex, on_delete=models.CASCADE)
+    Userid          =  models.CharField(max_length=255)
+    Chrage          =  models.CharField(max_length=255)
+    description         = models.TextField(blank=True)
+    def __str__(self):
+        return self.Userid
+
+    def get_absolute_url(self):
+        return reverse('ex_in')
+
+

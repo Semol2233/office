@@ -66,10 +66,7 @@ urlpatterns = [
     path('selver_bk',selver_bk.as_view(),name='selver_bk'),
     path('goldenbk',goldenbk.as_view(),name='goldenbk'),
     path('daimondbk',daimondbk.as_view(),name='daimondbk'),
-
-    path('unpaidjuly',unpaidjuly.as_view(),name='dasimondbk'),
     path('Router',routersell.as_view(),name='daseimondbk'),
-
     path('postsouter',routerpost.as_view(),name='daseimossndddbk'),
     path('loonpost',loonpost.as_view(),name='dasseimossndddbk'),
     path('dlycon',dailyconnectionpost.as_view(),name='dlycon'),
@@ -77,6 +74,13 @@ urlpatterns = [
     path('routerdup',s_routerlist.as_view(),name='dlysucdon'),
     path('up_srouter/<int:pk>/',s_routerlist_update.as_view(),name='up_srouters'),
     path('ip',iplist_block.as_view(),name='ip'),
+    path('iexincome',extra_in_viewcr.as_view(),name='isssp'),
+    path('list_ex',extra_in_view.as_view(),name='ex_in'),
+
+
+
+
+    path('unpaidjuly',unpaidjuly.as_view(),name='dasimondbk'),
     path('unpaidagust',unpaidAugust.as_view(),name='ag')
 
 

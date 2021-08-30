@@ -882,3 +882,20 @@ class iplist_block(LoginRequiredMixin,ListView):
     template_name= 's_router/iplist.html'
 
 
+
+
+class extra_in_view(LoginRequiredMixin,ListView):
+    context_object_name = 'iplist'
+    model = Extraincome
+    template_name= 's_router/ex_lit.html'
+
+
+
+class extra_in_viewcr(CreateView,LoginRequiredMixin):
+    form_class = extra_in_form
+    model = Extraincome
+    template_name = 's_router/ex.html'
+
+
+
+

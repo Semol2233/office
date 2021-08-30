@@ -344,3 +344,20 @@ class sroutssers(forms.ModelForm):
         }
 
 
+
+
+class extra_in_form(forms.ModelForm):
+    class Meta:
+        model = Extraincome
+        fields = ['date','Source','Userid','Chrage','description']
+        widgets = {
+            
+            'date':DateIsnput(),
+            'Userid':forms.TextInput(attrs={'class':'form-control','placeholder':'..'}),
+            'Source':forms.Select(attrs={'class':'form-control','placeholder':'t...'}),
+            'Chrage':forms.TextInput(attrs={'class':'form-control','placeholder':'..'}),
+            'description':forms.Textarea(attrs={'class':'form-control','placeholder':'...'}),
+
+          
+        }
+
