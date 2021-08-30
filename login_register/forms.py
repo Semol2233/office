@@ -357,7 +357,7 @@ class extra_in_form(forms.ModelForm):
             'Source':forms.Select(attrs={'class':'form-control','placeholder':'t...'}),
             'Chrage':forms.TextInput(attrs={'class':'form-control','placeholder':'..'}),
             'description':forms.Textarea(attrs={'class':'form-control','placeholder':'...'}),
-            'payment_methogd':forms.CheckboxInput(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
+            'payment_methogd':forms.Select(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
 
           
         }
