@@ -340,6 +340,7 @@ class Extraincome(models.Model):
     Userid          =  models.CharField(max_length=255)
     Chrage          =  models.CharField(max_length=255)
     description         = models.TextField(blank=True)
+    payment_methogd    =      models.ForeignKey(router_payment, on_delete=models.CASCADE,null=True, blank=True)
     def __str__(self):
         return self.Userid
 

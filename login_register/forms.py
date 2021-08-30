@@ -349,7 +349,7 @@ class sroutssers(forms.ModelForm):
 class extra_in_form(forms.ModelForm):
     class Meta:
         model = Extraincome
-        fields = ['date','Source','Userid','Chrage','description']
+        fields = ['date','Source','Userid','Chrage','description','payment_methogd']
         widgets = {
             
             'date':DateIsnput(),
@@ -357,6 +357,7 @@ class extra_in_form(forms.ModelForm):
             'Source':forms.Select(attrs={'class':'form-control','placeholder':'t...'}),
             'Chrage':forms.TextInput(attrs={'class':'form-control','placeholder':'..'}),
             'description':forms.Textarea(attrs={'class':'form-control','placeholder':'...'}),
+            'payment_methogd':forms.CheckboxInput(attrs={'class':'form-control','placeholder':'Offie Cost...'}),
 
           
         }
