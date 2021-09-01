@@ -322,7 +322,7 @@
         <thead>
           <tr>
             
-            <th scope="col" class="colors">Date</th>
+
             <th scope="col" class="colors">Month</th>
             <th scope="col" class="colors">Pkg Name</th>
             <th scope="col" class="colors">Activities</th>
@@ -346,9 +346,9 @@
         <tbody>
             {% for q in agglldata %}
             <tr>
-                <td  class="colors">{{q.date}}</td>
-                <td  class="colors">{{q.user_id}}</td>
-                <td class="colors">{{q.month}}</td>
+       
+                <td  class="colors">{{q.month}}</td>
+                <td class="colors">{{q.user_id}}</td>
                 <td class="colors">{{q.activities}}</td>
                 <td class="colors">{{q.Pack_name}}</td>
                 <td class="colors">{{q.description}}</td>
