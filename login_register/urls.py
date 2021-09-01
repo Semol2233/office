@@ -76,6 +76,8 @@ urlpatterns = [
     path('ip',iplist_block.as_view(),name='ip'),
     path('iexincome',extra_in_viewcr.as_view(),name='isssp'),
     path('list_ex',extra_in_view.as_view(),name='ex_in'),
+    path('declinuser',Decline_user.as_view(),name='declineuser'),
+
 
 
 
