@@ -903,5 +903,5 @@ class Decline_user(LoginRequiredMixin,ListView):
     context_object_name = 'agglldata'
     model = monthlybill
     template_name= 's_router/declineuser.html'
-    queryset =  monthlybill.objects.filter(activities__act_line__startswith="declined" ).exclude(payment_status=False,month__month__startswith="August")
+    queryset =  monthlybill.objects.filter(activities__act_line__startswith="declined" )
 
