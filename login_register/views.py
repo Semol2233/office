@@ -470,8 +470,8 @@ class montlybillview(LoginRequiredMixin,ListView):
          context['alldata'] = monthlybill.objects.filter(month__month__startswith=month)
          context['totaluser'] = monthlybill.objects.filter(month__month__startswith=month).exclude(activities__act_line__startswith="declined").count()
          context['paiduser'] = monthlybill.objects.filter(payment_status=True,month__month__startswith=month).exclude(activities__act_line__startswith="declined").count()
-         context['unpaiduser'] =  monthlybill.objects.filter(payment_status=False,month__month__startswith=month,activities__act_line__startswith="declined").count()
-         context['decline'] = monthlybill.objects.filter(activities__act_line__startswith="declined").count()
+         context['unpaiduser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month).exclude(activities__act_line__startswith="declined").count()
+         context['decline'] =  monthlybill.objects.filter(payment_status=False,month__month__startswith=month,activities__act_line__startswith="declined").count()
 
          context['selver'] = monthlybill.objects.filter(month__month__startswith=month,Pack_name__pkgnamebill__startswith="Selver").exclude(activities__act_line__startswith="declined").count()
          context['Gold'] = monthlybill.objects.filter(month__month__startswith=month,Pack_name__pkgnamebill__startswith="Gold").exclude(activities__act_line__startswith="declined").count()
