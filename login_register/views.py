@@ -470,7 +470,7 @@ class montlybillview(LoginRequiredMixin,ListView):
          context['alldata'] = monthlybill.objects.filter(month__month__startswith=month)
          context['totaluser'] = monthlybill.objects.filter(month__month__startswith=month).exclude(activities__act_line__startswith="declined").count()
          context['paiduser'] = monthlybill.objects.filter(payment_status=True,month__month__startswith=month).exclude(activities__act_line__startswith="declined").count()
-         context['unpaiduser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month).exclude(activities__act_line__startswith="declined").count()
+         context['unpaiduser'] =  monthlybill.objects.filter(payment_status=False,month__month__startswith=month,activities__act_line__startswith="declined").count()
          context['decline'] = monthlybill.objects.filter(activities__act_line__startswith="declined").count()
 
          context['selver'] = monthlybill.objects.filter(month__month__startswith=month,Pack_name__pkgnamebill__startswith="Selver").exclude(activities__act_line__startswith="declined").count()
@@ -903,4 +903,4 @@ class Decline_user(LoginRequiredMixin,ListView):
     context_object_name = 'agglldata'
     model = monthlybill
     template_name= 's_router/declineuser.html'
-    queryset =  monthlybill.objects.filter(payment_status=False,month__month__startswith=month,activities__act_line__startswith="declined" )
+    queryset =  monthlybill.objects.filter(payment_status=False,month__month__startswith=month,activities__act_line__startswith="declined")
