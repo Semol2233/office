@@ -904,3 +904,31 @@ class Decline_user(LoginRequiredMixin,ListView):
     model = monthlybill
     template_name= 's_router/declineuser.html'
     queryset =  monthlybill.objects.filter(payment_status=False,month__month__startswith=month,activities__act_line__startswith="declined")
+
+
+
+
+
+
+
+
+class duebill(LoginRequiredMixin,ListView):
+    model = monthlybill
+    template_name= 'goninda/duebill.html'
+    
+
+    def get_context_data(self, **kwargs):
+         context = super(duebill, self).get_context_data(**kwargs)
+         context['unpaidwuser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month).exclude(activities__act_line__startswith="declined")
+         context['unpaiduser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month).exclude(activities__act_line__startswith="declined").count()
+
+         context['selver'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,Pack_name__pkgnamebill__startswith="Selver").exclude(activities__act_line__startswith="declined").count()
+         context['Gold'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,Pack_name__pkgnamebill__startswith="Gold").exclude(activities__act_line__startswith="declined").count()
+         context['Diamond'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,Pack_name__pkgnamebill__startswith="Daimond").exclude(activities__act_line__startswith="declined").count()
+         context['star'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,Pack_name__pkgnamebill__startswith="Star").exclude(activities__act_line__startswith="declined").count()
+         context['sky'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,Pack_name__pkgnamebill__startswith="Sky").exclude(activities__act_line__startswith="declined").count()
+
+
+         return context
+
+        
