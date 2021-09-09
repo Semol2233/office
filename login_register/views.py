@@ -474,7 +474,7 @@ class montlybillview(LoginRequiredMixin,ListView):
          context['decline'] =  monthlybill.objects.filter(payment_status=False,month__month__startswith=month,activities__act_line__startswith="declined").count()
 
          context['selver'] = monthlybill.objects.filter(month__month__startswith=month,Pack_name__pkgnamebill__startswith="Selver").exclude(activities__act_line__startswith="declined").count()
-         context['Golden'] = monthlybill.objects.filter(month__month__startswith=month,Pack_name__pkgnamebill__startswith="Gold").exclude(activities__act_line__startswith="declined").count()
+         context['Gold'] = monthlybill.objects.filter(month__month__startswith=month,Pack_name__pkgnamebill__startswith="Golden").exclude(activities__act_line__startswith="declined").count()
          context['Diamond'] = monthlybill.objects.filter(month__month__startswith=month,Pack_name__pkgnamebill__startswith="Daimond").exclude(activities__act_line__startswith="declined").count()
          context['star'] = monthlybill.objects.filter(month__month__startswith=month,Pack_name__pkgnamebill__startswith="Star").exclude(activities__act_line__startswith="declined").count()
          context['sky'] = monthlybill.objects.filter(month__month__startswith=month,Pack_name__pkgnamebill__startswith="Sky").exclude(activities__act_line__startswith="declined").count()
@@ -923,7 +923,7 @@ class duebill(LoginRequiredMixin,ListView):
          context['unpaiduser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month).exclude(activities__act_line__startswith="declined").count()
 
          context['selver'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,Pack_name__pkgnamebill__startswith="Selver").exclude(activities__act_line__startswith="declined").count()
-         context['Golden'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,Pack_name__pkgnamebill__startswith="Gold").exclude(activities__act_line__startswith="declined").count()
+         context['Gold'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,Pack_name__pkgnamebill__startswith="Golden").exclude(activities__act_line__startswith="declined").count()
          context['Diamond'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,Pack_name__pkgnamebill__startswith="Daimond").exclude(activities__act_line__startswith="declined").count()
          context['star'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,Pack_name__pkgnamebill__startswith="Star").exclude(activities__act_line__startswith="declined").count()
          context['sky'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,Pack_name__pkgnamebill__startswith="Sky").exclude(activities__act_line__startswith="declined").count()
