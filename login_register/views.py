@@ -655,7 +655,7 @@ class cash_selver(LoginRequiredMixin,ListView):
     context_object_name = 'selver_cash'
     model = monthlybill
     template_name= 'pkg_data/selver.html'
-    queryset = monthlybill.objects.filter(payment_method__methosd__contains='CASH',month__month__startswith=month,Pack_name__pkgnamebill__startswith="Selver").exclude(activities__act_line__startswith="declined")
+    queryset = monthlybill.objects.filter(payment_method__methosd__contains='CASH',month__month__startswith=month,Pack_name__pkgnamebill__startswith="Silver").exclude(activities__act_line__startswith="declined")
 
 
 
@@ -683,7 +683,7 @@ class selver_bk(LoginRequiredMixin,ListView):
     context_object_name = 'selver_cash'
     model = monthlybill
     template_name= 'pkg_data/bk/selverbk.html'
-    queryset = monthlybill.objects.filter(payment_method__methosd__contains='BKASH',month__month__startswith=month,Pack_name__pkgnamebill__startswith="Selver").exclude(activities__act_line__startswith="declined")
+    queryset = monthlybill.objects.filter(payment_method__methosd__contains='BKASH',month__month__startswith=month,Pack_name__pkgnamebill__startswith="Silver").exclude(activities__act_line__startswith="declined")
 
 
 #5
