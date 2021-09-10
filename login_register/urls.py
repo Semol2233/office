@@ -78,6 +78,8 @@ urlpatterns = [
     path('list_ex',extra_in_view.as_view(),name='ex_in'),
     path('declinuser',Decline_user.as_view(),name='declineuser'),
     path('duebill',duebill.as_view(),name='duebills'),
+    path('dailysesdrach',dailysesrach,name='serachuserid'),
+
 
 
 

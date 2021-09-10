@@ -931,4 +931,19 @@ class duebill(LoginRequiredMixin,ListView):
 
          return context
 
-        
+
+
+
+
+def dailysesrach(request):
+    if request.method == 'GET':
+        query= request.GET.get('f')
+        submitbutton= request.GET.get('subtmit')
+        results= monthlybill.objects.filter(Q(user_id__icontains=query))
+        context={'results': results,
+                     'submitbutton': submitbutton}
+        return render(request, 'query/daulynilingserach.html', context)
+    else:
+        return render(request, 'query/daulynilingserach.html')
+
+

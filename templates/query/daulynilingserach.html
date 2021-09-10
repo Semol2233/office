@@ -27,128 +27,7 @@
     }
 </style>
   <body style="background-color: #1d1b1b;">
-    {% if user.is_authenticated %}
 
-
-       
-        <nav class="navbar navbar-expand-sm navbar-dark    navbar-default " style="background-color: #343a40;">
-            <div class="container">
-              <a class="navbar-brand dfdfdefe" href="{% url 'ijdfscdj' %}" style="font-weight: bold;   text-transform: uppercase;">Hey</a>
-              <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-                  aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-      
-
-        <div class="collapse navbar-collapse" id="collapsibleNavId">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-
-                <li class="nav-item">
-                    <a class="nav-link dycgdych">  <span class="text-white"><i  class="fa fa-user text-success"> </i> {{ request.user.username }}</span></a>
-                  </li>
-
-
-                  <!-- {% if user.is_superuser %}
-                  <li class="nav-item">
-                      <a class="nav-link" href="#"> Admin</a>
-                  </li>
-                  {% endif %} -->
-                  {% if request.user.is_superuser %}
-                  <!-- <li class="nav-item my-2 my-lg-0">
-                    <a class="nav-link active" href="{% url 'wrn' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Create Package</a>
-                </li> -->
-                {% endif %}
-
-                <!-- <li class="nav-item my-2 my-lg-0">
-                    <a class="nav-link active" href="{% url 'user' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>User Uplode</a>
-                </li> -->
-                {% if request.user.is_superuser %}
-                <!-- <li class="nav-item my-2 my-lg-0">
-                    <a class="nav-link active" href="{% url 'wsrn' %}"><span class="text-success"></span>PON</a>
-                </li> -->
-
-                <!-- <li class="nav-item my-2 my-lg-0">
-                    <a class="nav-link active" href="#"><span class="text-success"></span>Area ID</a>
-                </li> -->
-                {% endif %}
-
-
-                <li class="nav-item my-2 my-lg-0">
-                    <a class="nav-link active dycgdych" href="#"><span class="text-muted "></span>Router</a>
-                </li>
-
-                <li class="nav-item my-2 my-lg-0">
-                    <a class="nav-link active dycgdych" href="{% url 'bkpayment' %}"><span class="text-muted "></span>Payment Store</a>
-                </li>
-                
-                <li class="nav-item my-2 my-lg-0">
-                    <a class="nav-link active dycgdych" href="{% url 'update' %}"><span class="text-muted "></span>Connection</a>
-                </li>
-
-                <li class="nav-item my-2 my-lg-0">
-                    <a class="nav-link active dycgdych" href="{% url 'loon' %}"><span class="text-muted "></span>Loon</a>
-                </li>
-
-                <li class="nav-item my-2 my-lg-0">
-                    <a class="nav-link active dycgdych" href="{% url 'montslybillview' %}"><span class="text-muted "></span>Monthly Bill</a>
-                </li>
-                <li class="nav-item my-2 my-lg-0">
-                    <a class="nav-link active dycgdych" href="{% url 'logout' %}"><span class="text-muted "></span>Logout</a>
-                </li>
-
-            </ul>
-            <form class="form-inline my-2 my-lg-0" action="{% url 'serach' %}" method="GET" value="{{request.GET.q}}">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" value="{{request.GET.q}}">
-                <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="submit" value="Search" style="color: white;"/></input>
-            </form>
-            {% else %}
-            
-          
-            <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-    
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'lsoc' %}">Location</a>
-                  </li>
-                     
-                <li class="nav-item">
-                    <a class="nav-link">  <span class="text-white"><i  class="fa fa-user text-success"> </i> {{ request.user.username }}</span></a>
-                  </li>
-
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="text-success"><i class="fa fa-plus"></i></span> Uplode
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Vlan</a>
-                            <a class="dropdown-item" href="#"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Location</a>
-    
-                           
-                        </div>
-                      </li> -->
-                      <!-- {% if user.is_superuser %}
-                      <li class="nav-item">
-                          <a class="nav-link" href="#"> Admin</a>
-                      </li>
-                      {% endif %} -->
-    
-                      <li class="nav-item my-2 my-lg-0">
-                        <a class="nav-link active" href="{% url 'logout' %}"><span class="text-muted "></span>Logout</a>
-                    </li>
-    
-    
-                </ul>
-
-                
-            
-
-            {% endif %}
-
-
-        </div>
-      </div>
-    </nav>
    
 {% block content %}
 
@@ -162,7 +41,7 @@
 
 
     <div class="card card-body">
-      <form class="form-inline my-2 my-lg-0" action="{% url 'datad' %}" method="GET" value="{{request.GET.f}}">
+      <form class="form-inline my-2 my-lg-0" action="{% url 'serachuserid' %}" method="GET" value="{{request.GET.f}}">
           <input class="form-control mr-sm-2" type="text" placeholder="mm-dd-yyyy" name="f" value="{{request.GET.f}}">
           <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="subtmit" value="Search" style="color: rgb(0, 0, 0);"/></input>
         </form>
@@ -196,23 +75,31 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th class="colors" scope="col">ID</th>
-      <th class="colors" scope="col">Date</th>
-      <th class="colors" scope="col">Profile</th>
-      <th class="colors" scope="col">Cost</th>
-      <th class="colors" scope="col">Description</th>
-    
+       
+            <th scope="col" class="colors">User Id</th>
+            <th scope="col" class="colors">Payment Method</th>
+            <th scope="col" class="colors">Description</th>
+
+            <th scope="col" class="colors">Month</th>
+            <th scope="col" class="colors">Activities</th>
+            <th scope="col" class="colors">Pkgnamebill</th>
+
 
     </tr>
   </thead>
   <tbody>
       {% for q in results %}
       <tr>
-          <th class="colors" scope="row">{{q.id}}</th>
-          <td class="colors">{{q.date}}</td>
-          <td class="colors" > {{q.cost_profile.cost_name}}</td>
-          <td class="colors" > {{q.cost}}</td>
-          <td class="colors" > {{q.description}}</td>
+        <td lass="colors"  >{{q.user_id}}</td>
+        <td class="colors" > {{q.payment_method}}</td>
+        <td class="colors">{{q.description}}</td>
+        <td class="colors">{{q.month}}</td>
+        <td class="colors">{{q.activities.act_line}}</td>
+        <td class="colors">{{q.Pack_name.pkgnamebill}}</td>
+
+
+
+
 
           {% if request.user.is_superuser%}
 
@@ -252,8 +139,8 @@
 
 
     <div class="card card-body">
-      <form class="form-inline my-2 my-lg-0" action="{% url 'datad' %}" method="GET" value="{{request.GET.f}}">
-          <input class="form-control mr-sm-2" type="text" placeholder="mm-dd-yyyy" name="f" value="{{request.GET.f}}">
+      <form class="form-inline my-2 my-lg-0" action="{% url 'serachuserid' %}" method="GET" value="{{request.GET.f}}">
+          <input class="form-control mr-sm-2" type="text" placeholder="21@@" name="f" value="{{request.GET.f}}">
           <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="subtmit" value="Search" style="color: rgb(0, 0, 0);"/></input>
         </form>
     </div>
