@@ -79,6 +79,9 @@ urlpatterns = [
     path('declinuser',Decline_user.as_view(),name='declineuser'),
     path('duebill',duebill.as_view(),name='duebills'),
     path('dailysesdrach',dailysesrach,name='serachuserid'),
+    path('del_extrdel/<int:pk>/',postdesl_loc.as_view(),name='csc'),
+
+    
 
 
 

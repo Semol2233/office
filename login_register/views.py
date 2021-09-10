@@ -947,3 +947,8 @@ def dailysesrach(request):
         return render(request, 'query/daulynilingserach.html')
 
 
+
+class postdesl_loc(LoginRequiredMixin, DeleteView):
+    model = monthlybill
+    template_name = 'goninda/loc_de.html'
+    success_url = reverse_lazy('serachuserid')
