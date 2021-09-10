@@ -951,4 +951,4 @@ def dailysesrach(request):
 class postdesl_loc(LoginRequiredMixin, DeleteView):
     model = monthlybill
     template_name = 'goninda/loc_de.html'
-    success_url = reverse_lazy('serachuserid')
+    success_url = reverse_lazy('montslybillview')
