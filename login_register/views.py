@@ -939,7 +939,7 @@ def dailysesrach(request):
     if request.method == 'GET':
         query= request.GET.get('f')
         submitbutton= request.GET.get('subtmit')
-        results= monthlybill.objects.filter(Q(user_id__icontains=query),month__month__startswith=month)
+        results= monthlybill.objects.filter(Q(user_id__startswith=query),month__month__startswith=month)
         context={'results': results,
                      'submitbutton': submitbutton}
         return render(request, 'query/daulynilingserach.html', context)
