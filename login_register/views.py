@@ -604,7 +604,7 @@ class bkashtotal(LoginRequiredMixin,ListView):
     def get_context_data(self, **kwargs):
          context = super(bkashtotal, self).get_context_data(**kwargs)
          context['bkshuser'] =monthlybill.objects.filter(payment_method__methosd__contains='BKASH',month__month__startswith=month)
-         context['selver1'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH',month__month__startswith=month,Pack_name__pkgnamebill__startswith="Selver").exclude(activities__act_line__startswith="declined").count()
+         context['selver1'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH',month__month__startswith=month,Pack_name__pkgnamebill__startswith="Silver").exclude(activities__act_line__startswith="declined").count()
          context['golden2'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH',month__month__startswith=month,Pack_name__pkgnamebill__startswith="Golden").exclude(activities__act_line__startswith="declined").count()
          context['daimond3'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH',month__month__startswith=month,Pack_name__pkgnamebill__startswith="Daimond").exclude(activities__act_line__startswith="declined").count()
          context['star4'] = monthlybill.objects.filter(payment_method__methosd__contains='BKASH',month__month__startswith=month,Pack_name__pkgnamebill__startswith="Star").exclude(activities__act_line__startswith="declined").count()
@@ -630,7 +630,7 @@ class cash(LoginRequiredMixin,ListView):
     def get_context_data(self, **kwargs):
          context = super(cash, self).get_context_data(**kwargs)
          context['bkshuser'] = monthlybill.objects.filter(payment_method__methosd__contains='CASH',month__month__startswith=month)
-         context['selver1'] = monthlybill.objects.filter(payment_method__methosd__contains='CASH',month__month__startswith=month,Pack_name__pkgnamebill__startswith="Selver").exclude(activities__act_line__startswith="declined").count()
+         context['selver1'] = monthlybill.objects.filter(payment_method__methosd__contains='CASH',month__month__startswith=month,Pack_name__pkgnamebill__startswith="Silver").exclude(activities__act_line__startswith="declined").count()
          context['golden2'] = monthlybill.objects.filter(payment_method__methosd__contains='CASH',month__month__startswith=month,Pack_name__pkgnamebill__startswith="Golden").exclude(activities__act_line__startswith="declined").count()
          context['daimond3'] = monthlybill.objects.filter(payment_method__methosd__contains='CASH',month__month__startswith=month,Pack_name__pkgnamebill__startswith="Daimond").exclude(activities__act_line__startswith="declined").count()
          context['star4'] = monthlybill.objects.filter(payment_method__methosd__contains='CASH',month__month__startswith=month,Pack_name__pkgnamebill__startswith="Star").exclude(activities__act_line__startswith="declined").count()
