@@ -431,7 +431,7 @@ def updatessdata(request):
     totalskyenuser = userupdate.objects.filter(date_user__range=["2021-08-11", "2021-09-11"],pkg_namess__pkgname__startswith="Sky").count()
     totaldaimondenuser = userupdate.objects.filter(date_user__range=["2021-08-11", "2021-09-11"],pkg_namess__pkgname__startswith="Daimond").count()
     totalstarenuser = userupdate.objects.filter(date_user__range=["2021-08-11", "2021-09-11"],pkg_namess__pkgname__startswith="Star").count()
-    return render(request,"goninda/dalyconnection.html",{"dataone":allupdatedate,"datatwo":lastconnection,"usertype1":totalsilveruser,"usertype2":totalgoldenuser,"usertype3":totalskyenuser,"usertype4":totaldaimondenuser,"usertype5":totalstarenuser})
+    return render(request,"goninda/dalyconnection.html",{"dataone":allupdatedate,"xscscvccdsc":lastconnection,"usertype1":totalsilveruser,"usertype2":totalgoldenuser,"usertype3":totalskyenuser,"usertype4":totaldaimondenuser,"usertype5":totalstarenuser})
 
 
 
