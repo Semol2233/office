@@ -424,13 +424,13 @@ class updatedailyline(LoginRequiredMixin,ListView):
 
 
 def updatessdata(request):
-    allupdatedate = userupdate.objects.filter(date_user__range=["2021-08-11", "2021-09-11"])
-    lastconnection = userupdate.objects.filter(date_user__range=["2021-08-11", "2021-09-11"]).last()
-    totalsilveruser = userupdate.objects.filter(date_user__range=["2021-08-11", "2021-09-11"],pkg_namess__pkgname__startswith="Silver").count()
-    totalgoldenuser = userupdate.objects.filter(date_user__range=["2021-08-11", "2021-09-11"],pkg_namess__pkgname__startswith="Gold").count()
-    totalskyenuser = userupdate.objects.filter(date_user__range=["2021-08-11", "2021-09-11"],pkg_namess__pkgname__startswith="Sky").count()
-    totaldaimondenuser = userupdate.objects.filter(date_user__range=["2021-08-11", "2021-09-11"],pkg_namess__pkgname__startswith="Daimond").count()
-    totalstarenuser = userupdate.objects.filter(date_user__range=["2021-08-11", "2021-09-11"],pkg_namess__pkgname__startswith="Star").count()
+    allupdatedate = userupdate.objects.filter(date_user__range=[month])
+    lastconnection = userupdate.objects.filter(date_user__range=[month]).count()
+    totalsilveruser = userupdate.objects.filter(date_user__range=[month],pkg_namess__pkgname__startswith="Silver").count()
+    totalgoldenuser = userupdate.objects.filter(date_user__range=[month],pkg_namess__pkgname__startswith="Gold").count()
+    totalskyenuser = userupdate.objects.filter(date_user__range=[month],pkg_namess__pkgname__startswith="Sky").count()
+    totaldaimondenuser = userupdate.objects.filter(date_user__range=[month],pkg_namess__pkgname__startswith="Daimond").count()
+    totalstarenuser = userupdate.objects.filter(date_user__range=[month],pkg_namess__pkgname__startswith="Star").count()
     return render(request,"goninda/dalyconnection.html",{"dataone":allupdatedate,"datatwo":lastconnection,"usertype1":totalsilveruser,"usertype2":totalgoldenuser,"usertype3":totalskyenuser,"usertype4":totaldaimondenuser,"usertype5":totalstarenuser})
 
 
@@ -700,6 +700,8 @@ class daimondbk(LoginRequiredMixin,ListView):
     model = monthlybill
     template_name= 'pkg_data/bk/daimondbk.html'
     queryset = monthlybill.objects.filter(payment_method__methosd__contains='BKASH',month__month__startswith=month,Pack_name__pkgnamebill__startswith="Daimond").exclude(activities__act_line__startswith="declined")
+
+
 
 
 
