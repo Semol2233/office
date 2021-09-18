@@ -451,7 +451,7 @@
                 <td class="colors" > {{q.payment_method}}</td>
                 <td class="colors" > {{q.payment_status}}</td>
                 <td class="colors">{{q.pkg}}</td>
-                <td class="colors">{{q.description}}</td>
+                <td class="colors">{{q.description|slice:20}}</td>
                 <td class="colors">{{q.month}}</td>
                 <td class="colors">{{q.Pack_name.pkgnamebill}}</td>
                 <td class="colors">{{q.auto_date}}</td>
