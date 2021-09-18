@@ -803,7 +803,10 @@ class routersell(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = router
     template_name= 'router.html'
-    queryset =  router.objects.filter(payment_methogd__router_payment__contains='Due').exclude(payment_methogd__router_payment__contains='Cash')
+    queryset =  router.objects.filter(payment_methogd__rpay__contains='Due').exclude(payment_methogd__rpay__contains='Cash')
+
+
+
 
 def updateyssdata(request):
     alluyypsdatedate = router.objects.filter(date_user__range=["2021-08-11", "2021-09-11"])
