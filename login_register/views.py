@@ -808,11 +808,6 @@ class routersell(LoginRequiredMixin,ListView):
 
 
 
-def updateyssdata(request):
-    alluyypsdatedate = router.objects.filter(date_user__range=["2021-08-11", "2021-09-11"])
-
-    return render(request,"router.html",{"usertyyype5":alluyypsdatedate})
-
 
 
 
