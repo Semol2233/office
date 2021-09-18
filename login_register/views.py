@@ -803,7 +803,7 @@ class routersell(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = router
     template_name= 'globalrouter.html'
-    queryset = router.objects.filter(payment_methogd__rpay__contains='Due',date_router__range=routersdfcd)
+    queryset = router.objects.exclude(date_router__range=routersdfcd,payment_methogd__rpay__contains='Cash')
 
 
 
