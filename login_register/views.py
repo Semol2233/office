@@ -929,7 +929,7 @@ class duebill(LoginRequiredMixin,ListView):
          context['Diamond'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,Pack_name__pkgnamebill__startswith="Diamond").exclude(activities__act_line__startswith="declined").count()
          context['star'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,Pack_name__pkgnamebill__startswith="Star").exclude(activities__act_line__startswith="declined").count()
          context['sky'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,Pack_name__pkgnamebill__startswith="Sky").exclude(activities__act_line__startswith="declined").count()
-         context['nextuser'] = monthlybill.objects.filter(payment_status=True,auto_date__range=months)
+         context['nextuser'] = monthlybill.objects.filter(payment_status=True,auto_date__range=months).('-id')
 
 
          return context

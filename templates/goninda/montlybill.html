@@ -1,3 +1,8 @@
+
+<!-- dfeggbfd -->
+
+
+
 <!doctype html>
 {% load static %}
 <html lang="en">
@@ -15,11 +20,17 @@
 
   <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
   <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
-   
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&display=swap" rel="stylesheet">
   </head>
 <style>
+    .dycgdych{
+
+        font-family: 'Hind Siliguri', sans-serif;
+    }
+    <style>
     .dycgdych{
 
         font-family: 'Hind Siliguri', sans-serif;
@@ -410,6 +421,8 @@
             <th scope="col" class="colors">Pkg</th>
             <th scope="col" class="colors">Short Msg</th>
             <th scope="col" class="colors">Month</th>
+            <th scope="col" class="colors">Date</th>
+
 
 
             
@@ -434,6 +447,8 @@
                 <td class="colors">{{q.month}}</td>
                 <td class="colors">{{q.activities.act_line}}</td>
                 <td class="colors">{{q.Pack_name.pkgnamebill}}</td>
+                <td class="colors">{{q.auto_date}}</td>
+
 
 
 
@@ -503,7 +518,7 @@
 
 </script>
 
-
+<h1 style="color: aliceblue;">{{ ddfcdc }}</h1>
 
 <!-- {% for q in paidsuser %}
 <h1 style="color: aliceblue;">{{q.payment_status}}</h1>
@@ -520,4 +535,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
+
+
 
