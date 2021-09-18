@@ -814,7 +814,7 @@ class routersell(LoginRequiredMixin,ListView):
     
     def get_context_data(self, **kwargs):
          context = super(routersell, self).get_context_data(**kwargs)
-         context['fulllist'] = router.objects.filter(payment_methogd__rpay__contains='Due').exclude(payment_methogd__rpay__contains='Cash')
+         context['fulllist'] = router.objects.all()
          return context
 
 
