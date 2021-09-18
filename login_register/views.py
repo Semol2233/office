@@ -799,13 +799,23 @@ class unpaidmay(LoginRequiredMixin,ListView):
 
 
 
+# class routersell(LoginRequiredMixin,ListView):
+#     context_object_name = 'fulllist'
+#     model = router
+#     template_name= 'router.html'
+#     queryset =  
+
+
+
+
 class routersell(LoginRequiredMixin,ListView):
-    context_object_name = 'fulllist'
     model = router
     template_name= 'router.html'
-   
-
-
+    
+    def get_context_data(self, **kwargs):
+         context = super(routersell, self).get_context_data(**kwargs)
+         context['fulllist'] = router.objects.filter(payment_methogd__rpay__contains='Due').exclude(payment_methogd__rpay__contains='Cash')
+         return context
 
 
 
