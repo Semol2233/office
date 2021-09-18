@@ -10,7 +10,7 @@ from django.views.generic import TemplateView,CreateView,ListView,DeleteView,Det
 from django.urls import reverse,reverse_lazy
 from django.db.models import Q 
 
-from .date import datedata,month,months
+from .date import datedata,month,months,routersdfcd
 
 from datetime import datetime, timedelta
 
@@ -803,7 +803,7 @@ class routersell(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = router
     template_name= 'globalrouter.html'
-    queryset = router.objects.filter(payment_methogd__rpay__contains='Due',date_router__range=router)
+    queryset = router.objects.filter(payment_methogd__rpay__contains='Due',date_router__range=routersdfcd)
 
 
 
