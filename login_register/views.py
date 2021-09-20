@@ -887,7 +887,7 @@ class extra_in_view(LoginRequiredMixin,ListView):
     context_object_name = 'iplist'
     model = Extraincome
     template_name= 's_router/ex_lit.html'
-    queryset =  monthlybill.objects.exclude(payment_methogd__rpay__contains='Cash',date__range=othercharge)
+    queryset =  Extraincome.objects.exclude(payment_methogd__rpay__contains='Cash',date__range=othercharge)
 
 
 
