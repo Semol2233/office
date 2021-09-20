@@ -10,7 +10,7 @@ from django.views.generic import TemplateView,CreateView,ListView,DeleteView,Det
 from django.urls import reverse,reverse_lazy
 from django.db.models import Q 
 
-from .date import datedata,month,months,routersdfcd
+from .date import datedata,month,months,routersdfcd,othercharge
 
 from datetime import datetime, timedelta
 
@@ -887,6 +887,7 @@ class extra_in_view(LoginRequiredMixin,ListView):
     context_object_name = 'iplist'
     model = Extraincome
     template_name= 's_router/ex_lit.html'
+    queryset =  monthlybill.objects.exclude(payment_methogd__rpay__contains='Cash',date__range=othercharge)
 
 
 
