@@ -323,7 +323,7 @@ class datashort_profile(LoginRequiredMixin,ListView):
     model = dailybilling
     template_name= 'goninda/list.html'
     # queryset = dailybilling.objects.filter(cost_profile__contains='Terry')
-
+    queryset = dailybilling.objects.all().order_by('-date')
 
 
 
