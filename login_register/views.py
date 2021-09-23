@@ -467,7 +467,7 @@ class montlybillview(LoginRequiredMixin,ListView):
 
     def get_context_data(self, **kwargs):
          context = super(montlybillview, self).get_context_data(**kwargs)
-         context['alldata'] = monthlybill.objects.filter(month__month__startswith=month).order_by('user_id')
+         context['alldata'] = monthlybill.objects.filter(month__month__startswith=month).order_by('user_id').exclude(activities__act_line__startswith="declined")
          context['totaluser'] = monthlybill.objects.filter(month__month__startswith=month).exclude(activities__act_line__startswith="declined").count()
          context['paiduser'] = monthlybill.objects.filter(payment_status=True,month__month__startswith=month).exclude(activities__act_line__startswith="declined").count()
          context['unpaiduser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month).exclude(activities__act_line__startswith="declined").count()
