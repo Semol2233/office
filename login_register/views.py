@@ -10,7 +10,7 @@ from django.views.generic import TemplateView,CreateView,ListView,DeleteView,Det
 from django.urls import reverse,reverse_lazy
 from django.db.models import Q 
 
-from .date import datedata,month,months,routersdfcd,othercharge,newconnection_date,monthpev
+from .date import datedata,month,months,routersdfcd,othercharge,newconnection_date,monthpev,unpaid_pevmonth,decline_pevmonth
 
 from datetime import datetime, timedelta
 
@@ -494,7 +494,7 @@ class montlybillview(LoginRequiredMixin,ListView):
 
 class pevmonth(LoginRequiredMixin,ListView):
     model = monthlybill
-    template_name= 'goninda/montlybill.html'
+    template_name= 'goninda/montlybillpev.html'
     
 
     def get_context_data(self, **kwargs):
@@ -960,6 +960,13 @@ class Decline_user(LoginRequiredMixin,ListView):
 
 
 
+class pev_Decline_user(LoginRequiredMixin,ListView):
+    context_object_name = 'agglldata'
+    model = monthlybill
+    template_name= 's_router/declineuser.html'
+    queryset =  monthlybill.objects.filter(payment_status=False,month__month__startswith=decline_pevmonth,activities__act_line__startswith="declined")
+
+
 
 
 
@@ -985,6 +992,29 @@ class duebill(LoginRequiredMixin,ListView):
 
          return context
 
+
+
+
+
+class pevduebill(LoginRequiredMixin,ListView):
+    model = monthlybill
+    template_name= 'goninda/duebill.html'
+    
+
+    def get_context_data(self, **kwargs):
+         context = super(pevduebill, self).get_context_data(**kwargs)
+         context['unpaidwuser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=unpaid_pevmonth).exclude(activities__act_line__startswith="declined")
+         context['unpaiduser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=unpaid_pevmonth).exclude(activities__act_line__startswith="declined").count()
+
+         context['selver'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=unpaid_pevmonth,Pack_name__pkgnamebill__startswith="Silver").exclude(activities__act_line__startswith="declined").count()
+         context['Gold'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=unpaid_pevmonth,Pack_name__pkgnamebill__startswith="Golden").exclude(activities__act_line__startswith="declined").count()
+         context['Diamond'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=unpaid_pevmonth,Pack_name__pkgnamebill__startswith="Diamond").exclude(activities__act_line__startswith="declined").count()
+         context['star'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=unpaid_pevmonth,Pack_name__pkgnamebill__startswith="Star").exclude(activities__act_line__startswith="declined").count()
+         context['sky'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=unpaid_pevmonth,Pack_name__pkgnamebill__startswith="Sky").exclude(activities__act_line__startswith="declined").count()
+         context['nextuser'] = monthlybill.objects.filter(payment_status=True,pay_date__range=unpaid_pevmonth)
+
+
+         return context
 
 
 

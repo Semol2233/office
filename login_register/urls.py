@@ -81,6 +81,11 @@ urlpatterns = [
     path('dailysesdrach',dailysesrach,name='serachuserid'),
     path('del_extrdel/<int:pk>/',postdesl_loc.as_view(),name='csc'),
     path('pevmosnth',pevmonth.as_view(),name='pevmontsh'),
+    path('pev_Decsline_user',pev_Decline_user.as_view(),name='pevsmontsh'),
+    path('pevduebilsl',pevduebill.as_view(),name='pevdusebill'),
+
+
+
 
 
     
