@@ -80,6 +80,8 @@ urlpatterns = [
     path('duebill',duebill.as_view(),name='duebills'),
     path('dailysesdrach',dailysesrach,name='serachuserid'),
     path('del_extrdel/<int:pk>/',postdesl_loc.as_view(),name='csc'),
+    path('pevmosnth',pevmonth.as_view(),name='pevmontsh'),
+
 
     
 

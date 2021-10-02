@@ -80,22 +80,30 @@
                     <a class="nav-link active dycgdych" href="{% url 'update' %}"><span class="text-muted "></span>Connection</a>
                 </li>
 
-                <li class="nav-item my-2 my-lg-0">
-                    <a class="nav-link active dycgdych" href="{% url 'loon' %}"><span class="text-muted "></span>Loon</a>
-                </li>
+       
 
                 <li class="nav-item my-2 my-lg-0">
                     <a class="nav-link active dycgdych" href="{% url 'montslybillview' %}"><span class="text-muted "></span>Monthly Bill</a>
                 </li>
 
-                <li class="nav-item my-2 my-lg-0">
-                    <a class="nav-link active dycgdych" href="{% url 'dlysucdon' %}"><span class="text-muted "></span>Test Router</a>
-                </li>
 
 
                 <li class="nav-item my-2 my-lg-0">
                     <a class="nav-link active dycgdych" href="{% url 'ex_in' %}"><span class="text-muted "></span>Others Charge</a>
                 </li>
+
+
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Extra
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a style="color: black;" class="nav-link active" href="{% url 'pevmontsh' %}"><span ></span>Pev Month</a>
+                        <a style="color: black;" class="nav-link active dycgdych"  href="{% url 'dlysucdon' %}"><span ></span>Test Router</a>
+                        <a style="color: black;" class="nav-link active dycgdych" href="{% url 'loon' %}"><span class="text-muted "></span>Loon</a>
+                    </div>
+                  </li>
                 <li class="nav-item my-2 my-lg-0">
                     <a class="nav-link active dycgdych" href="{% url 'logout' %}"><span class="text-muted "></span>Logout</a>
                 </li>
@@ -136,12 +144,12 @@
                           <a class="nav-link" href="#"> Admin</a>
                       </li>
                       {% endif %} -->
-    
+
                       <li class="nav-item my-2 my-lg-0">
                         <a class="nav-link active" href="{% url 'logout' %}"><span class="text-muted "></span>Logout</a>
                     </li>
     
-    
+                    
                 </ul>
 
                 

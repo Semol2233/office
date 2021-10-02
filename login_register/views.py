@@ -10,7 +10,7 @@ from django.views.generic import TemplateView,CreateView,ListView,DeleteView,Det
 from django.urls import reverse,reverse_lazy
 from django.db.models import Q 
 
-from .date import datedata,month,months,routersdfcd,othercharge,newconnection_date
+from .date import datedata,month,months,routersdfcd,othercharge,newconnection_date,monthpev
 
 from datetime import datetime, timedelta
 
@@ -485,6 +485,60 @@ class montlybillview(LoginRequiredMixin,ListView):
          return context
 
         
+
+
+
+
+
+
+
+class pevmonth(LoginRequiredMixin,ListView):
+    model = monthlybill
+    template_name= 'goninda/montlybill.html'
+    
+
+    def get_context_data(self, **kwargs):
+         context = super(pevmonth, self).get_context_data(**kwargs)
+         context['alldata'] = monthlybill.objects.filter(month__month__startswith=monthpev).order_by('user_id').exclude(activities__act_line__startswith="declined")
+         context['totaluser'] = monthlybill.objects.filter(month__month__startswith=monthpev).exclude(activities__act_line__startswith="declined").count()
+         context['paiduser'] = monthlybill.objects.filter(payment_status=True,month__month__startswith=monthpev).exclude(activities__act_line__startswith="declined").count()
+         context['unpaiduser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=monthpev).exclude(activities__act_line__startswith="declined").count()
+         context['decline'] =  monthlybill.objects.filter(payment_status=False,month__month__startswith=monthpev,activities__act_line__startswith="declined").count()
+
+         context['selver'] = monthlybill.objects.filter(month__month__startswith=monthpev,Pack_name__pkgnamebill__startswith="Silver").exclude(activities__act_line__startswith="declined").count()
+         context['Gold'] = monthlybill.objects.filter(month__month__startswith=monthpev,Pack_name__pkgnamebill__startswith="Golden").exclude(activities__act_line__startswith="declined").count()
+         context['Diamond'] = monthlybill.objects.filter(month__month__startswith=monthpev,Pack_name__pkgnamebill__startswith="Diamond").exclude(activities__act_line__startswith="declined").count()
+         context['star'] = monthlybill.objects.filter(month__month__startswith=monthpev,Pack_name__pkgnamebill__startswith="Star").exclude(activities__act_line__startswith="declined").count()
+         context['sky'] = monthlybill.objects.filter(month__month__startswith=monthpev,Pack_name__pkgnamebill__startswith="Sky").exclude(activities__act_line__startswith="declined").count()
+
+
+
+         
+         return context
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 from django.db.models import  Sum
