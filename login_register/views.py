@@ -1011,7 +1011,7 @@ class pevduebill(LoginRequiredMixin,ListView):
          context['Diamond'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=unpaid_pevmonth,Pack_name__pkgnamebill__startswith="Diamond").exclude(activities__act_line__startswith="declined").count()
          context['star'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=unpaid_pevmonth,Pack_name__pkgnamebill__startswith="Star").exclude(activities__act_line__startswith="declined").count()
          context['sky'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=unpaid_pevmonth,Pack_name__pkgnamebill__startswith="Sky").exclude(activities__act_line__startswith="declined").count()
-         context['nextuser'] = monthlybill.objects.filter(payment_status=True,pay_date__range=unpaid_pevmonth)
+         context['nextuser'] = monthlybill.objects.filter(payment_status=True,pay_date__range=months)
 
 
          return context
