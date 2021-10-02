@@ -31,125 +31,139 @@
 
 
        
-        <nav class="navbar navbar-expand-sm navbar-dark    navbar-default " style="background-color: #343a40;">
-            <div class="container">
-              <a class="navbar-brand dfdfdefe" href="{% url 'ijdfscdj' %}" style="font-weight: bold;   text-transform: uppercase;">Hey</a>
-              <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-                  aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-      
+    <nav class="navbar navbar-expand-sm navbar-dark    navbar-default " style="background-color: #343a40;">
+        <div class="container">
+          <a class="navbar-brand dfdfdefe" href="{% url 'ijdfscdj' %}" style="font-weight: bold;   text-transform: uppercase;">Hey</a>
+          <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+              aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+  
 
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+
+
+              <!-- {% if user.is_superuser %}
+              <li class="nav-item">
+                  <a class="nav-link" href="#"> Admin</a>
+              </li>
+              {% endif %} -->
+              {% if request.user.is_superuser %}
+              <!-- <li class="nav-item my-2 my-lg-0">
+                <a class="nav-link active" href="{% url 'wrn' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Create Package</a>
+            </li> -->
+            {% endif %}
+
+            <!-- <li class="nav-item my-2 my-lg-0">
+                <a class="nav-link active" href="{% url 'user' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>User Uplode</a>
+            </li> -->
+            {% if request.user.is_superuser %}
+            <!-- <li class="nav-item my-2 my-lg-0">
+                <a class="nav-link active" href="{% url 'wsrn' %}"><span class="text-success"></span>PON</a>
+            </li> -->
+
+            <!-- <li class="nav-item my-2 my-lg-0">
+                <a class="nav-link active" href="#"><span class="text-success"></span>Area ID</a>
+            </li> -->
+            {% endif %}
+            <li class="nav-item my-2 my-lg-0">
+                <a class="nav-link active dycgdych" href="{% url 'daseimondbk' %}"><span class="text-muted "></span>Router</a>
+            </li>
+
+            <li class="nav-item my-2 my-lg-0">
+                <a class="nav-link active dycgdych" href="{% url 'bkpayment' %}"><span class="text-muted "></span>Payment Store</a>
+            </li>
+            
+            <li class="nav-item my-2 my-lg-0">
+                <a class="nav-link active dycgdych" href="{% url 'update' %}"><span class="text-muted "></span>Connection</a>
+            </li>
+
+   
+
+            <li class="nav-item my-2 my-lg-0">
+                <a class="nav-link active dycgdych" href="{% url 'montslybillview' %}"><span class="text-muted "></span>Monthly Bill</a>
+            </li>
+
+
+
+            <li class="nav-item my-2 my-lg-0">
+                <a class="nav-link active dycgdych" href="{% url 'ex_in' %}"><span class="text-muted "></span>Others Charge</a>
+            </li>
+
+
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Extra
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a style="color: black;" class="nav-link active" href="{% url 'pevmontsh' %}"><span ></span>Pev Month</a>
+                    <a style="color: black;" class="nav-link active dycgdych"  href="{% url 'dlysucdon' %}"><span ></span>Test Router</a>
+                    <a style="color: black;" class="nav-link active dycgdych" href="{% url 'loon' %}"><span class="text-muted "></span>Loon</a>
+                </div>
+              </li>
+            <li class="nav-item my-2 my-lg-0">
+                <a class="nav-link active dycgdych" href="{% url 'logout' %}"><span class="text-muted "></span>Logout</a>
+            </li>
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="{% url 'serachuserid' %}" method="GET" value="{{request.GET.q}}">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" value="{{request.GET.q}}">
+            <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="submit" value="Search" style="color: white;"/></input>
+        </form>
+        {% else %}
+        
+      
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
-                <li class="nav-item">
-                    <a class="nav-link dycgdych">  <span class="text-white"><i  class="fa fa-user text-success"> </i> {{ request.user.username }}</span></a>
-                  </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'lsoc' %}">Location</a>
+              </li>
+                 
+            <li class="nav-item">
+                <a class="nav-link">  <span class="text-white"><i  class="fa fa-user text-success"> </i> {{ request.user.username }}</span></a>
+              </li>
 
+                <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="text-success"><i class="fa fa-plus"></i></span> Uplode
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Vlan</a>
+                        <a class="dropdown-item" href="#"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Location</a>
+
+                       
+                    </div>
+                  </li> -->
                   <!-- {% if user.is_superuser %}
                   <li class="nav-item">
                       <a class="nav-link" href="#"> Admin</a>
                   </li>
                   {% endif %} -->
-                  {% if request.user.is_superuser %}
-                  <!-- <li class="nav-item my-2 my-lg-0">
-                    <a class="nav-link active" href="{% url 'wrn' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Create Package</a>
-                </li> -->
-                {% endif %}
 
-                <!-- <li class="nav-item my-2 my-lg-0">
-                    <a class="nav-link active" href="{% url 'user' %}"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>User Uplode</a>
-                </li> -->
-                {% if request.user.is_superuser %}
-                <!-- <li class="nav-item my-2 my-lg-0">
-                    <a class="nav-link active" href="{% url 'wsrn' %}"><span class="text-success"></span>PON</a>
-                </li> -->
-
-                <!-- <li class="nav-item my-2 my-lg-0">
-                    <a class="nav-link active" href="#"><span class="text-success"></span>Area ID</a>
-                </li> -->
-                {% endif %}
-                <li class="nav-item my-2 my-lg-0">
-                    <a class="nav-link active dycgdych" href="#"><span class="text-muted "></span>Router</a>
+                  <li class="nav-item my-2 my-lg-0">
+                    <a class="nav-link active" href="{% url 'logout' %}"><span class="text-muted "></span>Logout</a>
                 </li>
 
-                <li class="nav-item my-2 my-lg-0">
-                    <a class="nav-link active dycgdych" href="{% url 'bkpayment' %}"><span class="text-muted "></span>Payment Store</a>
-                </li>
                 
-                <li class="nav-item my-2 my-lg-0">
-                    <a class="nav-link active dycgdych" href="{% url 'update' %}"><span class="text-muted "></span>Connection</a>
-                </li>
-
-                <li class="nav-item my-2 my-lg-0">
-                    <a class="nav-link active dycgdych" href="{% url 'loon' %}"><span class="text-muted "></span>Loon</a>
-                </li>
-
-                <li class="nav-item my-2 my-lg-0">
-                    <a class="nav-link active dycgdych" href="{% url 'montslybillview' %}"><span class="text-muted "></span>Monthly Bill</a>
-                </li>
-                <li class="nav-item my-2 my-lg-0">
-                    <a class="nav-link active dycgdych" href="{% url 'logout' %}"><span class="text-muted "></span>Logout</a>
-                </li>
-
             </ul>
+
+            
             <form class="form-inline my-2 my-lg-0" action="{% url 'serach' %}" method="GET" value="{{request.GET.q}}">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" value="{{request.GET.q}}">
                 <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="submit" value="Search" style="color: white;"/></input>
             </form>
-            {% else %}
-            
-          
-            <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-    
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'lsoc' %}">Location</a>
-                  </li>
-                     
-                <li class="nav-item">
-                    <a class="nav-link">  <span class="text-white"><i  class="fa fa-user text-success"> </i> {{ request.user.username }}</span></a>
-                  </li>
-
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="text-success"><i class="fa fa-plus"></i></span> Uplode
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Vlan</a>
-                            <a class="dropdown-item" href="#"><span class="text-success"><i class="fa fa-cloud-upload" aria-hidden="true"></i></span>Location</a>
-    
-                           
-                        </div>
-                      </li> -->
-                      <!-- {% if user.is_superuser %}
-                      <li class="nav-item">
-                          <a class="nav-link" href="#"> Admin</a>
-                      </li>
-                      {% endif %} -->
-    
-                      <li class="nav-item my-2 my-lg-0">
-                        <a class="nav-link active" href="{% url 'logout' %}"><span class="text-muted "></span>Logout</a>
-                    </li>
-    
-    
-                </ul>
-
-                
-                <form class="form-inline my-2 my-lg-0" action="{% url 'serach' %}" method="GET" value="{{request.GET.q}}">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" value="{{request.GET.q}}">
-                    <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="submit" value="Search" style="color: white;"/></input>
-                </form>
-
-            {% endif %}
+        {% endif %}
 
 
-        </div>
-      </div>
-    </nav>
+    </div>
+  </div>
+</nav>
    
     <!-- <div class="container mt-2">
     <div class="container mt-5 card  shadow-lg p-3 mb-5 bg-white rounded"></div>
