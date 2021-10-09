@@ -1023,9 +1023,11 @@ def dailysesrach(request):
     if request.method == 'GET':
         query= request.GET.get('f')
         submitbutton= request.GET.get('subtmit')
-        results= monthlybill.objects.filter(user_id__exact=query)
+        results= monthlybill.objects.filter(user_id__contains=query)
+        
         context={'results': results,
                      'submitbutton': submitbutton}
+                     
         return render(request, 'query/daulynilingserach.html', context)
     else:
         return render(request, 'query/daulynilingserach.html')
@@ -1036,3 +1038,17 @@ class postdesl_loc(LoginRequiredMixin, DeleteView):
     model = monthlybill
     template_name = 'goninda/loc_de.html'
     success_url = reverse_lazy('montslybillview')
+
+
+
+
+
+
+def search_product(request):
+    if request.method == "POST":
+        query_name = request.POST.get('name', None)
+        if query_name:
+            results = monthlybill.objects.filter(user_id__contains=query_name)
+            return render(request, 'query/scfsxdcsx.html', {"results":results})
+
+    return render(request, 'query/scfsxdcsx.html')

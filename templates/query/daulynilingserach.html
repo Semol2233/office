@@ -26,14 +26,14 @@
         font-family: 'Hind Siliguri', sans-serif;
     }
 </style>
-  <body style="background-color: #ffffff;">
+  <body style="background-color: #000000;">
 
    
 {% block content %}
 
 
 {% if submitbutton == 'Search' and request.GET.f != '' %}
-<h1>helllo</h1>
+
 {% if results %}
 
 
@@ -89,7 +89,7 @@
     </tr>
   </thead>
   <tbody>
-      {% for f in results %}
+      {% for q in results %}
       <tr>
         <td class="colors" >{{q.user_id}}</td>
         <td class="colors" > {{q.payment_method}}</td>

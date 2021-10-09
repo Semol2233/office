@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Django Search</title>
+</head>
+<body>
+
+
+
+<form action="{% url 'search_prodssuct' %}" method="POST">
+    {% csrf_token %} 
+    <input type="text" name="name">
+    <input type="submit" name="submit" value="Search">
+</form>
+
+
+
+{% for result in results %}
+
+    <p style="color: black;">{{result.user_id}}</p>
+
+{% endfor %}
+
+</body>
+</html>
