@@ -10,7 +10,7 @@ from django.views.generic import TemplateView,CreateView,ListView,DeleteView,Det
 from django.urls import reverse,reverse_lazy
 from django.db.models import Q 
 
-from .date import datedata,month,months,routersdfcd,othercharge,newconnection_date,monthpev,unpaid_pevmonth,decline_pevmonth
+from .date import monthss, datedata,month,months,routersdfcd,othercharge,newconnection_date,monthpev,unpaid_pevmonth,decline_pevmonth
 
 from datetime import datetime, timedelta
 
@@ -1011,7 +1011,7 @@ class pevduebill(LoginRequiredMixin,ListView):
          context['Diamond'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=unpaid_pevmonth,Pack_name__pkgnamebill__startswith="Diamond").exclude(activities__act_line__startswith="declined").count()
          context['star'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=unpaid_pevmonth,Pack_name__pkgnamebill__startswith="Star").exclude(activities__act_line__startswith="declined").count()
          context['sky'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=unpaid_pevmonth,Pack_name__pkgnamebill__startswith="Sky").exclude(activities__act_line__startswith="declined").count()
-         context['nextuser'] = monthlybill.objects.filter(payment_status=True,pay_date__range=months)
+         context['nextuser'] = monthlybill.objects.filter(payment_status=True,pay_date__range=monthss)
 
 
          return context
