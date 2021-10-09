@@ -1021,7 +1021,7 @@ class pevduebill(LoginRequiredMixin,ListView):
 
 def dailysesrach(request):
     if request.method == 'GET':
-        query= request.GET.get('q')
+        query= request.GET.get('f')
         submitbutton= request.GET.get('subtmit')
         results= monthlybill.objects.filter(user_id__exact=query,month__month__startswith=month)
         context={'results': results,

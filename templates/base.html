@@ -153,8 +153,8 @@
                 </ul>
 
                 
-                <form class="form-inline my-2 my-lg-0" action="{% url 'serachuserid' %}" method="GET" value="{{request.GET.q}}">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" value="{{request.GET.q}}">
+                <form class="form-inline my-2 my-lg-0" action="{% url 'serachuserid' %}" method="GET" value="{{request.GET.f}}">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" name="f" value="{{request.GET.f}}">
                     <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="submit" value="Search" style="color: white;"/></input>
                 </form>
 
@@ -223,7 +223,7 @@
 
     <div class="collapse multi-collapse" id="multiCollapseExample2">
         <div class="card card-body">
-          <form class="form-inline my-2 my-lg-0" action="{% url 'srdaily' %}" method="GET" value="{{request.GET.f}}" >
+          <form class="form-inline my-2 my-lg-0" action="{% url 'serachuserid' %}" method="GET" value="{{request.GET.f}}" >
             <input class="form-control mr-sm-2" type="text" placeholder="mm-dd-yyyy" name="f" value="{{request.GET.f}}">
               <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="subtmit" value="Search" style="color: rgb(0, 0, 0);"/></input>
             </form>
