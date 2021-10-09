@@ -32,7 +32,7 @@
 {% block content %}
 
 
-{% if submitbutton == 'Search' and request.GET.f != '' %}
+{% if submitbutton == 'serachuserid' and request.GET.f != '' %}
 {% if results %}
 
 
@@ -88,7 +88,7 @@
     </tr>
   </thead>
   <tbody>
-      {% for q in results %}
+      {% for f in results %}
       <tr>
         <td class="colors" >{{q.user_id}}</td>
         <td class="colors" > {{q.payment_method}}</td>
