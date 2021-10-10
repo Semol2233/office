@@ -473,13 +473,6 @@ class montlybillview(LoginRequiredMixin,ListView):
          context['unpaiduser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month).exclude(activities__act_line__startswith="declined").count()
          context['decline'] =  monthlybill.objects.filter(payment_status=False,month__month__startswith=month,activities__act_line__startswith="declined").count()
 
-         context['selver'] = monthlybill.objects.all().count()
-         context['Gold'] = monthlybill.objects.all().count()
-         context['Diamond'] = monthlybill.objects.all().count()
-         context['star'] = monthlybill.objects.all().count()
-         context['sky'] = monthlybill.objects.all().count()
-
-
 
          
          return context
