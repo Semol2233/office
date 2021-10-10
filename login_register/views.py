@@ -487,7 +487,12 @@ class montlybillview(LoginRequiredMixin,ListView):
          context['paiduser'] = monthlybill.objects.filter(payment_status=True,month__month__startswith=month).exclude(activities__act_line__startswith="declined").count()
          context['unpaiduser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month).exclude(activities__act_line__startswith="declined").count()
          context['decline'] =  monthlybill.objects.filter(payment_status=False,month__month__startswith=month,activities__act_line__startswith="declined").count()
-
+         context = super().get_context_data(**kwargs)
+         page = self.request.GET.get('page', 1)
+         users = monthlybill.objects.all()
+         paginator = self.paginator_class(users, self.paginate_by) 
+         users = paginator.page(page)  
+         context['users'] = users
          context['selver'] = monthlybill.objects.filter(month__month__startswith=month,Pack_name__pkgnamebill__startswith="Silver").exclude(activities__act_line__startswith="declined").count()
          context['Gold'] = monthlybill.objects.filter(month__month__startswith=month,Pack_name__pkgnamebill__startswith="Golden").exclude(activities__act_line__startswith="declined").count()
          context['Diamond'] = monthlybill.objects.filter(month__month__startswith=month,Pack_name__pkgnamebill__startswith="Diamond").exclude(activities__act_line__startswith="declined").count()
@@ -496,16 +501,6 @@ class montlybillview(LoginRequiredMixin,ListView):
          return context
 
         
-    def get_context_data(self, **kwargs):
-
-        context = super().get_context_data(**kwargs)
-        page = self.request.GET.get('page', 1)
-        users = monthlybill.objects.all()
-        paginator = self.paginator_class(users, self.paginate_by) 
-        users = paginator.page(page)  
-        context['users'] = users
-        return context
-
 
 
 
