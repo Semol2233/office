@@ -459,6 +459,20 @@ def looan(request):
 #     paid_user = monthlybill.objects.filter(payment_status__name=True).count()
 #     print(paid_user)
 #     return render(request,"goninda/montlybill.html",{'bill':bill,'paidsuser':paid_user})
+class MyPaginator(Paginator):
+    def validate_number(self, number):
+        try:
+            return super().validate_number(number)
+        except EmptyPage:
+            if int(number) > 1:
+                # return the last page
+                return self.num_pages
+            elif int(number) < 1:
+                # return the first page
+                return 1
+            else:
+                raise
+
 
 class montlybillview(LoginRequiredMixin,ListView):
     model = monthlybill
@@ -479,14 +493,18 @@ class montlybillview(LoginRequiredMixin,ListView):
          context['Diamond'] = monthlybill.objects.filter(month__month__startswith=month,Pack_name__pkgnamebill__startswith="Diamond").exclude(activities__act_line__startswith="declined").count()
          context['star'] = monthlybill.objects.filter(month__month__startswith=month,Pack_name__pkgnamebill__startswith="Star").exclude(activities__act_line__startswith="declined").count()
          context['sky'] = monthlybill.objects.filter(month__month__startswith=month,Pack_name__pkgnamebill__startswith="Sky").exclude(activities__act_line__startswith="declined").count()
-
-
-
-         
          return context
 
         
+    def get_context_data(self, **kwargs):
 
+        context = super().get_context_data(**kwargs)
+        page = self.request.GET.get('page', 1)
+        users = monthlybill.objects.all()
+        paginator = self.paginator_class(users, self.paginate_by) 
+        users = paginator.page(page)  
+        context['users'] = users
+        return context
 
 
 

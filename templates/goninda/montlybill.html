@@ -512,7 +512,7 @@
 
 <div class='pagination justify-content-center'>
   {% if page_obj.has_previous %}
-    <a style="color: aliceblue;" href='{% url "list_users" %}?page={{ page_obj.previous_page_number }}'>Previous </a>
+    <a style="color: aliceblue;" href='{% url "montslybillview" %}?page={{ page_obj.previous_page_number }}'>Previous </a>
   {% endif %}
 
   <span style="color: aliceblue;" class='mx-4'>
@@ -520,7 +520,7 @@
   </span>
 
   {% if page_obj.has_next %}
-    <a style="color: aliceblue;" href='{% url "list_users" %}?page={{ page_obj.next_page_number }}' > Next</a>
+    <a style="color: aliceblue;" href='{% url "montslybillview" %}?page={{ page_obj.next_page_number }}' > Next</a>
   {% endif %}
 </div>
 
