@@ -487,7 +487,6 @@ class montlybillview(LoginRequiredMixin,ListView):
          context['paiduser'] = monthlybill.objects.filter(payment_status=True,month__month__startswith=month).exclude(activities__act_line__startswith="declined").count()
          context['unpaiduser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month).exclude(activities__act_line__startswith="declined").count()
          context['decline'] =  monthlybill.objects.filter(payment_status=False,month__month__startswith=month,activities__act_line__startswith="declined").count()
-         context = super().get_context_data(**kwargs)
          page = self.request.GET.get('page', 1)
          paginator = self.paginator_class(alldata, self.paginate_by) 
          users = paginator.page(page)  
