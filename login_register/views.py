@@ -453,7 +453,7 @@ def looan(request):
 
 
 
-
+from django.core.paginator import Paginator
 # def montlybillview(request):
 #     bill = monthlybill.objects.all()
 #     paid_user = monthlybill.objects.filter(payment_status__name=True).count()
