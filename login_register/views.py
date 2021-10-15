@@ -985,7 +985,7 @@ class pev_Decline_user(LoginRequiredMixin,ListView):
 
 
 
-class duebill(LoginRequiredMixin,ListView):
+class duebill(ListView):
     model = monthlybill
     template_name= 'goninda/duebill.html'
     
