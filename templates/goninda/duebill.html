@@ -492,69 +492,6 @@
       </table>
 
 <hr>
-<h1> 12 tariker por theek payment </h1>
-
-      <table class="table table-bordered mt-2 table-hover table-dark">
-        <thead>
-          <tr>
-            
-            <!-- <th scope="col" class="colors" style="width: 180px;">Activation</th> -->
-            <th scope="col" class="colors">User Id</th>
-            <!-- <th scope="col" class="colors">Phone</th> -->
-            <th scope="col" class="colors">Payment Method</th>
-            <th scope="col" class="colors">Payment Status</th>
-            <th scope="col" class="colors">Pkg</th>
-            <th scope="col" class="colors">Short Msg</th>
-            <th scope="col" class="colors">Month</th>
-
-
-            
-    
-        
-    
-            
-    
-          </tr>
-        </thead>
-        <tbody>
-            {% for q in nextuser %}
-            <tr>
-                
-                <!-- <td  class="colors">{{q.activiton_date}}</td> -->
-                <td >{{q.user_id}}</td>
-                <!-- <td class="colors"><a style="color: aliceblue;" href="tel:{{q.user_phonenumber}}"> {{q.user_phonenumber}}</a> </td> -->
-                <td class="colors" > {{q.payment_method}}</td>
-                <td class="colors" > {{q.payment_status}}</td>
-                <td class="colors">{{q.pkg}}</td>
-                <td class="colors">{{q.description}}</td>
-                <td class="colors">{{q.month}}</td>
-                <td class="colors">{{q.activities.act_line}}</td>
-                <td class="colors">{{q.Pack_name.pkgnamebill}}</td>
-
-
-
-
-                
-                <td><a href="{% url 'update' q.id%}"><i class="fa fa-edit text-success " style="font-size: 35px; margin-left: 5px; margin-top: 10px; "></i></a><a href="{% url 'update' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 35px; margin-left: 5px; margin-top: 10px;"></i></a></td>
-
-    
-             
-                  
-    
-          
-    
-    
-          {% endfor %} 
-
-        
-
-
-        </tbody>
-       
-      </table>
-      
-
-
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
