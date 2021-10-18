@@ -1101,7 +1101,7 @@ class bill_collection(LoginRequiredMixin,ListView):
     model = monthlybill
     template_name= 'goninda/collection.html'
     def get_queryset(self):
-        return monthlybill.objects.filter(Bill_collection_type__collection__startswith=self.kwargs['Bill_collection_type__collection'])
+        return monthlybill.objects.filter(Bill_collection_type__collection__startswith=self.kwargs['Bill_collection_type__collection'],month__month__startswith=month_col).exclude(activities__act_line__startswith="declined")
 
 
 class area_bill(LoginRequiredMixin,ListView):
