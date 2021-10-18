@@ -1094,3 +1094,12 @@ def blog_create_view(request):
     return render(request, "nv/uplode_loon.html", context)
 
 
+
+
+class bill_collection(LoginRequiredMixin,ListView):
+    context_object_name = 'alldata'
+    model = monthlybill
+    template_name= 'goninda/collection.html'
+    def get_queryset(self):
+        return monthlybill.objects.filter(Bill_collection_type__collection__startswith=self.kwargs['Bill_collection_type__collection'])
+

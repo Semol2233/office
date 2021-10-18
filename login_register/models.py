@@ -271,6 +271,11 @@ class pkg_namesbill(models.Model):
     def __str__(self):
         return self.pkgnamebill
 
+class collection_type(models.Model):
+    collection = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.collection
 
 testvalue = 'dfcdcf'
 class monthlybill(models.Model):
@@ -283,6 +288,8 @@ class monthlybill(models.Model):
     auto_date =  models.DateTimeField(default=timezone.now)
     pay_date         = models.DateTimeField(null=True, blank=True)
     pkg_names        = models.ForeignKey(pkg_name, on_delete=models.CASCADE,null=True, blank=True)
+    Bill_collection_type        = models.ForeignKey(collection_type, on_delete=models.CASCADE,null=True, blank=True)
+
     payment_status   = models.BooleanField(default=False)
     previus_due      = models.CharField(max_length=255,blank=True)
     pkg              = models.ForeignKey(pkg, on_delete=models.CASCADE)
