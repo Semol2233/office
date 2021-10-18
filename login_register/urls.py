@@ -44,7 +44,7 @@ urlpatterns = [
     path('Pickup',OFFICE_Pickup.as_view(),name='Pickup'),
     path('bkpayment',bkashpayment.as_view(),name='bkpayment'),
     path('updssate',updatessdata,name='update'),
-    path('loon',looan,name='loon'),
+    path('loon',looan.as_view(),name='loon'),
     path('bill',montlybillview.as_view(),name='montslybillview'),
     path('bkash',bkashtotal.as_view(),name='bkashtotal'),
 
