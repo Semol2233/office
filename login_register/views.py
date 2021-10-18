@@ -1065,3 +1065,25 @@ def search_product(request):
             return render(request, 'query/scfsxdcsx.html', {"results":results})
 
     return render(request, 'query/scfsxdcsx.html')
+
+
+
+def blog_create_view(request):
+    user = request.user.get_username()
+    data = {'User': user}
+    form = lodfdsfon(request.POST, data)
+    if form.is_valid():
+            instance = form.save(commit=False)
+            instance.author = request.user.username
+            instance.save()
+    else:
+        print(form.errors)
+        form = lodfdsfon()
+
+    context = {
+        'articleform' : form,
+    }
+    return render(request, "nv/uplode_loon.html", context)
+
+
+
