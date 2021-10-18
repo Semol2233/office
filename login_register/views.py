@@ -449,7 +449,7 @@ class looan(LoginRequiredMixin,ListView):
     context_object_name = 'alldata'
     model = loon
     template_name= 'goninda/loon.html'
-  
+    queryset = loon.objects.filter(loon_date__range=loondate)
 
 
 
