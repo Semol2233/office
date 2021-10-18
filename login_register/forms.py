@@ -183,7 +183,7 @@ class DateIssnput(forms.DateInput):
 class dailybillupdastefoms(forms.ModelForm):
     class Meta:
         model = monthlybill
-        fields = ['payment_method','pay_date','payment_status','activities','Pack_name','pkg','description','month','user_id']
+        fields = ['bill_col_area','Bill_collection_type','payment_method','pay_date','payment_status','activities','Pack_name','pkg','description','month','user_id']
         widgets = {
             
             'pay_date':DateIsnput(),
@@ -192,6 +192,8 @@ class dailybillupdastefoms(forms.ModelForm):
             'description':forms.Textarea(attrs={'class':'form-control','placeholder':'..'}),
             'payment_status': forms.CheckboxInput(attrs={'class': 'form-check-input'}),  
             'month': forms.Select(attrs={'class':'form-control'}), 
+            'Bill_collection_type': forms.Select(attrs={'class':'form-control'}), 
+            'bill_col_area': forms.Select(attrs={'class':'form-control'}), 
             'user_id': forms.TextInput(attrs={'class':'form-control'}),
             'activities': forms.Select(attrs={'class':'form-control'}),
             'Pack_name': forms.Select(attrs={'class':'form-control'})

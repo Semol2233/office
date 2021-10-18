@@ -30,6 +30,8 @@ admin.site.register(publicipnote)
 admin.site.register(source_ex)
 admin.site.register(Extraincome)
 admin.site.register(collection_type)
+admin.site.register(collection_area)
+
 
 
 

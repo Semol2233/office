@@ -1103,3 +1103,11 @@ class bill_collection(LoginRequiredMixin,ListView):
     def get_queryset(self):
         return monthlybill.objects.filter(Bill_collection_type__collection__startswith=self.kwargs['Bill_collection_type__collection'])
 
+
+class area_bill(LoginRequiredMixin,ListView):
+    context_object_name = 'alldata'
+    model = monthlybill
+    template_name= 'goninda/HOME_area_bill.html'
+    def get_queryset(self):
+        return monthlybill.objects.filter(Bill_collection_type__collection__startswith=self.kwargs['Bill_collection_type__collection'],bill_col_area__area_col__startswith=self.kwargs['bill_col_area__area_col'])
+

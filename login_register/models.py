@@ -277,6 +277,14 @@ class collection_type(models.Model):
     def __str__(self):
         return self.collection
 
+
+class collection_area(models.Model):
+    area_col = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.area_col
+
+
 testvalue = 'dfcdcf'
 class monthlybill(models.Model):
     date             = models.DateTimeField(null=True, blank=True)
@@ -289,6 +297,8 @@ class monthlybill(models.Model):
     pay_date         = models.DateTimeField(null=True, blank=True)
     pkg_names        = models.ForeignKey(pkg_name, on_delete=models.CASCADE,null=True, blank=True)
     Bill_collection_type        = models.ForeignKey(collection_type, on_delete=models.CASCADE,null=True, blank=True)
+    bill_col_area        = models.ForeignKey(collection_area, on_delete=models.CASCADE,null=True, blank=True)
+
 
     payment_status   = models.BooleanField(default=False)
     previus_due      = models.CharField(max_length=255,blank=True)
