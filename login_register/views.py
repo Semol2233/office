@@ -447,7 +447,7 @@ def updatessdata(request):
 
 class looan(LoginRequiredMixin,ListView):
     context_object_name = 'alldata'
-    model = router
+    model = loon
     template_name= 'goninda/loon.html'
     queryset = loon.objects.exclude(loon_date__range=loondate)
 
