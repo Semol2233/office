@@ -1086,4 +1086,3 @@ def blog_create_view(request):
     return render(request, "nv/uplode_loon.html", context)
 
 
-
