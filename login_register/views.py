@@ -449,7 +449,7 @@ class looan(LoginRequiredMixin,ListView):
     context_object_name = 'alldata'
     model = router
     template_name= 'goninda/loon.html'
-    queryset = router.objects.exclude(loon_date__range=loondate)
+    queryset = loon.objects.exclude(loon_date__range=loondate)
 
 
 
