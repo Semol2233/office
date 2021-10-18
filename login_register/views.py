@@ -10,7 +10,7 @@ from django.views.generic import TemplateView,CreateView,ListView,DeleteView,Det
 from django.urls import reverse,reverse_lazy
 from django.db.models import Q 
 
-from .date import monthss, datedata,month,months,routersdfcd,othercharge,newconnection_date,monthpev,unpaid_pevmonth,decline_pevmonth
+from .date import *
 
 from datetime import datetime, timedelta
 
@@ -445,10 +445,18 @@ def updatessdata(request):
 
 
 
+class looan(LoginRequiredMixin,ListView):
+    context_object_name = 'alldata'
+    model = router
+    template_name= 'goninda/loon.html'
+    queryset = router.objects.exclude(loon_date__range=loondate)
 
-def looan(request):
-    alldata = loon.objects.all()
-    return render(request,"goninda/loon.html",{'alldata':alldata,})
+
+
+
+# def looan(request):
+#     alldata = loon.objects.all()
+#     return render(request,"goninda/loon.html",{'alldata':alldata,})
 
 
 
