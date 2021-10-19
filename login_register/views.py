@@ -309,7 +309,7 @@ class daulycost_list(LoginRequiredMixin,ListView):
     template_name= 'goninda/list.html'
     #queryset = dailybilling.objects.filter(created_date__gte=datetime.now() - timedelta(days=1))
     # queryset = dailybilling.objects.filter(date__range=["202-08-11", "2021-09-11"]).exclude(cost_profile__cost_name__contains='Advance salary')
-    queryset = dailybilling.objects.filter(date__range=datedata)
+    queryset = dailybilling.objects.filter(date__range=datedata).exclude(cost_profile__cost_name__contains='Fiber Onu Others')
 
 
 # class daulycost_list(LoginRequiredMixin,ListView):
@@ -322,7 +322,7 @@ class datashort_profile(LoginRequiredMixin,ListView):
     context_object_name = 'ssdxsx'
     model = dailybilling
     template_name= 'goninda/list.html'
-    queryset = dailybilling.objects.all().order_by('-date').exclude(cost_profile__cost_name__contains='Fiber Onu Others')
+    queryset = dailybilling.objects.all().order_by('-date')
 
 
 class Fiber(LoginRequiredMixin,ListView):
