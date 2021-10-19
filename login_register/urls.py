@@ -34,6 +34,11 @@ urlpatterns = [
     path('office_cost',OFFICE_COST.as_view(),name='vddvd'),
     path('bike',OFFICE_bike.as_view(),name='bike'),
     path('cc_office',cc_ofiice_cost.as_view(),name='cc_office'),
+    path('Fiber',Fiber.as_view(),name='Fiber'),
+    path('Onu',Onu.as_view(),name='Onu'),
+    path('Otherss',Otherss.as_view(),name='Otherss'),
+
+
 
     path('family',OFFICE_family.as_view(),name='family'),
     path('product',OFFICE_product.as_view(),name='prdouct'),

@@ -323,9 +323,29 @@ class datashort_profile(LoginRequiredMixin,ListView):
     model = dailybilling
     template_name= 'goninda/list.html'
     # queryset = dailybilling.objects.filter(cost_profile__contains='Terry')
-    queryset = dailybilling.objects.all().order_by('-date')
+    queryset = dailybilling.objects.all().order_by('-date').exclude(cost_profile__cost_name__contains='Fiber',cost_profile__cost_name__contains='Onu',cost_profile__cost_name__contains='Others')
 
 
+class Fiber(LoginRequiredMixin,ListView):
+    context_object_name = 'fulllist'
+    model = dailybilling
+    template_name= 'goninda/cost.html'
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Fiber',date__range=datedata)
+
+
+class Onu(LoginRequiredMixin,ListView):
+    context_object_name = 'fulllist'
+    model = dailybilling
+    template_name= 'goninda/cost.html'
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Onu',date__range=datedata)
+
+
+
+class Otherss(LoginRequiredMixin,ListView):
+    context_object_name = 'fulllist'
+    model = dailybilling
+    template_name= 'goninda/cost.html'
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='Others',date__range=datedata)
 
 
 
