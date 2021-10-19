@@ -322,7 +322,8 @@ class datashort_profile(LoginRequiredMixin,ListView):
     context_object_name = 'ssdxsx'
     model = dailybilling
     template_name= 'goninda/list.html'
-    queryset = dailybilling.objects.all().order_by('-date').exclude(cost_profile__cost_name__contains='Fiber Onu Others')
+    queryset = dailybilling.objects.all().order_by('-date')
+    # .exclude(cost_profile__cost_name__contains='Fiber Onu Others')
 
 
 class Fiber(LoginRequiredMixin,ListView):
