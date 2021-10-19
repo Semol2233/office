@@ -309,8 +309,7 @@ class daulycost_list(LoginRequiredMixin,ListView):
     template_name= 'goninda/list.html'
     #queryset = dailybilling.objects.filter(created_date__gte=datetime.now() - timedelta(days=1))
     # queryset = dailybilling.objects.filter(date__range=["202-08-11", "2021-09-11"]).exclude(cost_profile__cost_name__contains='Advance salary')
-    queryset = dailybilling.objects.filter(date__range=datedata).exclude(cost_profile__cost_name__contains='Others')
-
+    queryset = dailybilling.objects.filter(date__range=datedata).exclude((Q(cost_profile__cost_name__contains='Fiber') | Q(cost_profile__cost_name__contains='Others') | Q(cost_profile__cost_name__contains='Onu')))
 
 # class daulycost_list(LoginRequiredMixin,ListView):
 #     context_object_name = 'fulllist'
