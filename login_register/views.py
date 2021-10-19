@@ -414,6 +414,16 @@ class OFFICE_Pickup(LoginRequiredMixin,ListView):
 
 
 
+
+class cc_ofiice_cost(LoginRequiredMixin,ListView):
+    context_object_name = 'fulllist'
+    model = dailybilling
+    template_name= 'goninda/cost.html'
+    queryset = dailybilling.objects.filter(cost_profile__cost_name__contains='CC_OFFICE_COST',date__range=datedata)
+
+
+
+
 class updatedailyline(LoginRequiredMixin,ListView):
     context_object_name = 'fulllist'
     model = userupdate
