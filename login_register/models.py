@@ -197,6 +197,7 @@ class userupdate(models.Model):
     user_name = models.CharField(max_length=255)
     prepaidbill = models.CharField(max_length=255)
     service_chagre = models.CharField(max_length=255)
+    how_many_fiber = models.IntegerField(blank=True,null=True)
     payment_method = models.CharField(max_length=1, choices=PAYMENT)
     auto_date =  models.DateTimeField(default=timezone.now)
 
