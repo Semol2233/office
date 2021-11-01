@@ -7,9 +7,17 @@
 
 <div class="d-flex justify-content-start">
 
-
+  {% if request.user.is_staff %}
+  <p>i am staff</p>
+  {% endif %}
 
  
+
+  {% if request.user.is_superuser %}
+<p>
+  i am super user
+</p>
+{% else %}
   <div class="row centered">
 
     <div class="col text-light">
