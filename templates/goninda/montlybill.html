@@ -240,7 +240,15 @@ No!!
       <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
         <div class="card-header">Pay Bill this Month</div>
         <div class="card-body text-primary">
-          <h5  style=" font-weight: bold;"   class="card-title">{{ totaluser}}</h5>
+          <h5  style=" font-weight: bold;"   class="card-title">
+            
+            {% if request.user.is_superuser %}
+            {{totaluser}}
+{% else %}
+No!!
+{% endif %}
+            
+   
         
         </div>
       </div>
@@ -251,7 +259,15 @@ No!!
       <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
         <div class="card-header">Unpaid</div>
         <div class="card-body text-primary">
-          <h5  style=" font-weight: bold;" class="card-title">{{unpaiduser}}</h5>
+          <h5  style=" font-weight: bold;" class="card-title">
+            
+            
+            {% if request.user.is_superuser %}
+            {{unpaiduser}}
+{% else %}
+No!!
+{% endif %}
+         </h5>
         
         </div>
       </div>
@@ -262,7 +278,14 @@ No!!
       <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
         <div class="card-header">Total decline Connection</div>
         <div class="card-body text-primary">
-          <a href="{% url 'declineuser' %}"><h5  style=" font-weight: bold;"   class="card-title">{{ decline}}</h5></a>
+          <a href="{% url 'declineuser' %}"><h5  style=" font-weight: bold;"   class="card-title">
+            {% if request.user.is_superuser %}
+            {{decline}}
+{% else %}
+No!!
+{% endif %}
+            
+           </h5></a>
         
         </div>
       </div>
@@ -274,7 +297,13 @@ No!!
               <button type="button" class="btn btn-primary position-relative" >
                 Silver
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+
+                  {% if request.user.is_superuser %}
                   {{selver}}
+      {% else %}
+    0000
+      {% endif %}
+                
                  
                 </span>
               </button>
@@ -284,8 +313,13 @@ No!!
   <button type="button" class="btn btn-primary position-relative">
     Golden
     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+     
+      {% if request.user.is_superuser %}
       {{Gold}}
-      
+{% else %}
+0000
+{% endif %}
+    
     </span>
   </button>
 </div>
@@ -298,8 +332,12 @@ No!!
              <button type="button" class="btn btn-primary position-relative" >
                Daimond
                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+         
+                 {% if request.user.is_superuser %}
                  {{Diamond}}
-                
+           {% else %}
+           0000
+           {% endif %}
                </span>
              </button>
      
@@ -307,7 +345,13 @@ No!!
   <button   style="margin-top: 10px; margin-left: 15px;" type="button" class="btn btn-primary position-relative">
     Star
     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+
+
+      {% if request.user.is_superuser %}
       {{star}}
+{% else %}
+0000
+{% endif %}
       
     </span>
   </button>
@@ -319,7 +363,13 @@ No!!
   <button type="button" class="btn btn-primary position-relative" >
     Sky
     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+
+
+      {% if request.user.is_superuser %}
       {{sky}}
+{% else %}
+0000
+{% endif %}
       
     </span>
   </button>
@@ -475,9 +525,13 @@ No!!
 
 
 
-
-                
+                {% if request.user.is_superuser %}
                 <td><a href="{% url 'update' q.id%}"><i class="fa fa-edit text-success " style="font-size: 35px; margin-left: 5px; margin-top: 10px; "></i></a><a href="{% url 'csc' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 35px; margin-left: 5px; margin-top: 10px;"></i></a></td>
+          {% else %}
+          0
+          {% endif %}
+                
+               
 
     
              
