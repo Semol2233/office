@@ -223,7 +223,15 @@
         <div class="card-header">Paid User
         </div>
         <div class="card-body text-primary">
-          <h5  style=" font-weight: bold;"  class="card-title">{{paiduser}}</h5>
+          <h5  style=" font-weight: bold;"  class="card-title">
+            {% if request.user.is_superuser %}
+            {{paiduser}}
+{% else %}
+No!!
+{% endif %}
+            
+            
+           </h5>
         
         </div>
       </div>

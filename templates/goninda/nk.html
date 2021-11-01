@@ -29,6 +29,11 @@
   <body style="background-color: #1d1b1b;">
 
 
+
+
+    {% if user.is_authenticated %}
+
+
        
     <nav class="navbar navbar-expand-sm navbar-dark    navbar-default " style="background-color: #343a40;">
         <div class="container">
@@ -194,11 +199,6 @@
 </form>
 </div> -->
 {% if request.user.is_superuser %}
-
-
-{% if user.is_authenticated %}
-
-
 <div class="container d-flex justify-content-between">
 <h5 class="mt-4 " style="color: blanchedalmond;">
 10.4 - 10.5
