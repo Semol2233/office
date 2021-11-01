@@ -235,8 +235,8 @@
   </div>
 
 
-
-<div class="container mt-2">
+  {% if request.user.is_superuser %}
+  <div class="container mt-2">
     <h3 style="color: aliceblue;">#Filter</h3>  
 </div>        
 <div class="container d-flex justify-content-between mt-1">
@@ -266,6 +266,10 @@
 <a href="{% url 'Otherss' %}"><button type="button" style="font-size: 11px;  margin-left: 3px;" class="btn btn-outline-light">Others</button></a>
 
 </div>
+{% else %}
+<h5 style="color: aliceblue;">is not available for you</h5>
+{% endif %}
+
 
 <div class="container mt-4">
     
