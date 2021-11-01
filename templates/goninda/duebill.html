@@ -193,8 +193,8 @@
         <input type="submit" class="btn btn-success" value="Login">
     </form>
 </div> -->
-
- <div class="container d-flex justify-content-between">
+{% if request.user.is_superuser %}
+<div class="container d-flex justify-content-between">
   <h5 class="mt-4 " style="color: blanchedalmond;">
     10.5 - 10.6
   </h5>
@@ -293,6 +293,10 @@
 
 
 
+{% else %}
+NO!!
+{% endif %}
+ 
 
 
 
@@ -407,10 +411,14 @@
                 <td class="colors">{{q.Pack_name.pkgnamebill}}</td>
 
 
-
+                {% if request.user.is_superuser %}
+                <td><a href="{% url 'update' q.id%}"><i class="fa fa-edit text-success " style="font-size: 35px; margin-left: 5px; margin-top: 10px; "></i></a><a href="{% url 'update' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 35px; margin-left: 5px; margin-top: 10px;"></i></a></td>
+            {% else %}
+          00
+            {% endif %}
 
                 
-                <td><a href="{% url 'update' q.id%}"><i class="fa fa-edit text-success " style="font-size: 35px; margin-left: 5px; margin-top: 10px; "></i></a><a href="{% url 'update' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 35px; margin-left: 5px; margin-top: 10px;"></i></a></td>
+              
 
     
              

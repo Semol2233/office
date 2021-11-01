@@ -360,16 +360,20 @@
             
                   
     
-                {% if request.user.is_superuser%}
+     
     
                 <!-- <td class="colors"><a href="{% url 'up' q.id%}"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="{% url 'del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td> -->
               </tr>
-              {% else%}
+              {% if request.user.is_superuser %}
               <td class="colors"><a href="#"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="#"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td>
-              {% endif %}
+          {% else %}
+    00
+          {% endif %}
+          
+       
     
     
-          {% endfor %} 
+   
           <script>
     
             $(document).ready(function()
