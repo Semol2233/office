@@ -243,7 +243,14 @@
       <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
         <div class="card-header">New Connection</div>
         <div class="card-body text-primary">
+
+
+          {% if request.user.is_superuser %}
           <h5  style=" font-weight: bold;"  class="card-title">{{xscscvccdsc}}</h5>
+{% else %}
+no
+{% endif %}
+        
         
         </div>
       </div>
@@ -252,7 +259,14 @@
       <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
         <div class="card-header">Prepaidbill</div>
         <div class="card-body text-primary">
+
+
+          {% if request.user.is_superuser %}
           <h5 id="totalcost" style=" font-weight: bold;" class="card-title"></h5>
+{% else %}
+no
+{% endif %}
+         
         
         </div>
       </div>
@@ -261,7 +275,13 @@
       <div class="card border-primary mb-3" style=" background-color: #1d1b1b;">
         <div class="card-header">Service Charge</div>
         <div class="card-body text-primary">
+
+          {% if request.user.is_superuser %}
           <h5 id="totassslcost" style=" font-weight: bold;"   class="card-title"></h5>
+{% else %}
+no
+{% endif %}
+         
         
         </div>
       </div>
