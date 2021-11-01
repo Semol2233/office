@@ -112,7 +112,18 @@
 
 
 
+          {% if request.user.is_superuser%}
 
+        
+          <!-- <td><a href="{% url 'up' q.id%}"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="{% url 'del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td> -->
+
+        </tr>
+        {% else%}
+       
+        {% endif %}
+
+
+    {% endfor %} 
 
   </tbody>
   <tr>
