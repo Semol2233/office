@@ -98,8 +98,13 @@
         <td class="colors">{{q.activities.act_line}}</td>
         <td class="colors">{{q.Pack_name.pkgnamebill}}</td>
 
-                
+          
+        {% if request.user.is_superuser %}
         <td><a href="{% url 'update' q.id%}"><i class="fa fa-edit text-success " style="font-size: 35px; margin-left: 5px; margin-top: 10px; "></i></a><a href="{% url 'csc' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 35px; margin-left: 5px; margin-top: 10px;"></i></a></td>
+{% else %}
+00
+{% endif %}
+      
 
     
              
@@ -107,18 +112,7 @@
 
 
 
-          {% if request.user.is_superuser%}
 
-        
-          <!-- <td><a href="{% url 'up' q.id%}"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="{% url 'del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td> -->
-
-        </tr>
-        {% else%}
-        <td><a href="#"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="#"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td>
-        {% endif %}
-
-
-    {% endfor %} 
 
   </tbody>
   <tr>
