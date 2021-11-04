@@ -385,6 +385,9 @@ NO!!
             <th scope="col" class="colors">Pkg</th>
             <th scope="col" class="colors">Short Msg</th>
             <th scope="col" class="colors">Month</th>
+            <th scope="col" class="colors">Get User Data</th>
+
+
 
 
             
@@ -409,6 +412,7 @@ NO!!
                 <td class="colors">{{q.month}}</td>
                 <td class="colors">{{q.activities.act_line}}</td>
                 <td class="colors">{{q.Pack_name.pkgnamebill}}</td>
+                <td class="colors"> <span class="badge rounded-pill bg-warning text-dark"><a href="https://care.novusnk.net/backend/web/customers/show?id={{q.user_id}}" target="_blank" >Get</a></span></td>
 
 
                 {% if request.user.is_superuser %}
