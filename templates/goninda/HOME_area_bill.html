@@ -153,25 +153,9 @@
     </div>        
     <div class="container d-flex  mt-1" >
       
+    <a href="Collcet_shop" ><button type="button" style="font-size: 12px;" class="btn btn-outline-light">Collection Shop</button></a>
+    <a href="Collect_home" style="margin-left: 12px; "><button type="button" style="font-size: 12px;" class="btn btn-outline-light">Collection Home</button></a>
 
-      <div class="container mt-2">
-        <h3 style="color: aliceblue;">#Filter</h3>  
-    </div>        
-    <div class="container d-flex justify-content-between mt-1">
-       <a href="{% url 'vddvd' %}"><button type="button" style="font-size: 12px;" class="btn btn-outline-light">MT</button></a>
-    <a href="{% url 'family' %}"><button type="button" style="font-size: 12px;" class="btn btn-outline-light">CC</button></a>
-    <a href="{% url 'prdouct' %}"><button type="button" style="font-size: 12px;" class="btn btn-outline-light">SD</button></a>
-    <a href="{% url 'Salary' %}"><button type="button" style="font-size: 12px;" class="btn btn-outline-light">LS</button></a>
-    <a href="{% url 'trnasportcost' %}"><button type="button" style="font-size: 12px;" class="btn btn-outline-light">MB</button></a>
-    <a href="{% url 'chika' %}"><button type="button" style="font-size: 12px;" class="btn btn-outline-light">SP</button></a>
-    
-    <a href="{% url 'internetbill' %}"><button type="button" style="font-size: 12px;" class="btn btn-outline-light">RR</button></a>
-    <a href="{% url 'Electric' %}"><button type="button" style="font-size: 12px;" class="btn btn-outline-light">CR</button></a>
-    <a href="{% url 'Employ' %}"><button type="button" style="font-size: 12px;" class="btn btn-outline-light">MP</button></a>
-    <a href="{% url 'Pickup' %}"><button type="button" style="font-size: 12px;" class="btn btn-outline-light">HG</button></a>
-    <a href="{% url 'bike' %}"><button type="button" style="font-size: 12px;" class="btn btn-outline-light">HR</button></a>
-    
-    </div>
     </div>
 
     <!-- <div class="container d-flex justify-content-between">
@@ -354,6 +338,13 @@
             <th scope="col" class="colors">PayDate</th>
             <th scope="col" class="colors">Description</th>
             <th scope="col" class="colors">Pack Name</th>
+            <th scope="col" class="colors">Payment Method </th>
+            <th scope="col" class="colors">Payment Status</th>
+
+            <th scope="col" class="colors">Area</th>
+            <th scope="col" class="colors">Get User Data</th>
+
+
 
 
 
@@ -374,6 +365,12 @@
                 <td class="colors">{{q.pay_date}}</td>
                 <td class="colors">{{q.description}}</td>
                 <td class="colors">{{q.Pack_name}}</td>
+                <td class="colors" > {{q.payment_method}}</td>
+                <td class="colors" > {{q.payment_status}}</td>
+                <td class="colors">{{q.bill_col_area}}</td>
+                
+                <td class="colors"> <span class="badge rounded-pill bg-warning text-dark"><a href="https://care.novusnk.net/backend/web/customers/show?id={{q.user_id}}" target="_blank" >Get</a></span></td>
+
 
                 
         
