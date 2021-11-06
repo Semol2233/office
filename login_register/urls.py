@@ -92,7 +92,7 @@ urlpatterns = [
     path('pevduebilsl',pevduebill.as_view(),name='pevdusebill'),
     path('ser',search_product,name='search_prodssuct'),
     path('billtype/<Bill_collection_type__collection>',bill_collection.as_view(),name='bill_collection'),
-    path('are_bill/<bill_col_area__area_col>/<Bill_collection_type__collection>',area_bill.as_view(),name='col_home'),
+    path('are_bill/<bill_col_area__area_col>/',area_bill.as_view(),name='col_home'),
 
 
 
