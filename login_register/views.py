@@ -1132,7 +1132,6 @@ class bill_collection(LoginRequiredMixin,ListView):
          context['alldata']= monthlybill.objects.filter(Bill_collection_type__collection__startswith=self.kwargs['Bill_collection_type__collection'],month__month__startswith=month_col).exclude(activities__act_line__startswith="declined")
          context['homeuser'] = monthlybill.objects.filter(month__month__startswith=month_col,Bill_collection_type__collection__startswith="Collect_home").exclude(activities__act_line__startswith="declined").count()
          context['shopuser'] = monthlybill.objects.filter(month__month__startswith=month_col,Bill_collection_type__collection__startswith="Collcet_shop").exclude(activities__act_line__startswith="declined").count()
-
          return context   
 
    
