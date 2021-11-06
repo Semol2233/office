@@ -1128,7 +1128,7 @@ class bill_collection(LoginRequiredMixin,ListView):
     model = monthlybill
     template_name= 'goninda/collection.html'
     def get_context_data(self, **kwargs):
-         context = super(area_bill, self).get_context_data(**kwargs)
+         context = super(bill_collection, self).get_context_data(**kwargs)
          context['alldata']= monthlybill.objects.filter(Bill_collection_type__collection__startswith=self.kwargs['Bill_collection_type__collection'],month__month__startswith=month_col).exclude(activities__act_line__startswith="declined")
          context['homeuser'] = monthlybill.objects.filter(month__month__startswith=month_col,Bill_collection_type__collection__startswith="Collect_home").exclude(activities__act_line__startswith="declined").count()
          context['shopuser'] = monthlybill.objects.filter(month__month__startswith=month_col,Bill_collection_type__collection__startswith="Collcet_shop").exclude(activities__act_line__startswith="declined").count()
