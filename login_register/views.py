@@ -1132,11 +1132,12 @@ class bill_collection(LoginRequiredMixin,ListView):
         return monthlybill.objects.filter(Bill_collection_type__collection__startswith=self.kwargs['Bill_collection_type__collection'],month__month__startswith=month_col).exclude(activities__act_line__startswith="declined")
 
 
+   
 class area_bill(LoginRequiredMixin,ListView):
-    context_object_name = 'alldata'
     model = monthlybill
     template_name= 'goninda/HOME_area_bill.html'
-    def get_queryset(self):
-        return monthlybill.objects.filter(bill_col_area__area_col__startswith=self.kwargs['bill_col_area__area_col'],month__month__startswith=month_col).exclude(activities__act_line__startswith="declined")
-
-        
+    def get_context_data(self, **kwargs):
+         context = super(area_bill, self).get_context_data(**kwargs)
+         context['alldata']= monthlybill.objects.filter(bill_col_area__area_col__startswith=self.kwargs['bill_col_area__area_col'],month__month__startswith=month_col).exclude(activities__act_line__startswith="declined")
+         context['homeuser'] = monthlybill.objects.filter(month__month__startswith=month,Bill_collection_type__collection_type__startswith='Collect_home').exclude(activities__act_line__startswith="declined").count()
+         return context    
