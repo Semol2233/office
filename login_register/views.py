@@ -1145,3 +1145,19 @@ class area_bill(LoginRequiredMixin,ListView):
          context['shopuser'] = monthlybill.objects.filter(month__month__startswith=month_col,Bill_collection_type__collection__startswith="Collcet_shop").exclude(activities__act_line__startswith="declined").count()
 
          return context    
+
+
+
+class SFSF(ListView):
+    model = monthlybill
+    template_name= 'goninda/duebill.html'
+    
+
+    def get_context_data(self, **kwargs):
+         context = super(duebill, self).get_context_data(**kwargs)
+         context['unpaidwuser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month).exclude(activities__act_line__startswith="declined",Bill_collection_type__collection__startswith="Collect_home")
+         context['unpaiduser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,).exclude(activities__act_line__startswith="declined",Bill_collection_type__collection__startswith="Collect_home").count()
+         context['nextuser'] = monthlybill.objects.filter(payment_status=True,pay_date__range=months)
+
+
+         return context
