@@ -1019,7 +1019,7 @@ class pev_Decline_user(LoginRequiredMixin,ListView):
 
 
 
-
+exclude(Q(users__id__in=[self.request.user.id]) & Q(potential_users__id__in=[self.request.user.id]))
 
 class duebill(ListView):
     model = monthlybill
@@ -1029,9 +1029,9 @@ class duebill(ListView):
     def get_context_data(self, **kwargs):
          context = super(duebill, self).get_context_data(**kwargs)
          data = ['Collect_home','Collcet_shop']
-         context['unpaidwuser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month).exclude(Bill_collection_type__collection__in=data)
-         context['unpaidwuser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month).exclude(Bill_collection_type__collection__in=data)
-         context['unpaiduser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,).exclude(Bill_collection_type__collection__in=data).count()
+         context['unpaidwuser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month).exclude(Q(Bill_collection_type__collection__in=data) & Q(activities__act_line__startswith="declined"))
+         context['unpaidwuser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month).exclude(Q(Bill_collection_type__collection__in=data) & Q(activities__act_line__startswith="declined"))
+         context['unpaiduser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,).exclude(Q(Bill_collection_type__collection__in=data) & Q(activities__act_line__startswith="declined"))
          context['selver'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,Pack_name__pkgnamebill__startswith="Silver").exclude(activities__act_line__startswith="declined").count()
          context['Gold'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,Pack_name__pkgnamebill__startswith="Golden").exclude(activities__act_line__startswith="declined").count()
          context['Diamond'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,Pack_name__pkgnamebill__startswith="Diamond").exclude(activities__act_line__startswith="declined").count()
@@ -1041,8 +1041,6 @@ class duebill(ListView):
 
 
          return context
-
-
 
 
 
@@ -1146,24 +1144,3 @@ class area_bill(LoginRequiredMixin,ListView):
          context['shopuser'] = monthlybill.objects.filter(month__month__startswith=month_col,Bill_collection_type__collection__startswith="Collcet_shop").exclude(activities__act_line__startswith="declined").count()
 
          return context    
-
-
-
-class SFSF(ListView):
-    model = monthlybill
-    template_name= 'goninda/duebill.html'
-    
-
-    def get_context_data(self, **kwargs):
-         context = super(SFSF, self).get_context_data(**kwargs)
-         test = activities__act_line__startswith="declined"
-         context['unpaidwuser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month).exclude(Bill_collection_type__collection__startswith="Collect_home")
-         context['unpaiduser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,).exclude(Bill_collection_type__collection__startswith='Collect_home').count()
-         context['nextuser'] = monthlybill.objects.filter(payment_status=True,pay_date__range=months)
-
-
-         return context
-
-
-
-         
