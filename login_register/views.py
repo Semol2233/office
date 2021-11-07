@@ -1159,10 +1159,7 @@ class SFSF(ListView):
          monthlybill.objects.filter(
        activities__act_line__startswith="declined",Bill_collection_type__collection__startswith="Collect_home"
     ))
-         context['unpaiduser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,).exclude( monthlybill.objects.filter(payment_status=False,month__month__startswith=month).exclude(
-         monthlybill.objects.filter(
-       activities__act_line__startswith="declined",Bill_collection_type__collection__startswith="Collect_home"
-    ))).count()
+         context['unpaiduser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,).exclude(Bill_collection_type__collection__startswith='Collect_home',activities__act_line__startswith='declined').count()
          context['nextuser'] = monthlybill.objects.filter(payment_status=True,pay_date__range=months)
 
 
