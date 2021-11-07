@@ -3,76 +3,111 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="container" style="height: 300px;">
-    <div class="mt-5">
-      <form method="post" style="width: 657px;">
-        {% csrf_token %}
-        <div class="form-row">
-          <div class="form-group col-md-2 mb-0" style="color: aliceblue; width: 134px;">
-            {{ form.month|as_crispy_field }}
-          </div>
-          <div class="form-group col-md-5 mb-0" style="color: aliceblue;">
-            {{ form.pay_date|as_crispy_field }}
-          </div>
-          <div class="form-group col-md-5 mb-0" style="color: aliceblue;">
-            {{ form.payment_method|as_crispy_field }}
-          </div>
 
-          <div class="form-group col-md-5 mb-0" style="color: aliceblue; width: 100px;">
-            {{ form.pkg|as_crispy_field }}
-          </div>  
-
-      
-
-
-          <div class="form-group col-md-5 mb-0" style="color: aliceblue;">
-            {{ form.user_id|as_crispy_field }}
-          </div>  
-
-
-          <div class="form-group col-md-5 mb-0" style="color: aliceblue;">
-            {{ form.activities|as_crispy_field }}
-          </div>  
-          
-
-          <div class="form-group col-md-5 mb-0" style="color: aliceblue;">
-            {{ form.Pack_name|as_crispy_field }}
-          </div>  
-          <div class="form-group col-md-5 mb-0" style="color: aliceblue;">
-            {{ form.Bill_collection_type|as_crispy_field }}
-          </div>  
-          <div class="form-group col-md-5 mb-0" style="color: aliceblue;">
-            {{ form.bill_col_area|as_crispy_field }}
-          </div>  
-          
-        </div>
-        
-        
-        <div class="form-row">
-
-
-            <div class="form-group col-md-12 mb-0" style="color: aliceblue; " >
-                {{ form.description|as_crispy_field }}
-              </div>
-              <div class="form-check form-switch col-md-5 mb-0" style="color: aliceblue;">
-                {{ form.payment_status|as_crispy_field }}
-              </div> 
-              <div class="col-md-5 mb-0" style="color: aliceblue;">
-                <button type="submit" class="btn btn-light">POST</button>
-              </div> 
-          </div>
-      
-   
-      </div>
-        
-      </form>
-
-          
-        
-    </div>
     
     
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+          <form id="item_update_form" method='post' class="form" role="form" action='{% url 'item_edit' item.id %}'>
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                  <h4 class="modal-title" id="myModalLabel">Item {{ form.id }}</h4>
+                </div>
+                <div class="modal-body">
 
+                  <div class="container" style="height: 300px;">
+                    <div class="mt-5">
+                      <form method="post" style="width: 657px;">
+                        {% csrf_token %}
+                        <div class="form-row">
+                          <div class="form-group col-md-2 mb-0" style="color: aliceblue; width: 134px;">
+                            {{ form.month|as_crispy_field }}
+                          </div>
+                          <div class="form-group col-md-5 mb-0" style="color: aliceblue;">
+                            {{ form.pay_date|as_crispy_field }}
+                          </div>
+                          <div class="form-group col-md-5 mb-0" style="color: aliceblue;">
+                            {{ form.payment_method|as_crispy_field }}
+                          </div>
+                
+                          <div class="form-group col-md-5 mb-0" style="color: aliceblue; width: 100px;">
+                            {{ form.pkg|as_crispy_field }}
+                          </div>  
+                
+                      
+                
+                
+                          <div class="form-group col-md-5 mb-0" style="color: aliceblue;">
+                            {{ form.user_id|as_crispy_field }}
+                          </div>  
+                
+                
+                          <div class="form-group col-md-5 mb-0" style="color: aliceblue;">
+                            {{ form.activities|as_crispy_field }}
+                          </div>  
+                          
+                
+                          <div class="form-group col-md-5 mb-0" style="color: aliceblue;">
+                            {{ form.Pack_name|as_crispy_field }}
+                          </div>  
+                          <div class="form-group col-md-5 mb-0" style="color: aliceblue;">
+                            {{ form.Bill_collection_type|as_crispy_field }}
+                          </div>  
+                          <div class="form-group col-md-5 mb-0" style="color: aliceblue;">
+                            {{ form.bill_col_area|as_crispy_field }}
+                          </div>  
+                          
+                        </div>
+                        
+                        
+                        <div class="form-row">
+                
+                
+                            <div class="form-group col-md-12 mb-0" style="color: aliceblue; " >
+                                {{ form.description|as_crispy_field }}
+                              </div>
+                              <div class="form-check form-switch col-md-5 mb-0" style="color: aliceblue;">
+                                {{ form.payment_status|as_crispy_field }}
+                              </div> 
+                              <div class="col-md-5 mb-0" style="color: aliceblue;">
+                                <button type="submit" class="btn btn-light">POST</button>
+                              </div> 
+                          </div>
+                      
+                   
+                      </div>
+                        
+                      </form>
+                
+                          
+                        
+                    </div>
+
+
+
+
+
+
+
+
+
+                </div>
+                <!-- <div class="modal-footer">
+                  <input type="button" class="btn btn-default" data-dismiss="modal" value="annulla" />
+                  <input type="submit" class="btn btn-primary" value="save" style="margin-bottom: 5px;" />
+                </div> -->
+          </form>
+          <script>
+              jQuery('.modal-content .calendar').datepicker({ dateFormat: "yy-mm-dd" });
+  
+                  var form_options = {
+                      target: '#modal',
+                      success: function() {  }
+                  }
+                  $('#item_update_form').ajaxForm(form_options);
+          </script>
+      </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
 
 
 

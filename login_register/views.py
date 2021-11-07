@@ -697,6 +697,20 @@ class montlybill_update(LoginRequiredMixin, UpdateView):
 
 
 
+# class ItemUpdateView(UpdateView):
+#     model = monthlybill
+#     form_class = dailybillupdastefoms
+#     template_name = 'goninda/loc_update.html'
+
+#     def dispatch(self, *args, **kwargs):
+#         self.item_id = kwargs['pk']
+#         return super(ItemUpdateView, self).dispatch(*args, **kwargs)
+
+#     def form_valid(self, form):
+#         form.save()
+#         item = Item.objects.get(id=self.item_id)
+#         return HttpResponse(render_to_string('myapp/item_edit_form_success.html', {'item': item})
+
 
 
 
