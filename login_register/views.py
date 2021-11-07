@@ -1029,7 +1029,8 @@ class duebill(ListView):
     def get_context_data(self, **kwargs):
          context = super(duebill, self).get_context_data(**kwargs)
          context['unpaidwuser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month).exclude(activities__act_line__startswith="declined")
-         context['unpaidwuser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month).exclude(Bill_collection_type__collection__startswith="Collect_home")
+         daat = ['Collect_home','Collcet_shop']
+         context['unpaidwuser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month).exclude(daat)
          context['unpaiduser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,).exclude(Bill_collection_type__collection__startswith='Collect_home').count()
          context['selver'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,Pack_name__pkgnamebill__startswith="Silver").exclude(activities__act_line__startswith="declined").count()
          context['Gold'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,Pack_name__pkgnamebill__startswith="Golden").exclude(activities__act_line__startswith="declined").count()
