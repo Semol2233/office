@@ -1156,8 +1156,12 @@ class SFSF(ListView):
     def get_context_data(self, **kwargs):
          context = super(SFSF, self).get_context_data(**kwargs)
          context['unpaidwuser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month).exclude(activities__act_line__startswith="declined",Bill_collection_type__collection__startswith="Collect_home")
-         context['unpaiduser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,).exclude(Bill_collection_type__collection__startswith="Collect_home").count()
+         context['unpaiduser'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,).exclude(Bill_collection_type__collection__startswith="Collect_home",activities__act_line__startswith="declined").count()
          context['nextuser'] = monthlybill.objects.filter(payment_status=True,pay_date__range=months)
 
 
          return context
+
+
+
+         
