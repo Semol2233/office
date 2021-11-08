@@ -96,10 +96,10 @@
                 </li>
 
             </ul>
-            <form class="form-inline my-2 my-lg-0" action="{% url 'serach' %}" method="GET" value="{{request.GET.q}}">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" value="{{request.GET.q}}">
-                <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="submit" value="Search" style="color: white;"/></input>
-            </form>
+            <form class="form-inline my-2 my-lg-0" action="{% url 'serachuserid' %}" method="GET" value="{{request.GET.f}}" >
+              <input class="form-control mr-sm-2" type="text" placeholder="215..." name="f" value="{{request.GET.f}}">
+                <input class="btn btn-outline-success my-2 my-sm-0"  type="submit" name="subtmit" value="Search" style="color: rgb(255, 255, 255);"/></input>
+              </form>
             {% else %}
             
           
