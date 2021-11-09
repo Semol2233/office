@@ -1054,7 +1054,7 @@ class duebill(ListView):
          context['star'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,Pack_name__pkgnamebill__startswith="Star").exclude(activities__act_line__startswith="declined").count()
          context['sky'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,Pack_name__pkgnamebill__startswith="Sky").exclude(activities__act_line__startswith="declined").count()
          context['nextuser'] = monthlybill.objects.filter(payment_status=True,pay_date__range=months)
-         context['idoff'] = monthlybill.objects.filter(payment_status=False,description__startswith="#idoff").exclude(activities__act_line__startswith="declined")
+         context['idoff'] = monthlybill.objects.filter(payment_status=False,month__month__startswith=month,description__startswith="#idoff").exclude(activities__act_line__startswith="declined")
 
          return context
 
