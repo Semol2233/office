@@ -26,7 +26,7 @@ urlpatterns = [
     path('',daulycost_list.as_view(),name='ijdfscdj'), 
     path('data',qurydata,name='datad'),
     path('srdaily',dailyserach,name='srdaily'),
-    path('update/<int:pk>/',montlybill_update.as_view(),name='update'),
+    path('update/<int:pk>/',montlybill_update,name='updrftgrfdate'),
 
 
 

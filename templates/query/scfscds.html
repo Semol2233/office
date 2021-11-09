@@ -91,19 +91,19 @@
     </tr>
   </thead>
   <tbody>
-      {% for q in results %}
+      {% for val in results %}
       <tr>
-        <td class="colors" >{{q.user_id}}</td>
-        <td class="colors" > {{q.payment_method}}</td>
-        <td class="colors">{{q.description}}</td>
-        <td class="colors">{{q.month}}</td>
-        <td class="colors">{{q.activities.act_line}}</td>
-        <td class="colors">{{q.Pack_name.pkgnamebill}}</td>
-        <td class="colors"> <span class="badge rounded-pill bg-warning text-dark"><a href="https://care.novusnk.net/backend/web/customers/show?id={{q.user_id}}" target="_blank" >Get</a></span></td>
-
+        <td class="colors" >{{val.user_id}}</td>
+        <td class="colors" > {{val.payment_method}}</td>
+        <td class="colors">{{val.description}}</td>
+        <td class="colors">{{val.month}}</td>
+        <td class="colors">{{val.activities.act_line}}</td>
+        <td class="colors">{{val.Pack_name.pkgnamebill}}</td>
+        <td class="colors"> <span class="badge rounded-pill bg-warning text-dark"><a href="https://care.novusnk.net/backend/web/customers/show?id={{val.user_id}}" target="_blank" >Get</a></span></td>
+         <td><a class="btn btn-info" data-target="#myEdit" class="open-modal" data-url="{% url 'updrftgrfdate' id=val.id }">Edit</a></td></td>
           
         {% if request.user.is_superuser %}
-        <td><a href="{% url 'update' q.id%}" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-edit text-success " style="font-size: 35px; margin-left: 5px; margin-top: 10px; "></i></a><a href="{% url 'csc' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 35px; margin-left: 5px; margin-top: 10px;"></i></a></td>
+       
 {% else %}
 00
 {% endif %}
@@ -117,8 +117,7 @@
 
           {% if request.user.is_superuser%}
 
-        
-          <!-- <td><a href="{% url 'up' q.id%}"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="{% url 'del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td> -->
+         
 
         </tr>
         {% else%}
@@ -203,22 +202,22 @@
           </tr>
         </thead>
         <tbody>
-            {% for q in results %}
+            {% for val in results %}
             <tr>
                 <th class="colors" scope="row">{{q.id}}</th>
-                <td class="colors">{{q.date}}</td>
-                <td class="colors" > {{q.cost_profile.cost_name}}</td>
-                <td class="colors" > {{q.cost}}</td>
-                <td class="colors" > {{q.description}}</td>
+                <td class="colors">{{val.date}}</td>
+                <td class="colors" > {{val.cost_profile.cost_name}}</td>
+                <td class="colors" > {{val.cost}}</td>
+                <td class="colors" > {{val.description}}</td>
       
                 {% if request.user.is_superuser%}
       
               
-                <!-- <td><a href="{% url 'up' q.id%}"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="{% url 'del' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td> -->
+             
       
               </tr>
               {% else%}
-              <td><a href="#" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-edit text-success" style="font-size: 25px; margin-right: 10px;"></i></a><a href="#"><i class="fa fa-trash text-danger" style="font-size: 25px;"></i></a></td>
+             
               {% endif %}
       
       
@@ -264,10 +263,26 @@
   </div>
 </div>
 
+<div id="modal-div"></div>
 
 
 
 
+<script>
+
+
+var modalDiv = $("#modal-div");
+
+$(".open-modal").on("click", function() {
+  $.ajax({
+    url: $(this).attr("data-url"),
+    success: function(data) {
+      modalDiv.html(data);
+      $("#myEdit").modal();
+    }
+  });
+});
+</script>
 {% endblock content %}
     
 
@@ -284,3 +299,53 @@
   </body>
 </html>
 
+
+
+{% extends 'bas2.html' %}
+
+{% block content %}
+
+<div class="container" style="height: 300px;">
+
+
+
+
+
+
+
+
+
+
+
+    <div class="modal fade" id="myEdit" role="dialog">
+      <div class="modal-dialog">
+        <form  class="well contact-form" method="post" action="{% url 'updrftgrfdate'}">
+          {% csrf_token %}
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+              <label for="usr">Name:</label>
+              <input type="text" class="form-control" required="" name="uss" value="{{ instance.month }}" id="uss">
+              <label for="pwd">Password:</label>
+              <input type="text"    class="form-control" required="" value="{{ instance.user_id }}" name="pwd" id="pwd" >
+            </div>
+            <div class="modal-footer">
+              <button  type="submit" class="btn btn-default">Valider</button>
+              <button  value="" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  
+{% endblock %}
