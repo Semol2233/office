@@ -690,19 +690,14 @@ def dailyserach(request):
 
 
 
-# class montlybill_update(LoginRequiredMixin, UpdateView):
-#     form_class = dailybillupdastefoms
-#     model = monthlybill
-#     template_name = 'goninda/loc_update.html'
+class montlybill_update(LoginRequiredMixin, UpdateView):
+    form_class = dailybillupdastefoms
+    model = monthlybill
+    template_name = 'goninda/loc_update.html'
 
-from django.shortcuts import get_object_or_404
 
-def montlybill_update(request, id=None):
-    instance = get_object_or_404(monthlybill, id=id)
-    context={
-        'instance': instance
-    }
-    return render(request, 'goninda/loc_update.html', context)
+
+
 
 # class ItemUpdateView(UpdateView):
 #     model = monthlybill
@@ -1061,11 +1056,7 @@ class duebill(ListView):
          context['nextuser'] = monthlybill.objects.filter(payment_status=True,pay_date__range=months)
          context['idoff'] = monthlybill.objects.filter(payment_status=False,description__startswith="#idoff").exclude(activities__act_line__startswith="declined")
 
-
-
          return context
-
-
 
 
 
