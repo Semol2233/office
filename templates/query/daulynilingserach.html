@@ -100,7 +100,12 @@
         <td class="colors">{{q.activities.act_line}}</td>
         <td class="colors">{{q.Pack_name.pkgnamebill}}</td>
         <td class="colors"> <span class="badge rounded-pill bg-warning text-dark"><a href="https://care.novusnk.net/backend/web/customers/show?id={{q.user_id}}" target="_blank" >Get</a></span></td>
-
+        <td>  
+          <button class="btn btn-warning show-form-update" data-url="{% url 'update' q.id %}">
+          <span class="glyphicon glyphicon-pencil"></span>
+          Edit 
+          </button>
+        </td>
           
         {% if request.user.is_superuser %}
         <td><a href="{% url 'update' q.id%}" ><i class="fa fa-edit text-success " style="font-size: 35px; margin-left: 5px; margin-top: 10px; "></i></a><a href="{% url 'csc' q.id%}"><i class="fa fa-trash text-danger" style="font-size: 35px; margin-left: 5px; margin-top: 10px;"></i></a></td>
@@ -272,6 +277,9 @@
     
 
 
+<script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>  
+<script src="{% static 'js/plugin.js' %}"></script>
+ 
 
       
     <!-- Optional JavaScript -->

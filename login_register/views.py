@@ -1160,3 +1160,7 @@ class area_bill(LoginRequiredMixin,ListView):
          context['shopuser'] = monthlybill.objects.filter(month__month__startswith=month_col,Bill_collection_type__collection__startswith="Collcet_shop").exclude(activities__act_line__startswith="declined").count()
 
          return context    
+
+
+
+
